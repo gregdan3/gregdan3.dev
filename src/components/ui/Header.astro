@@ -1,6 +1,5 @@
 ---
-import Logo from './Logo.astro'
-import Nav from './Nav.astro'
+import Nav from '@components/ui/Nav.astro'
 
 const { current = '' } = Astro.props;
 ---
@@ -16,6 +15,5 @@ const { current = '' } = Astro.props;
 </style>
 
 <header>
-  <Logo />
   <Nav current={current} />
 </header>

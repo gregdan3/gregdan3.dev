@@ -1,20 +1,24 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Bio from '../../components/Bio.astro';
-import getPostData from '../../utils/getPostData';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import getPostData from '@utils/getPostData';
 
-export async function getStaticPaths() {
-  const posts = await Astro.glob('../../data/blog-posts/*.md');
-  return posts.map(p => ({
-    params: { slug: p.file.split('/').pop().split('.').shift() },
-    props: { post: p },
-  }));
-}
-
-const { Content, frontmatter } = Astro.props.post;
+const { frontmatter } = Astro.props.post;
 const { title, description, publishDate } = frontmatter;
 const { slug, readingTime } = getPostData(Astro.props.post);
 const permalink = `${Astro.site.href}blog/${slug}`;
+
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
@@ -28,7 +32,6 @@ const permalink = `${Astro.site.href}blog/${slug}`;
       <Content />
     </article>
     <hr />
-    <Bio />
   </div>
 </BaseLayout>
 
