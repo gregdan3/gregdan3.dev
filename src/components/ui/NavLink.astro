@@ -1,0 +1,38 @@
+---
+export interface NavButtonProps {
+  name: string;
+  href: string;
+  // icon?: IconifyIcon;
+  bclass?: string;
+  tooltip?: string;
+}
+import { Icon } from "astro-icon/components";
+
+let { name, href, icon, bclass, tooltip } = Astro.props as NavButtonProps;
+
+const currentPath = Astro.url.pathname;
+// TODO: get root
+const current = href === currentPath;
+
+bclass =
+  "h-8 font-bold bg-paper dark:bg-paper-dark text-major dark:text-major-dark ring-1 ring-gray-400 dark:ring-gray-950" +
+  " " +
+  bclass;
+---
+
+<div>
+  <a href={href}>
+    {icon ? <Icon name={icon} /> : null}
+    <span class={current ? "current" : null}>{name}</span>
+  </a>
+</div>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  .current {
+    text-decoration: underline;
+  }
+</style>

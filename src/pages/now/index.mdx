@@ -4,10 +4,7 @@ title: "About"
 description: "About your blog."
 ---
 
-<script lang="ts">
-	import { formatBlogPostDate } from '$lib/utils';
-	import { Tooltip } from 'flowbite-svelte';
-</script>
+import { formatBlogPostDate } from "@utils/utils.ts";
 
 ## Fall
 
@@ -99,7 +96,6 @@ I keep track of the most recent three months at a time, and everything older is 
 - Had my birthday! I'm 26 now. I spent most of the day relaxing. Baldur's Gate 3 is fantastic (thanks mom)
 - [kulupu Linku is now up on Crowdin!](https://linku.crowdin.com)
 - I finished the basic design on my website. Now comes content, the hardest part of making a website.
-<!-- - I'm getting back into video making, starting with finishing [my Toki Pona lesson series](https://youtube.com/playlist?list=PLoLQoll2U6WEeCO7C2oc1LTWgkoBC8rvT). -->
 - I've been working on a re-design for kulupu Linku's datastore, now [sona Linku](https://github.com/lipu-linku/sona)
 - I ran an 8k on the 2nd and got a [44:15.7](https://runsignup.com/Race/Results/113352/IndividualResult/bZqJ#U80855384), 8:51 pace over 5 miles! Feels great when my first serious run was October 22nd- 41 days before, or 6 weeks.
 
@@ -113,8 +109,6 @@ I keep track of the most recent three months at a time, and everything older is 
 - I updated my [fanart page](https://mun.la/fanart) with the help of a friend from the Toki Pona community.
 
 #### October
-
-<!-- - I went and saw [Rocky Horror Picture Show](https://en.wikipedia.org/wiki/The_Rocky_Horror_Picture_Show) with some friends- I went as [Eddie](https://rockyhorror.fandom.com/wiki/Eddie) -->
 
 - I picked up on rewriting [this site](https://gregdan3.dev) again, and I'm going to take it to the finish line.
 - I signed up for my first ever [5k](https://en.wikipedia.org/wiki/5K_run). I wasn't sure if I could actually run all the way to the finish line when I signed up, but I managed a 4.5 mile run a few days later- I'll be fine!
@@ -173,25 +167,12 @@ I keep track of the most recent three months at a time, and everything older is 
 
 - I played through the first part of waso Keli's translation of Link's Awakening! [See it here](https://youtu.be/xi8gUvqyMm4)!
 
-<!-- DO NOT CHANGE -->
 </details>
   <div class="text-xs absolute top-2 right-2">
     <a href="https://nownownow.com/about">
       what is this page?
     </a>
-    <Tooltip type="auto" placement="top" class="absolute">
-      What I'm doing right now. Click for more info!
-    </Tooltip>
   </div>
 </div>
 
-<!-- DO NOT CHANGE -->
-<div class="absolute top-16 right-16 text-xs">
-  {formatBlogPostDate(date)}
-</div>
-
-<style>
-  h2:first-child {
-    margin-top: 0;
-  }
-</style>
+<div class="absolute top-16 right-16 text-xs">blog date</div>

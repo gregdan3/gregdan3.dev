@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+export interface AvatarProps {
+  image: typeof Image;
+}
+const { image } = Astro.props as AvatarProps;
+---
+
+<img src={image.src} />
+
+<style>
+  img {
+    height: 6em;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+</style>

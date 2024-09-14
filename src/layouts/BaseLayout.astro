@@ -1,35 +1,63 @@
 ---
-import BaseHead from '@components/ui/BaseHead.astro';
-import Header from '@components/ui/Header.astro';
-import Footer from '@components/ui/Footer.astro';
+import { type Frontmatter } from "@utils/types.ts";
 
-export interface Props {
-  title: string;
-  description: string;
-  permalink: string;
-  current?: string;
+interface Props {
+  frontmatter: Frontmatter;
 }
-const { title, description, permalink, current } = Astro.props;
+
+import AvatarImage from "@data/images/avatar.png";
+
+import Nav from "@components/ui/Nav.astro";
+import Meta from "@components/ui/Meta.astro";
+import Header from "@components/ui/Header.astro";
+import Sidebar from "@components/ui/Sidebar.astro";
+import Footer from "@components/ui/Footer.astro";
+
+import "@styles/style.css";
+
+import {
+  internalLinks,
+  externalLinks,
+  socialLinks,
+  metaLinks,
+} from "@data/links";
+
+const hostname = Astro.url.hostname;
+
+const { frontmatter } = Astro.props;
 ---
+
 <html lang="en">
-<head>
-  <BaseHead title={title} description={description} permalink={permalink} />
-</head>
-<body>
-  <div class="layout">
-    <Header current={current} />
+  <head>
+    <Meta title={frontmatter.title} description={frontmatter.description} />
+  </head>
 
-    <main>
-      <slot />
-    </main>
+  <body>
+    <Header title={hostname} image={AvatarImage}>
+      <div></div>
+    </Header>
 
-    <Footer />
-  </div>
-</body>
+    <div class="spacer">
+      <main>
+        <slot />
+      </main>
+      <aside>
+        <Sidebar>
+          <Nav links={internalLinks} intrasite={true} />
+          <Nav links={externalLinks} intrasite={false} />
+        </Sidebar>
+      </aside>
+    </div>
+
+    <Footer>
+      <div></div>
+    </Footer>
+  </body>
 </html>
 
 <style>
-  .layout {
+  body {
+    /* grow to end of page */
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -37,14 +65,32 @@ const { title, description, permalink, current } = Astro.props;
   }
 
   main {
-    flex: 1;
-    position: relative;
-    margin: 0 auto;
-    max-width: 1400px;
-    padding: 1em 2em;
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    max-width: 1080px;
+    margin: 1.5em auto 1.5em auto;
+    width: 70%;
+    float: right;
+    border: 1px solid blue;
   }
+  aside {
+    border: 1px solid red;
+    max-width: 125px;
+    width: 25%;
+    float: left;
+    margin: 1.5em auto 1.5em auto;
+  }
+
+  .spacer {
+    /* top right bottom left */
+    flex: 1; /* grow to end of page */
+
+    padding: 4%;
+    background: var(--prim-bg);
+    color: var(--prim-fg);
+    box-shadow:
+      0 5px 10px rgba(0, 0, 0, 0.2),
+      0 15px 40px rgba(0, 0, 0, 0.05);
+    line-height: 1.5em;
+  }
+
+  /* Typography styles */
 </style>

@@ -1,99 +1,42 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
+import BaseLayout from "@layouts/BaseLayout.astro";
 
-const title = 'My Astro Blog';
-const description = 'The perfect starter for your perfect blog.';
-const permalink = Astro.site.href;
+const title = "My Astro Blog";
+const description = "The perfect starter for your perfect blog.";
+const permalink = Astro?.site?.href;
+
+// import Clock from "@components/showoff/Clock.svelte";
+// import Github from "@components/showoff/GithubActivity.svelte";
+// import Running from "@components/showoff/RunningRecord.svelte";
+// import Discord from "@components/showoff/Discord/Discord.svelte";
+// import Shield from "@components/showoff/Shield.svelte";
+// import Beats from "@components/showoff/Beats.svelte";
+
+import { servers } from "@utils/links";
+
+import About from "@content/about/about-me.md";
+
+const frontmatter = {
+  title: "gregsite",
+  description: "Welcome to gregsite.",
+  date: "2023-10-01",
+  updated: "2024-09-14",
+};
+
+export let discordUserID = "497549183847497739";
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink}>
-  <div class="home-container">
-    <div class="home-copy">
-      <h1>Welcome to your new Astro Blog</h1>
-      <p>Check out the docs on <a href="https://www.github.com/Charca/astro-blog-template" target="_blank" rel="noopener">GitHub</a> to get started.</p>
-    </div>
+<BaseLayout frontmatter={frontmatter}>
+  <About />
 
-    <div class="hero-image-container">
-      <picture>
-        <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466">
-      </picture>
-      <p class="caption">
-        Illustration by
-        <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6" target="_blank" rel="noopener">Icons 8</a>
-        from
-        <a href="https://icons8.com/illustrations" target="_blank" rel="noopener">Ouch!</a>
-      </p>
+  <br />
+
+  <div class="not-prose flex flex-col">
+    <div class="flex flex-col md:flex-row">
+      <div class="pb-2 md:pr-2">
+        <!-- <Discord user_id={discordUserID} /> -->
+      </div>
+      <div class="flex flex-wrap md:flex-col shrink-0 md:mt-1"></div>
     </div>
   </div>
 </BaseLayout>
-
-<style>
-  .home-container {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    margin: 2em 0;
-    min-height: 400px;
-  }
-
-  .home-copy {
-    flex: 1;
-    padding: 0 1em;
-  }
-
-  .home-copy h1 {
-    font-weight: 700;
-    margin-bottom: 0.5em;
-    line-height: 1.3;
-  }
-
-  .home-copy p {
-    font-size: 1.4em;
-  }
-
-  .hero-image-container {
-    margin: 0 1em;
-    text-align: center;
-  }
-
-  .hero-image-container picture {
-    display: block;
-    min-height: 250px;
-  }
-
-  .caption {
-    font-size: .8em;
-    font-style: italic;
-    text-align: left;
-  }
-
-  .hero-image {
-    width: 100%;
-    max-width: 550px;
-    margin-bottom: 1em;
-  }
-
-  @media (max-width: 1200px) {
-    p {
-      font-size: 1.2em;
-    }
-
-    .hero-image {
-      max-width: 400px;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .home-container {
-      flex-direction: column;
-    }
-
-    .home-copy {
-      flex: 0;
-      padding-bottom: 2em;
-      text-align: center;
-    }
-  }
-</style>
