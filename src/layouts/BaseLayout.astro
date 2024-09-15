@@ -1,5 +1,7 @@
 ---
 import { type Frontmatter } from "@utils/types.ts";
+import Nav from "@components/ui/Nav.astro";
+import ThemeButton from "@components/ui/ThemeButton.astro";
 
 interface Props {
   frontmatter: Frontmatter;
@@ -7,22 +9,25 @@ interface Props {
 
 import AvatarImage from "@data/images/avatar.png";
 
-import Nav from "@components/ui/Nav.astro";
 import Meta from "@components/ui/Meta.astro";
 import Header from "@components/ui/Header.astro";
 import Sidebar from "@components/ui/Sidebar.astro";
+import SidebarButton from "@components/ui/SidebarButton.astro";
 import Footer from "@components/ui/Footer.astro";
-
-import "@styles/style.css";
 
 import {
   internalLinks,
   externalLinks,
+  subscribeLinks,
   socialLinks,
   metaLinks,
 } from "@data/links";
 
+import "@styles/style.css";
+
 const hostname = Astro.url.hostname;
+
+const menuToggleID = "menutoggle";
 
 const { frontmatter } = Astro.props;
 ---
@@ -35,6 +40,10 @@ const { frontmatter } = Astro.props;
   <body>
     <Header title={hostname} image={AvatarImage}>
       <div></div>
+      <div slot="buttons">
+        <ThemeButton />
+        <SidebarButton id={menuToggleID} />
+      </div>
     </Header>
 
     <div class="spacer">
@@ -42,10 +51,17 @@ const { frontmatter } = Astro.props;
         <slot />
       </main>
       <aside>
-        <Sidebar>
+        <Sidebar id={menuToggleID}>
           <Nav links={internalLinks} intrasite={true} />
           <Nav links={externalLinks} intrasite={false} />
+          <Nav links={subscribeLinks} intrasite={false} />
         </Sidebar>
+
+        <svg>
+          <path
+            d="M14.923 17.087c-2.254.666-4.388.967-6.402.905-2.014-.062-3.742-.532-5.183-1.409-1.442-.877-2.436-2.217-2.982-4.022-.549-1.814-.463-3.476.257-4.985.719-1.51 1.905-2.832 3.557-3.965C5.823 2.478 7.776 1.578 10.03.913c2.243-.663 4.369-.965 6.376-.906 2.007.059 3.733.523 5.178 1.394 1.446.87 2.441 2.207 2.987 4.011.546 1.804.457 3.464-.266 4.981-.724 1.516-1.908 2.845-3.551 3.987-1.644 1.143-3.588 2.045-5.831 2.707Z"
+            style="fill-rule: nonzero;"></path>
+        </svg>
       </aside>
     </div>
 
@@ -60,37 +76,40 @@ const { frontmatter } = Astro.props;
     /* grow to end of page */
     display: flex;
     flex-direction: column;
-    min-height: 100%;
     min-height: 100vh;
+    margin: 0;
   }
 
   main {
-    max-width: 1080px;
-    margin: 1.5em auto 1.5em auto;
+    max-width: 900px;
     width: 70%;
-    float: right;
-    border: 1px solid blue;
-  }
-  aside {
-    border: 1px solid red;
-    max-width: 125px;
-    width: 25%;
-    float: left;
-    margin: 1.5em auto 1.5em auto;
-  }
-
-  .spacer {
-    /* top right bottom left */
-    flex: 1; /* grow to end of page */
-
+    line-height: 1.5em;
     padding: 4%;
     background: var(--prim-bg);
     color: var(--prim-fg);
-    box-shadow:
-      0 5px 10px rgba(0, 0, 0, 0.2),
-      0 15px 40px rgba(0, 0, 0, 0.05);
-    line-height: 1.5em;
+  }
+  aside {
+    /* TODO: fit to content */
+    max-width: 150px;
+    width: 25%;
+    min-height: 30vh;
+    margin-right: 4%;
+
+    padding: 0.5em;
+
+    background: var(--prim-bg);
+    color: var(--prim-fg);
   }
 
-  /* Typography styles */
+  .spacer {
+    flex: 1; /* grow to end of page */
+    display: flex;
+    flex-direction: row-reverse;
+
+    margin: 4% auto 4% auto;
+  }
+
+  .navheading {
+    font-size: 1.5em;
+  }
 </style>

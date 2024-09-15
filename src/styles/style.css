@@ -3,15 +3,21 @@
   font-family: -apple-system, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+  --banner-bg: rgb(203, 213, 225);
+  --site-bg: rgb(226, 232, 240);
+  --main-bg: rgb(248, 250, 252);
+
+  --soft-bd: rgb(148, 163, 184);
+  --hard-bd: rgb(31, 41, 55);
+
+  --text: rgb(15, 23, 42);
+
   --prim-fg: #444444;
   --prim-bg: #f2f2f2;
   --prim-ac: #555555;
 
   --sec-fg: #333333;
   --sec-bg: #d3d3d3;
-
-  --spoil-fg: #443231;
-  --spoil-bg: #e2c49c;
 
   --url: #3366cc;
   --urlvisited: #7755bb;
@@ -20,11 +26,6 @@
   --indent: 0.5em;
 }
 
-main details {
-  display: block;
-  border-left: var(--block-mark) solid var(--spoil-fg);
-  margin: var(--indent);
-}
 main a {
   text-decoration: underline var(--url);
   color: var(--url);

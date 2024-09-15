@@ -61,6 +61,14 @@ export const externalLinks: Link[] = [
   },
 ];
 
+export const subscribeLinks: Link[] = [
+  {
+    name: "RSS",
+    href: "/rss/",
+    icon: "mingcute:rss-2-fill",
+  },
+];
+
 export const socialLinks: Link[] = [
   // {
   // 	name: 'Gitlab',

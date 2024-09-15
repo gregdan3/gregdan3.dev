@@ -7,7 +7,6 @@ export interface HeaderProps {
 
 const { image, title } = Astro.props as HeaderProps;
 
-import ThemeButton from "@components/ui/ThemeButton.astro";
 import Avatar from "@components/ui/Avatar.astro";
 ---
 
@@ -16,11 +15,10 @@ import Avatar from "@components/ui/Avatar.astro";
     <Avatar image={image}>
       <slot />
     </Avatar>
+    <h1>{title}</h1>
   </div>
-  <div class="center"></div>
   <div class="right">
-    <slot />
-    <ThemeButton />
+    <slot name="buttons" />
   </div>
 </header>
 
