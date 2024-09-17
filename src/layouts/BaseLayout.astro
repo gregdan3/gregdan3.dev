@@ -1,19 +1,22 @@
 ---
 import { type Frontmatter } from "@utils/types.ts";
-import Nav from "@components/ui/Nav.astro";
-import ThemeButton from "@components/ui/ThemeButton.astro";
-
 interface Props {
   frontmatter: Frontmatter;
 }
+const { frontmatter } = Astro.props;
 
+import "@styles/style.css";
 import AvatarImage from "@data/images/avatar.png";
+import { menuToggleId } from "@utils/consts.ts";
 
 import Meta from "@components/ui/Meta.astro";
-import Header from "@components/ui/Header.astro";
+import Bar from "@components/ui/Bar.astro";
 import Sidebar from "@components/ui/Sidebar.astro";
 import SidebarButton from "@components/ui/SidebarButton.astro";
-import Footer from "@components/ui/Footer.astro";
+import Avatar from "@components/ui/Avatar.astro";
+import IconDisplay from "@components/ui/IconDisplay.astro";
+import Nav from "@components/ui/Nav.astro";
+import ThemeButton from "@components/ui/ThemeButton.astro";
 
 import {
   internalLinks,
@@ -23,13 +26,7 @@ import {
   metaLinks,
 } from "@data/links";
 
-import "@styles/style.css";
-
 const hostname = Astro.url.hostname;
-
-const menuToggleID = "menutoggle";
-
-const { frontmatter } = Astro.props;
 ---
 
 <html lang="en">
@@ -38,36 +35,30 @@ const { frontmatter } = Astro.props;
   </head>
 
   <body>
-    <Header title={hostname} image={AvatarImage}>
-      <div></div>
-      <div slot="buttons">
-        <ThemeButton />
-        <SidebarButton id={menuToggleID} />
-      </div>
-    </Header>
+    <Bar type="header">
+      <Avatar slot="left" image={AvatarImage} />
+      <h2 slot="left">{hostname}</h2>
+      <ThemeButton slot="right" />
+      <SidebarButton slot="right" id={menuToggleId} />
+    </Bar>
 
     <div class="spacer">
       <main>
         <slot />
       </main>
       <aside>
-        <Sidebar id={menuToggleID}>
-          <Nav links={internalLinks} intrasite={true} />
-          <Nav links={externalLinks} intrasite={false} />
-          <Nav links={subscribeLinks} intrasite={false} />
+        <Sidebar id={menuToggleId}>
+          <Nav slot="top" links={internalLinks} intrasite={true} />
+          <Nav slot="top" links={externalLinks} intrasite={false} />
+          <Nav slot="top" links={subscribeLinks} intrasite={false} />
+          <IconDisplay slot="bottom" links={socialLinks} />
         </Sidebar>
-
-        <svg>
-          <path
-            d="M14.923 17.087c-2.254.666-4.388.967-6.402.905-2.014-.062-3.742-.532-5.183-1.409-1.442-.877-2.436-2.217-2.982-4.022-.549-1.814-.463-3.476.257-4.985.719-1.51 1.905-2.832 3.557-3.965C5.823 2.478 7.776 1.578 10.03.913c2.243-.663 4.369-.965 6.376-.906 2.007.059 3.733.523 5.178 1.394 1.446.87 2.441 2.207 2.987 4.011.546 1.804.457 3.464-.266 4.981-.724 1.516-1.908 2.845-3.551 3.987-1.644 1.143-3.588 2.045-5.831 2.707Z"
-            style="fill-rule: nonzero;"></path>
-        </svg>
       </aside>
     </div>
 
-    <Footer>
+    <Bar type="footer">
       <div></div>
-    </Footer>
+    </Bar>
   </body>
 </html>
 
@@ -81,24 +72,26 @@ const { frontmatter } = Astro.props;
   }
 
   main {
-    max-width: 900px;
-    width: 70%;
-    line-height: 1.5em;
-    padding: 4%;
-    background: var(--prim-bg);
-    color: var(--prim-fg);
+    max-width: 900px; /* TODO: 4k */
+    width: 100%;
+    padding: 2rem;
+
+    background: var(--main-bg);
+    color: var(--text);
   }
   aside {
-    /* TODO: fit to content */
+    /* placement */
     max-width: 150px;
     width: 25%;
-    min-height: 30vh;
-    margin-right: 4%;
 
-    padding: 0.5em;
+    /* appearance */
+    margin-right: 2rem;
+    padding: 0.5rem;
+    background: var(--main-bg);
+    color: var(--main-fg);
 
-    background: var(--prim-bg);
-    color: var(--prim-fg);
+    /* responsiveness */
+    display: none;
   }
 
   .spacer {
@@ -106,10 +99,21 @@ const { frontmatter } = Astro.props;
     display: flex;
     flex-direction: row-reverse;
 
-    margin: 4% auto 4% auto;
+    /* width: 100%; */
+
+    margin: 0 auto 0 auto;
   }
 
-  .navheading {
-    font-size: 1.5em;
+  @media (min-width: 768px) {
+    main {
+      /* max-width: 60vw; */
+    }
+    aside {
+      display: block;
+    }
+
+    .spacer {
+      /* width: 80%; */
+    }
   }
 </style>

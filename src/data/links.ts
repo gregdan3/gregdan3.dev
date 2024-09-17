@@ -52,12 +52,12 @@ export const externalLinks: Link[] = [
   {
     name: "Toki Pona",
     href: "https://mun.la/",
-    // icon: "TODO: external svg",
+    icon: "tokipona",
   },
   {
     name: "ilo Muni",
     href: "https://gregdan3.github.io/ilo-muni/",
-    // icon: "TODO: external svg",
+    icon: "ilomuni",
   },
 ];
 

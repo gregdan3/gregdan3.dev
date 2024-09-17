@@ -12,7 +12,7 @@ export default defineConfig({
   site: "https://gregdan3.dev",
   base: "/",
   publicDir: "./public",
-  integrations: [mdx(), sitemap(), icon(), robotsTxt()],
+  integrations: [mdx(), sitemap(), icon({ iconDir: "src/icons" }), robotsTxt()],
   markdown: {
     shikiConfig: {
       themes: {

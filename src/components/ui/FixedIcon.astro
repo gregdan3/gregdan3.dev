@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+export interface FixedIconProps {
+  name: string;
+}
+
+const { name } = Astro.props as FixedIconProps;
+---
+
+<span><Icon name={name} /></span>
+
+<style>
+  svg {
+    width: 1rem;
+    height: 1rem;
+    transform: translate(0, 15%); /* text alignment */
+  }
+</style>

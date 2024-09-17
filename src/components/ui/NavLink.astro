@@ -2,11 +2,11 @@
 export interface NavButtonProps {
   name: string;
   href: string;
-  // icon?: IconifyIcon;
+  icon?: string;
   bclass?: string;
   tooltip?: string;
 }
-import { Icon } from "astro-icon/components";
+import FixedIcon from "@components/ui/FixedIcon.astro";
 
 let { name, href, icon, bclass, tooltip } = Astro.props as NavButtonProps;
 
@@ -22,7 +22,7 @@ bclass =
 
 <div>
   <a href={href}>
-    {icon ? <Icon name={icon} /> : null}
+    {icon ? <FixedIcon name={icon} /> : null}
     <span class={current ? "current" : null}>{name}</span>
   </a>
 </div>
@@ -30,6 +30,15 @@ bclass =
 <style>
   a {
     text-decoration: none;
+    color: var(--url);
+  }
+
+  a:hover {
+    text-decoration: underline dotted;
+  }
+
+  a:visited {
+    color: var(--urlvisited);
   }
 
   .current {

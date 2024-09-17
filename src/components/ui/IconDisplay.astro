@@ -1,0 +1,14 @@
+---
+import type { Link } from "@utils/types.ts";
+export interface IconDisplayProps {
+  links: Link[];
+}
+
+const { links } = Astro.props as IconDisplayProps;
+
+import IconLink from "@components/ui/IconLink.astro";
+---
+
+<div class="nav">
+  {links.map((link) => <IconLink {...link} />)}
+</div>

@@ -1,0 +1,81 @@
+---
+export interface BarProps {
+  type: "header" | "footer" | "other";
+}
+
+const { type } = Astro.props as BarProps;
+---
+
+{
+  type === "header" && (
+    <header class="bar">
+      <div class="left">
+        <slot name="left" />
+      </div>
+
+      <div class="center">
+        <slot name="center" />
+      </div>
+
+      <div class="right">
+        <slot name="right" />
+      </div>
+    </header>
+  )
+}
+
+{
+  type === "footer" && (
+    <footer class="bar">
+      <div class="left">
+        <slot name="left" />
+      </div>
+
+      <div class="center">
+        <slot name="center" />
+      </div>
+
+      <div class="right">
+        <slot name="right" />
+      </div>
+    </footer>
+  )
+}
+
+{
+  type === "other" && (
+    <div class="bar">
+      <div class="left">
+        <slot name="left" />
+      </div>
+
+      <div class="center">
+        <slot name="center" />
+      </div>
+
+      <div class="right">
+        <slot name="right" />
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .bar {
+    display: flex;
+    max-height: 5rem;
+    padding: 1rem;
+  }
+
+  .left {
+    display: flex;
+    /* flex-direction: row; */
+    /* margin-right: auto; */
+  }
+  .center {
+    margin: auto;
+  }
+  .right {
+    /* margin-left: auto; */
+  }
+</style>

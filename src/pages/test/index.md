@@ -398,7 +398,7 @@ With a reference later in the document defining the URL location:
 
 ![Super wide](http://placekitten.com/1280/800)
 
-[]![Not so big, but clickable](http://placekitten.com/480/400)](http://placekitten.com/480/400)
+![Not so big, but clickable](http://placekitten.com/480/400)](http://placekitten.com/480/400)
 
 [[Top]](#top)
 

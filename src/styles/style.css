@@ -8,6 +8,7 @@
   --main-bg: rgb(248, 250, 252);
 
   --soft-bd: rgb(148, 163, 184);
+  --med-bd: rgb(100, 116, 139);
   --hard-bd: rgb(31, 41, 55);
 
   --text: rgb(15, 23, 42);
@@ -36,6 +37,14 @@ main a:hover {
 main a:visited {
   text-decoration: underline var(--urlvisited);
   color: var(--urlvisited);
+}
+
+main p {
+  margin: 0;
+}
+
+main p + p {
+  margin-top: 1rem;
 }
 
 @media (min-width: 300px) {
