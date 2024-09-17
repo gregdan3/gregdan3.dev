@@ -9,6 +9,12 @@ const { links } = Astro.props as IconDisplayProps;
 import IconLink from "@components/ui/IconLink.astro";
 ---
 
-<div class="nav">
+<div>
   {links.map((link) => <IconLink {...link} />)}
 </div>
+
+<style>
+  div {
+    padding-bottom: 1rem;
+  }
+</style>

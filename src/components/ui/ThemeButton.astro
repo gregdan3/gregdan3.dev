@@ -5,29 +5,47 @@ const {} = Astro.props as ThemeButtonProps;
 import { Icon } from "astro-icon/components";
 ---
 
-<button>
-  <Icon name="mingcute:sun-line" class="sun" />
-  <Icon name="mingcute:moon-line" class="moon" />
+<button id="themetoggle">
+  <Icon name="mingcute:sun-fill" class="sun" />
+  <Icon name="mingcute:moon-fill" class="moon" />
 </button>
 
 <style>
   button {
     border: 0;
     background: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 20%;
+    transition: background-color 0.15s ease-in-out;
+    margin: auto;
+  }
+
+  button:hover {
+    /* TODO: color */
+    background-color: lightskyblue;
+  }
+  button:active {
+    background-color: black;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
   }
 
   .sun {
-    fill: black;
+    display: none;
   }
   .moon {
-    fill: transparent;
+    display: block;
   }
 
   :global(.dark) .sun {
-    fill: transparent;
+    display: block;
   }
   :global(.dark) .moon {
-    fill: white;
+    display: none;
   }
 </style>
 
@@ -51,6 +69,7 @@ import { Icon } from "astro-icon/components";
   window.localStorage.setItem("theme", theme);
 
   const handleToggleClick = () => {
+    console.log("clicked theme button");
     const element = document.documentElement;
     element.classList.toggle("dark");
 
@@ -59,6 +78,6 @@ import { Icon } from "astro-icon/components";
   };
 
   document
-    .getElementById("themeToggle")
+    .getElementById("themetoggle")
     .addEventListener("click", handleToggleClick);
 </script>

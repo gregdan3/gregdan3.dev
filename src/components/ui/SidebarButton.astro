@@ -4,15 +4,20 @@ const { id } = Astro.props;
 ---
 
 <label for={id} class="whenlarge">
-  <Icon name="mingcute:menu-line" />Menu
+  <Icon name="mingcute:menu-fill" />
 </label>
 
 <style>
-  .toggle-btn {
+  .whenlarge {
     padding: 1rem;
     border: none;
     cursor: pointer;
     z-index: 1100;
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
   }
 
   @media (min-width: 768px) {

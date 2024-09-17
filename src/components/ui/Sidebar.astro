@@ -1,6 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
-const { id } = Astro.props;
+import { menuToggleId } from "@utils/consts.ts";
 ---
 
 <script>
@@ -9,7 +8,7 @@ const { id } = Astro.props;
   let sidebar = document.getElementById("sidebar")! as HTMLElement;
 
   checkbox.addEventListener("click", () => {
-    console.log("clicked");
+    console.log("clicked menu button");
 
     if (checkbox.checked) {
       sidebar.classList.add("show");
@@ -19,7 +18,7 @@ const { id } = Astro.props;
   });
 </script>
 
-<input type="checkbox" id={id} class="nevershow" checked="false" />
+<input type="checkbox" id={menuToggleId} class="nevershow" checked="false" />
 
 <div id="sidebar" class="sidebar">
   <slot name="top" />
@@ -28,7 +27,7 @@ const { id } = Astro.props;
 </div>
 
 <style>
-  .sidebar {
+  div {
     position: fixed;
     top: 0;
     left: 0;
@@ -56,7 +55,7 @@ const { id } = Astro.props;
   }
 
   @media (min-width: 768px) {
-    .sidebar {
+    div {
       position: relative;
       transform: none;
       box-shadow: none;

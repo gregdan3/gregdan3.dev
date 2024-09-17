@@ -3,10 +3,10 @@ import NavLink from "@components/ui/NavLink.astro";
 import type { Link } from "@utils/types.ts";
 export interface NavProps {
   links: Link[];
-  intrasite: boolean;
+  intrasite?: boolean;
 }
 
-const { links, intrasite } = Astro.props as NavProps;
+const { links, intrasite = false } = Astro.props as NavProps;
 ---
 
 {
@@ -27,6 +27,6 @@ const { links, intrasite } = Astro.props as NavProps;
 
 <style>
   .nav {
-    padding: 2%;
+    padding-bottom: 1rem;
   }
 </style>
