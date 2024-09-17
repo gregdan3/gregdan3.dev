@@ -72,26 +72,13 @@ const hostname = Astro.url.hostname;
   }
 
   main {
-    max-width: 900px; /* TODO: 4k */
+    max-width: 900px; /* TODO: 4k? */
     width: 100%;
     padding: 2rem;
 
     background: var(--main-bg);
     color: var(--text);
-  }
-  aside {
-    /* placement */
-    max-width: 150px;
-    width: 25%;
-
-    /* appearance */
-    margin-right: 2rem;
-    padding: 0.5rem;
-    background: var(--main-bg);
-    color: var(--main-fg);
-
-    /* responsiveness */
-    display: none;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
   }
 
   .spacer {
@@ -99,21 +86,27 @@ const hostname = Astro.url.hostname;
     display: flex;
     flex-direction: row-reverse;
 
-    /* width: 100%; */
-
+    /* left/right are auto
+       ensures centering */
     margin: 0 auto 0 auto;
   }
 
   @media (min-width: 768px) {
     main {
-      /* max-width: 60vw; */
     }
     aside {
-      display: block;
+      max-width: 150px;
+      width: 25%;
+      height: fit-content;
+
+      margin-right: 2rem;
+
+      background: var(--main-bg);
+      color: var(--main-fg);
+      box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
     }
 
     .spacer {
-      /* width: 80%; */
     }
   }
 </style>
