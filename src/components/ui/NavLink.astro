@@ -22,16 +22,15 @@ bclass =
 
 <div>
   <a href={href}>
-    {icon ? <FixedIcon name={icon} /> : null}
-    <span class={current ? "current" : null}>{name}</span>
+    <span class={current ? "current" : null}>
+      {icon ? <FixedIcon name={icon} /> : null} {name}</span
+    >
   </a>
 </div>
 
 <style>
   div {
     /* TODO: color */
-    /* border: 3px outset black; */
-    /* border-radius: 10%; */
     padding-left: 4px;
     margin: 4px;
   }
@@ -51,5 +50,8 @@ bclass =
 
   .current {
     text-decoration: underline;
+  }
+  span {
+    word-break: keep-all;
   }
 </style>

@@ -8,20 +8,20 @@ export interface IconLinkProps {
 }
 
 let { name, href, icon, tooltip } = Astro.props as IconLinkProps;
+import { Icon } from "astro-icon/components";
 
 import FixedIcon from "@components/ui/FixedIcon.astro";
 ---
 
 <div>
   <a href={href}>
-    <FixedIcon name={icon} />
+    <Icon name={icon} />
   </a>
 </div>
 
 <style>
   /* TODO: make icons colorable (on hover) */
   div {
-    display: flex;
     padding: 0.25rem;
   }
   a {

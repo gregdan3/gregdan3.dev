@@ -87,14 +87,14 @@ export const socialLinks: Link[] = [
   // 	icon: "fa-brands:twitter",
   // },
   {
-    name: "Telegram",
-    href: "https://gregdan3.t.me",
-    icon: "fa-brands:telegram-plane",
-  },
-  {
     name: "Discord",
     href: "https://discord.com/users/497549183847497739",
     icon: "fa-brands:discord",
+  },
+  {
+    name: "Telegram",
+    href: "https://gregdan3.t.me",
+    icon: "fa-brands:telegram-plane",
   },
   {
     name: "YouTube",

@@ -1,5 +1,6 @@
 :root {
-  font-size: 10px;
+  font-size: calc(10px + 1vmin);
+
   font-family: -apple-system, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -47,50 +48,49 @@ main p + p {
   margin-top: 1rem;
 }
 
-@media (min-width: 300px) {
+/* @media (min-width: 300px) { */
+/*   :root { */
+/*     font-size: 12px; */
+/*   } */
+/* } */
+/**/
+/* @media (min-width: 450px) { */
+/*   :root { */
+/*     font-size: 14px; */
+/*   } */
+/* } */
+/**/
+/* @media (min-width: 600px) { */
+/*   :root { */
+/*     font-size: 16px; */
+/*   } */
+/* } */
+/**/
+/* @media (min-width: 900px) { */
+/*   :root { */
+/*     font-size: 18px; */
+/*   } */
+/* } */
+/**/
+/* @media (min-width: 1200px) { */
+/*   :root { */
+/*     font-size: 20px; */
+/*   } */
+/* } */
+/* @media (min-width: 1500px) { */
+/*   :root { */
+/*     font-size: 22px; */
+/*   } */
+/* } */
+/**/
+/* @media (min-width: 1800px) { */
+/*   :root { */
+/*     font-size: 24px; */
+/*   } */
+/* } */
+/**/
+@media (pointer: none), (pointer: coarse) {
   :root {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 450px) {
-  :root {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 600px) {
-  :root {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 900px) {
-  /* iphones have a logical resolution exclusively below 900px wuh */
-  :root {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1200px) {
-  :root {
-    font-size: 20px;
-  }
-}
-@media (min-width: 1500px) {
-  :root {
-    font-size: 22px;
-  }
-}
-
-@media (min-width: 1800px) {
-  :root {
-    font-size: 24px;
-  }
-}
-
-@media only screen {
-  :root {
-    font-size: 16px;
+    font-size: calc(10px + 2vmin);
   }
 }

@@ -2,16 +2,9 @@
 title: Taking care of Budgies
 author: gregdan3
 date: 2020-11-27
-description:
+description: I had a pair of budgies. Now I have ~~five~~ six. Oops.
 published: true
 ---
-
-% gregdan3
-% 2020-11-27
-
-I had a pair of budgies. Now I have ~~five~~ six. Oops.
-
-<!-- cut -->
 
 # Budgies
 
@@ -114,8 +107,8 @@ Providing a nest box means they will breed on their own, so long as a pair are
 kept together for an extended period of time.
 
 Stability is also important. Do not change the cage overly frequently, or move
-the cage to a new area, particularly if that area is too different visually from the
-previous location.
+the cage to a new area, particularly if that area is too different visually from
+the previous location.
 
 Provide ample food and water, and a soft cuttlebone for calcium.
 
