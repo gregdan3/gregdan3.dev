@@ -1,0 +1,45 @@
+---
+
+---
+
+<span id="beats"></span>
+
+<script>
+  let beattime = getBeats();
+  let clock = document.getElementById("beats")! as HTMLElement;
+
+  function getBeats(prefix: string = "@") {
+    const d = new Date();
+    const h = d.getHours();
+    const m = d.getMinutes();
+    const s = d.getSeconds();
+    const tzoff = 60 + d.getTimezoneOffset();
+    const time = (
+      "000" +
+      (Math.floor((h * 3600 + (m + tzoff) * 60 + s) / 86.4) % 1000)
+    ).slice(-3);
+    return prefix + time;
+  }
+
+  const updateBeats = () => {
+    beattime = getBeats();
+    clock.textContent = beattime;
+  };
+
+  const interval = setInterval(() => {
+    updateBeats();
+  }, 1000);
+
+  updateBeats();
+
+  // TODO: is this necessary
+  if (import.meta.env.SSR === false) {
+    window.addEventListener("beforeunload", () => clearInterval(interval));
+  }
+</script>
+
+<style>
+  span {
+    height: 1rem;
+  }
+</style>

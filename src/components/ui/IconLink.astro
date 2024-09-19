@@ -2,19 +2,17 @@
 export interface IconLinkProps {
   name: string;
   href: string;
-  icon?: string;
-  bclass?: string;
+  icon: string;
   tooltip?: string;
 }
 
 let { name, href, icon, tooltip } = Astro.props as IconLinkProps;
 import { Icon } from "astro-icon/components";
-
-import FixedIcon from "@components/ui/FixedIcon.astro";
 ---
 
 <div>
-  <a href={href}>
+  <a href={href} class={name.toLowerCase()}>
+    <!-- does not want to use FixedIcon due to irregular shape of fa-brands icons -->
     <Icon name={icon} />
   </a>
 </div>
@@ -25,6 +23,29 @@ import FixedIcon from "@components/ui/FixedIcon.astro";
     padding: 0.25rem;
   }
   a {
-    color: var(--med-bd);
+    color: var(--text-soft);
+    /* transition: color var(--snap) ease-in-out; */
+  }
+
+  .discord:hover {
+    color: #5865f2;
+  }
+  .youtube:hover {
+    color: #ff0000;
+  }
+  .telegram:hover {
+    color: #0088cc;
+  }
+  .github:hover {
+    color: #000000;
+  }
+  .linkedin:hover {
+    color: #0077b5;
+  }
+  .gitlab:hover {
+    color: #fc6d27;
+  }
+  .twitter:hover {
+    color: #1da1f2;
   }
 </style>

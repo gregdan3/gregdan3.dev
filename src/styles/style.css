@@ -1,32 +1,84 @@
 :root {
-  font-size: calc(10px + 1vmin);
-
+  font-size: calc(10px + 1vw);
   font-family: -apple-system, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  --banner-bg: rgb(203, 213, 225);
-  --site-bg: rgb(226, 232, 240);
-  --main-bg: rgb(248, 250, 252);
+  background-color: var(--site-bg);
 
-  --soft-bd: rgb(148, 163, 184);
-  --med-bd: rgb(100, 116, 139);
-  --hard-bd: rgb(31, 41, 55);
+  --block-mark: 4px;
+  --halfpad: 0.5rem;
+  --pad: 1rem;
+  --squircle: 20%;
+  --snap: 0.12s;
 
-  --text: rgb(15, 23, 42);
+  --site-bg: #e2e8f0;
+  --main-bg: #f8fafc;
+  --block-bg: #cbd5e1;
 
-  --prim-fg: #444444;
-  --prim-bg: #f2f2f2;
-  --prim-ac: #555555;
+  --text: #0f172a;
+  --text-soft: #64748b;
+  --text-hard: yellow;
 
-  --sec-fg: #333333;
-  --sec-bg: #d3d3d3;
+  --border: green;
+  --border-soft: blue;
+  --border-hard: purple;
 
   --url: #3366cc;
   --urlvisited: #7755bb;
+  --highlight: #c3dbff;
 
-  --block-mark: 4px;
-  --indent: 0.5rem;
+  --border: rgb(148, 163, 184);
+  --border-soft: rgb(100, 116, 139);
+  --border-hard: rgb(31, 41, 55);
 }
+
+:root.dark {
+  --site-bg: yellow;
+  --main-bg: darkgray;
+  --block-bg: indigo;
+
+  --text: green;
+  --text-soft: lightskyblue;
+  --text-hard: darkgreen;
+
+  --border: brown;
+  --border-soft: pink;
+  --border-hard: orange;
+
+  --url: #3366cc;
+  --urlvisited: #7755bb;
+}
+
+:root.retro {
+  /* TODO: :) */
+}
+
+/* necessary styles */
+
+main {
+  line-height: 1.4rem;
+  color: var(--text);
+}
+
+/* main hr { */
+/*   max-width: 100%; */
+/* } */
+/* main table { */
+/*   max-width: 100%; */
+/* } */
+
+main p {
+  margin: 0;
+}
+
+main p + p {
+  margin-top: var(--pad);
+}
+main img {
+  max-width: 100%;
+}
+
+/* preferred styles */
 
 main a {
   text-decoration: underline var(--url);
@@ -40,57 +92,29 @@ main a:visited {
   color: var(--urlvisited);
 }
 
-main p {
-  margin: 0;
+main {
 }
 
-main p + p {
-  margin-top: 1rem;
+main blockquote {
+  /* color: FG2; */
+  background: var(--block-bg);
+  border: 1px solid var(--border-hard);
+  border-left: var(--block-mark) solid var(--border);
+  /* seems silly, but this pins the radius to the mark width */
+  border-radius: var(--block-mark);
+
+  margin: var(--pad);
+  padding: var(--pad);
 }
 
-/* @media (min-width: 300px) { */
-/*   :root { */
-/*     font-size: 12px; */
-/*   } */
-/* } */
-/**/
-/* @media (min-width: 450px) { */
-/*   :root { */
-/*     font-size: 14px; */
-/*   } */
-/* } */
-/**/
-/* @media (min-width: 600px) { */
-/*   :root { */
-/*     font-size: 16px; */
-/*   } */
-/* } */
-/**/
-/* @media (min-width: 900px) { */
-/*   :root { */
-/*     font-size: 18px; */
-/*   } */
-/* } */
-/**/
-/* @media (min-width: 1200px) { */
-/*   :root { */
-/*     font-size: 20px; */
-/*   } */
-/* } */
-/* @media (min-width: 1500px) { */
-/*   :root { */
-/*     font-size: 22px; */
-/*   } */
-/* } */
-/**/
-/* @media (min-width: 1800px) { */
-/*   :root { */
-/*     font-size: 24px; */
-/*   } */
-/* } */
-/**/
+main pre {
+  margin: var(--halfpad);
+  padding: var(--halfpad);
+}
+
 @media (pointer: none), (pointer: coarse) {
+  /* bigger scale for mobile */
   :root {
-    font-size: calc(10px + 2vmin);
+    font-size: calc(10px + 1.5vw);
   }
 }

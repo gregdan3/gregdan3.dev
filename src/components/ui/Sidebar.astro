@@ -8,23 +8,23 @@ import { menuToggleId } from "@utils/consts.ts";
   let sidebar = document.getElementById("sidebar")! as HTMLElement;
 
   checkbox.addEventListener("click", () => {
-    console.log("clicked menu button");
-
-    if (checkbox.checked) {
-      sidebar.classList.add("show");
-    } else {
+    if (sidebar.classList.contains("show")) {
       sidebar.classList.remove("show");
+    } else {
+      sidebar.classList.add("show");
     }
   });
 </script>
 
-<input type="checkbox" id={menuToggleId} class="nevershow" checked={false} />
+<input type="checkbox" id={menuToggleId} checked={false} />
 
 <div id="sidebar" class="sidebar">
   <slot name="top" />
   <slot name="middle" />
   <slot name="bottom" />
 </div>
+
+<!-- TODO: close sidebar if user clicks anywhere but it -->
 
 <style>
   div {
@@ -35,11 +35,11 @@ import { menuToggleId } from "@utils/consts.ts";
     height: 100vh;
     max-width: 35wh;
     transform: translateX(-100%);
-    transition: transform 0.2s ease-in-out;
+    transition: transform var(--snap) ease-in-out;
 
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     background-color: var(--main-bg);
-    padding: 1rem;
+    padding: var(--pad);
   }
 
   .middle {
@@ -50,7 +50,7 @@ import { menuToggleId } from "@utils/consts.ts";
     transform: translateX(0);
   }
 
-  .nevershow {
+  input {
     display: none;
   }
 
@@ -59,7 +59,7 @@ import { menuToggleId } from "@utils/consts.ts";
       position: relative;
       transform: none;
       box-shadow: none;
-      width: auto;
+      /* width: auto; */
       height: auto;
       background-color: inherit;
     }

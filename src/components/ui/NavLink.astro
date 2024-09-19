@@ -3,55 +3,66 @@ export interface NavButtonProps {
   name: string;
   href: string;
   icon?: string;
-  bclass?: string;
   tooltip?: string;
 }
 import FixedIcon from "@components/ui/FixedIcon.astro";
 
-let { name, href, icon, bclass, tooltip } = Astro.props as NavButtonProps;
+let { name, href, icon, tooltip } = Astro.props as NavButtonProps;
 
 const currentPath = Astro.url.pathname;
 // TODO: get root
 const current = href === currentPath;
-
-bclass =
-  "h-8 font-bold bg-paper dark:bg-paper-dark text-major dark:text-major-dark ring-1 ring-gray-400 dark:ring-gray-950" +
-  " " +
-  bclass;
 ---
 
 <div>
   <a href={href}>
-    <span class={current ? "current" : null}>
-      {icon ? <FixedIcon name={icon} /> : null} {name}</span
-    >
+    {icon ? <FixedIcon name={icon} inline={true} /> : null}
+    <span class={current ? "current" : null}>{name}</span>
   </a>
 </div>
 
 <style>
   div {
-    /* TODO: color */
-    padding-left: 4px;
-    margin: 4px;
+    border: 1px solid black;
+    padding: var(--halfpad);
+    margin: var(--block-mark);
+    border-radius: var(--block-mark);
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 1);
+    /* transition: background-color var(--snap) ease-in-out; */
+  }
+
+  div:hover {
+    background-color: var(--highlight);
   }
 
   a {
+    padding: var(--halfpad);
     text-decoration: none;
     color: var(--url);
   }
-
-  a:hover {
-    text-decoration: underline dotted;
-  }
-
   a:visited {
     color: var(--urlvisited);
+  }
+
+  /* only target text */
+  a:hover span {
+    text-decoration: underline dotted;
   }
 
   .current {
     text-decoration: underline;
   }
   span {
-    word-break: keep-all;
+    whitespace: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    div {
+      border: none;
+      padding: 0;
+      padding-left: var(--block-mark);
+      background-color: none;
+      box-shadow: none;
+    }
   }
 </style>

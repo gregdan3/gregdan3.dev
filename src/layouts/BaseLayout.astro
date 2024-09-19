@@ -17,6 +17,7 @@ import Avatar from "@components/ui/Avatar.astro";
 import IconDisplay from "@components/ui/IconDisplay.astro";
 import Nav from "@components/ui/Nav.astro";
 import ThemeButton from "@components/ui/ThemeButton.astro";
+import Beats from "@components/showoff/Beats.astro";
 
 import {
   internalLinks,
@@ -37,7 +38,7 @@ const hostname = Astro.url.hostname;
   <body>
     <Bar type="header">
       <Avatar slot="left" image={AvatarImage} />
-      <h2 slot="left">{hostname}</h2>
+      <h2 slot="left" style="padding-left: 0.5rem">{hostname}</h2>
       <ThemeButton slot="right" />
       <SidebarButton slot="right" id={menuToggleId} />
     </Bar>
@@ -57,7 +58,9 @@ const hostname = Astro.url.hostname;
     </div>
 
     <Bar type="footer">
-      <div></div>
+      <div slot="left" style="height: 2rem;">
+        <Beats />
+      </div>
     </Bar>
   </body>
 </html>
@@ -72,13 +75,20 @@ const hostname = Astro.url.hostname;
   }
 
   main {
+    width: 80%;
     max-width: 1200px;
-    width: 100%;
     padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 
     background: var(--main-bg);
     color: var(--text);
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  aside {
+    background: var(--main-bg);
+    color: var(--text);
   }
 
   .spacer {
@@ -95,14 +105,11 @@ const hostname = Astro.url.hostname;
     main {
     }
     aside {
-      /* max-width: 200px; */
       width: 320px;
       height: fit-content;
 
       margin-right: 2rem;
 
-      background: var(--main-bg);
-      color: var(--main-fg);
       box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
     }
 

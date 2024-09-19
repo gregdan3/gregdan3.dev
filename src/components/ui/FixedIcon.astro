@@ -2,17 +2,21 @@
 import { Icon } from "astro-icon/components";
 export interface FixedIconProps {
   name: string;
+  inline: boolean;
 }
 
-const { name } = Astro.props as FixedIconProps;
+const { name, inline } = Astro.props as FixedIconProps;
 ---
 
-<span><Icon name={name} /></span>
+<span><Icon name={name} class={inline ? "inline" : null} /></span>
 
 <style>
   svg {
     width: 1rem;
     height: 1rem;
+  }
+
+  .inline {
     /* text alignment */
     transform: translate(0, 15%);
   }

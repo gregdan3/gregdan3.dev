@@ -23,20 +23,24 @@ const frontmatter = {
   updated: "2024-09-14",
 };
 
+import { getCollection, getEntries } from "astro:content";
+
 export let discordUserID = "497549183847497739";
+
+const goofs = await getCollection("goofs");
+
+// const goofs = await getEntries("goofs");
+
+console.log(goofs);
 ---
 
 <BaseLayout frontmatter={frontmatter}>
+  <h3 style="margin-top: 0">gregdan3 is a dev</h3>
   <About />
 
-  <br />
+  <h3>goofs</h3>
 
-  <div class="not-prose flex flex-col">
-    <div class="flex flex-col md:flex-row">
-      <div class="pb-2 md:pr-2">
-        <!-- <Discord user_id={discordUserID} /> -->
-      </div>
-      <div class="flex flex-wrap md:flex-col shrink-0 md:mt-1"></div>
-    </div>
-  </div>
+  {goofs.reverse().map((goof) => <p>{goof.body}</p>)}
+
+  <br />
 </BaseLayout>
