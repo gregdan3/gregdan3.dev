@@ -14,31 +14,28 @@ const currentPath = Astro.url.pathname;
 const current = href === currentPath;
 ---
 
-<div>
-  <a href={href}>
-    {icon ? <FixedIcon name={icon} inline={true} /> : null}
-    <span class={current ? "current" : null}>{name}</span>
-  </a>
-</div>
+<a href={href}>
+  {icon ? <FixedIcon name={icon} inline={true} /> : null}
+  <span class={current ? "current" : null}>{name}</span>
+</a>
 
 <style>
-  div {
-    border: 1px solid black;
+  a:hover {
+    background-color: var(--highlight);
+  }
+
+  a {
+    display: block;
+    padding: var(--halfpad);
+    text-decoration: none;
+    color: var(--url);
+
+    border: 1px solid var(--border-hard);
     padding: var(--halfpad);
     margin: var(--block-mark);
     border-radius: var(--block-mark);
     box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 1);
     /* transition: background-color var(--snap) ease-in-out; */
-  }
-
-  div:hover {
-    background-color: var(--highlight);
-  }
-
-  a {
-    padding: var(--halfpad);
-    text-decoration: none;
-    color: var(--url);
   }
   a:visited {
     color: var(--urlvisited);
@@ -56,13 +53,13 @@ const current = href === currentPath;
     whitespace: nowrap;
   }
 
-  @media (min-width: 768px) {
-    div {
-      border: none;
-      padding: 0;
-      padding-left: var(--block-mark);
-      background-color: none;
-      box-shadow: none;
-    }
-  }
+  /* @media (min-width: 768px) { */
+  /*   a { */
+  /*     border: none; */
+  /*     padding: 0; */
+  /*     padding-left: var(--block-mark); */
+  /*     background-color: none; */
+  /*     box-shadow: none; */
+  /*   } */
+  /* } */
 </style>
