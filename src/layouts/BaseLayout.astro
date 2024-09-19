@@ -1,4 +1,6 @@
 ---
+import "@styles/style.css";
+
 import { type Frontmatter } from "@utils/types.ts";
 interface Props {
   frontmatter: Frontmatter;
@@ -28,11 +30,13 @@ import {
 } from "@data/links";
 
 const hostname = Astro.url.hostname;
+const site_name = "gregsite";
+const locale = "en_US";
 ---
 
 <html lang="en">
   <head>
-    <Meta title={frontmatter.title} description={frontmatter.description} />
+    <Meta frontmatter={frontmatter} site_name={site_name} locale={locale} />
   </head>
 
   <body>
@@ -83,7 +87,9 @@ const hostname = Astro.url.hostname;
 
     background: var(--main-bg);
     color: var(--text);
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
+    box-shadow:
+      0 0 2px rgba(0, 0, 0, 1),
+      2px 4px 5px rgba(0, 0, 0, 0.15);
   }
 
   aside {
@@ -95,6 +101,7 @@ const hostname = Astro.url.hostname;
     flex: 1; /* grow to end of page */
     display: flex;
     flex-direction: row-reverse;
+    max-width: 100vw;
 
     /* left/right are auto
        ensures centering */
@@ -110,7 +117,9 @@ const hostname = Astro.url.hostname;
 
       margin-right: 2rem;
 
-      box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
+      box-shadow:
+        0 0 2px rgba(0, 0, 0, 1),
+        2px 4px 5px rgba(0, 0, 0, 0.15);
     }
 
     .spacer {

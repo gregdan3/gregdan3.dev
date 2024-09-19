@@ -1,14 +1,14 @@
-interface Frontmatter {
+export interface Frontmatter {
   title: string;
   description?: string;
   date: string;
   updated?: string;
+  image?: string;
 }
 
 export interface BlogPost extends Frontmatter {
   author?: string;
   published: boolean;
-  image?: string;
   tags: string[];
 }
 
@@ -17,7 +17,6 @@ export interface Link {
   name: string;
   href: string;
   icon?: string;
-  bclass?: string;
   tooltip?: string;
 }
 

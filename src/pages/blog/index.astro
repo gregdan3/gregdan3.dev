@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 
+const frontmatter = {
+  title: "glog",
+  description: "blog i guess",
+  date: "2020-02-10",
+  updated: "2024-09-19",
+};
+
 const title = "Blog";
 const description = "Latest articles.";
 const permalink = `${Astro.site.href}blog`;
@@ -13,12 +20,7 @@ allPosts = allPosts.sort(
 );
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  permalink={permalink}
-  current="blog"
->
+<BaseLayout frontmatter={frontmatter}>
   <div class="container">
     <h1>Blog</h1>
     {
@@ -33,9 +35,7 @@ allPosts = allPosts.sort(
               </h2>
               <p>{post.frontmatter.description}</p>
               <div class="post-item-footer">
-                <span class="post-item-date">
-                  — {post.frontmatter.publishDate}
-                </span>
+                <span class="post-item-date">— {post.frontmatter.date}</span>
               </div>
             </div>
           </div>

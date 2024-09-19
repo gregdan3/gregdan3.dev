@@ -1,10 +1,10 @@
 ---
 import type { Link } from "@utils/types.ts";
-export interface IconDisplayProps {
+interface Props {
   links: Link[];
 }
 
-const { links } = Astro.props as IconDisplayProps;
+const { links } = Astro.props;
 
 import IconLink from "@components/ui/IconLink.astro";
 ---

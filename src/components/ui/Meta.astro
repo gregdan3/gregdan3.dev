@@ -1,15 +1,26 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import "@styles/style.css";
 
+import { type Frontmatter } from "@utils/types.ts";
+import { ViewTransitions } from "astro:transitions";
+
 export interface Props {
-  title: string;
-  description: string;
-  permalink: string;
+  frontmatter: Frontmatter;
+  site_name: string;
+  locale?: string;
 }
 
-const { title, description, permalink } = Astro.props;
-const socialUrl = Astro.site.href + "assets/social.png";
+const { frontmatter, site_name, locale = "en_US" } = Astro.props;
+
+const { title, description, date, image } = frontmatter;
+import AvatarImage from "@data/images/avatar.png";
+
+const url = Astro.url;
+const usedImage = image ? image.src : AvatarImage.src;
+let fullTitle = `${site_name} - ${title}`;
+if (!title) {
+  fullTitle = site_name;
+}
 ---
 
 <!-- Global Metadata -->
@@ -18,22 +29,17 @@ const socialUrl = Astro.site.href + "assets/social.png";
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={usedImage} />
+<meta property="og:url" content={url} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={socialUrl} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={permalink} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={socialUrl} />
+<meta property="og:locale" content={locale} />
+<meta property="og:site_name" content={site_name} />
 
 <ViewTransitions />

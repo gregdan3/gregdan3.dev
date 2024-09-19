@@ -1,23 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const title = "My Astro Blog";
-const description = "The perfect starter for your perfect blog.";
-const permalink = Astro?.site?.href;
-
-// import Clock from "@components/showoff/Clock.svelte";
-// import Github from "@components/showoff/GithubActivity.svelte";
-// import Running from "@components/showoff/RunningRecord.svelte";
-// import Discord from "@components/showoff/Discord/Discord.svelte";
-// import Shield from "@components/showoff/Shield.svelte";
-// import Beats from "@components/showoff/Beats.svelte";
-
 import { servers } from "@utils/links";
 
 import About from "@content/about/about-me.md";
 
 const frontmatter = {
-  title: "gregsite",
+  title: "",
   description: "Welcome to gregsite.",
   date: "2023-10-01",
   updated: "2024-09-14",
@@ -28,10 +17,6 @@ import { getCollection, getEntries } from "astro:content";
 export let discordUserID = "497549183847497739";
 
 const goofs = await getCollection("goofs");
-
-// const goofs = await getEntries("goofs");
-
-console.log(goofs);
 ---
 
 <BaseLayout frontmatter={frontmatter}>

@@ -3,31 +3,34 @@ import { Icon } from "astro-icon/components";
 const { id } = Astro.props;
 ---
 
-<label for={id} class="whenlarge">
+<label for={id}>
   <Icon name="mingcute:menu-fill" />
 </label>
 
 <style>
-  .whenlarge {
-    padding: var(--pad);
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-  }
-
   label {
+    color: var(--text-soft);
+    border: none;
     width: 2.5rem;
     height: 2.5rem;
     margin: auto;
+    padding: var(--halfpad);
+    cursor: pointer;
+    border-radius: var(--squircle);
+  }
+
+  label:hover {
+    color: var(--text);
+    background-color: var(--highlight);
   }
 
   svg {
-    width: 100%;
-    height: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   @media (min-width: 768px) {
-    .whenlarge {
+    label {
       display: none;
     }
   }

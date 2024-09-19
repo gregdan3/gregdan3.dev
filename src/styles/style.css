@@ -10,6 +10,7 @@
   --pad: 1rem;
   --squircle: 20%;
   --snap: 0.12s;
+  --block-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
 
   --site-bg: #e2e8f0;
   --main-bg: #f8fafc;
@@ -19,17 +20,13 @@
   --text-soft: #64748b;
   --text-hard: yellow;
 
-  --border: green;
-  --border-soft: blue;
-  --border-hard: purple;
+  --border: rgb(148, 163, 184);
+  --border-soft: rgb(100, 116, 139);
+  --border-hard: rgb(31, 41, 55);
 
   --url: #3366cc;
   --urlvisited: #7755bb;
   --highlight: #c3dbff;
-
-  --border: rgb(148, 163, 184);
-  --border-soft: rgb(100, 116, 139);
-  --border-hard: rgb(31, 41, 55);
 }
 
 :root.dark {
@@ -47,16 +44,13 @@
 
   --url: #3366cc;
   --urlvisited: #7755bb;
-}
-
-:root.retro {
-  /* TODO: :) */
+  --highlight: #c3dbff;
 }
 
 /* necessary styles */
 
 main {
-  line-height: 1.4rem;
+  line-height: 1.5rem;
   color: var(--text);
 }
 
@@ -86,13 +80,11 @@ main a {
 }
 main a:hover {
   text-decoration: underline dotted;
+  box-shadow: 0 0 0 black;
 }
 main a:visited {
   text-decoration: underline var(--urlvisited);
   color: var(--urlvisited);
-}
-
-main {
 }
 
 main blockquote {
@@ -102,14 +94,31 @@ main blockquote {
   border-left: var(--block-mark) solid var(--border);
   /* seems silly, but this pins the radius to the mark width */
   border-radius: var(--block-mark);
+  box-shadow: var(--block-shadow);
 
   margin: var(--pad);
   padding: var(--pad);
 }
 
+main p code {
+  font-family: monospace;
+  background-color: var(--block-bg);
+
+  border: 1px solid var(--border-hard);
+  border-radius: var(--block-mark);
+  padding: 1px;
+}
+
 main pre {
+  font-family: monospace;
   margin: var(--halfpad);
   padding: var(--halfpad);
+
+  border: 1px solid var(--border-hard);
+  border-left: var(--block-mark) solid var(--border);
+  border-radius: var(--block-mark);
+
+  box-shadow: var(--block-shadow);
 }
 
 @media (pointer: none), (pointer: coarse) {

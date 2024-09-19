@@ -35,7 +35,6 @@ const current = href === currentPath;
     margin: var(--block-mark);
     border-radius: var(--block-mark);
     box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 1);
-    /* transition: background-color var(--snap) ease-in-out; */
   }
   a:visited {
     color: var(--urlvisited);
@@ -53,13 +52,12 @@ const current = href === currentPath;
     whitespace: nowrap;
   }
 
-  /* @media (min-width: 768px) { */
-  /*   a { */
-  /*     border: none; */
-  /*     padding: 0; */
-  /*     padding-left: var(--block-mark); */
-  /*     background-color: none; */
-  /*     box-shadow: none; */
-  /*   } */
-  /* } */
+  @media (min-width: 768px) {
+    a {
+      padding: var(--block-mark);
+      border: none;
+      background-color: none;
+      box-shadow: none;
+    }
+  }
 </style>
