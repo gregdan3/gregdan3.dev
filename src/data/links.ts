@@ -21,31 +21,21 @@ export const internalLinks: Link[] = [
     name: "Blog",
     href: "/blog",
     icon: "mingcute:book-6-line",
-    // tooltip: "Every dev needs an abandoned blog.",
+    tooltip: "Every dev needs an abandoned blog.",
   },
   {
     name: "Projects",
     href: "/projects",
     icon: "mingcute:terminal-box-line",
-    tooltip: "",
+    // tooltip: "",
   },
   // { name: 'Mind Map', url: '/map/' },
   {
     name: "Now",
     href: "/now",
     icon: "mingcute:calendar-time-add-line",
-    // tooltip: "What am I doing right now?",
+    tooltip: "What am I doing right now?",
   },
-  // {
-  //   name: "Toki Pona",
-  //   href: "https://mun.la/sona",
-  //   // yellow: #FFFF63
-  //   // blue: #000099
-  //   bclass:
-  //     "hover:bg-yellow-200 hover:border-blue-700 hover:text-blue-700 hover:shadow-blue-300 \
-  //     hover:dark:bg-yellow-200 hover:dark:border-blue-700 hover:dark:text-blue-600 hover:dark:shadow-blue-800",
-  //   tooltip: "A language with only 120 words!",
-  // },
 ];
 
 export const externalLinks: Link[] = [

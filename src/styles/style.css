@@ -5,6 +5,8 @@
 
   background-color: var(--site-bg);
 
+  --tiny-font: 0.6rem;
+  --small-font: 0.7rem;
   --block-mark: 4px;
   --halfpad: 0.5rem;
   --pad: 1rem;
@@ -105,7 +107,7 @@ main blockquote {
   padding: var(--pad);
 }
 
-main p code {
+main :not(pre) code {
   font-family: monospace;
   background-color: var(--block-bg);
 

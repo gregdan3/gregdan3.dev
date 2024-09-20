@@ -4,16 +4,29 @@ import { menuToggleId } from "@utils/consts.ts";
 
 <script>
   import { menuToggleId } from "@utils/consts.ts";
-  let checkbox = document.getElementById(menuToggleId)! as HTMLInputElement;
-  let sidebar = document.getElementById("sidebar")! as HTMLElement;
+  function toggleMenu(event: Event) {
+    document.getElementById("sidebar")?.classList.toggle("show");
+  }
+  // function closeMenuIfOutside(event: Event) {
+  //   const sidebar = document.getElementById("sidebar");
+  //   const menuToggle = document.getElementById(menuToggleId);
+  //   if (
+  //     sidebar?.classList.contains("show") &&
+  //     !sidebar.contains(event.target) &&
+  //     !menuToggle.contains(event.target)
+  //   ) {
+  //     toggleMenu();
+  //   }
+  // }
+  function initMenuToggle() {
+    document
+      .getElementById(menuToggleId)
+      ?.addEventListener("click", toggleMenu);
+    // document.addEventListener("click", closeMenuIfOutside);
+  }
 
-  checkbox.addEventListener("click", () => {
-    if (sidebar.classList.contains("show")) {
-      sidebar.classList.remove("show");
-    } else {
-      sidebar.classList.add("show");
-    }
-  });
+  initMenuToggle();
+  document.addEventListener("astro:after-swap", initMenuToggle);
 </script>
 
 <input type="checkbox" id={menuToggleId} checked={false} />
@@ -23,8 +36,6 @@ import { menuToggleId } from "@utils/consts.ts";
   <slot name="middle" />
   <slot name="bottom" />
 </div>
-
-<!-- TODO: close sidebar if user clicks anywhere but it -->
 
 <style>
   div {
@@ -37,7 +48,6 @@ import { menuToggleId } from "@utils/consts.ts";
     transform: translateX(-100%);
     transition: transform var(--snap) ease-in-out;
 
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     background-color: var(--main-bg);
     padding: var(--pad);
   }
@@ -48,6 +58,7 @@ import { menuToggleId } from "@utils/consts.ts";
 
   .show {
     transform: translateX(0);
+    box-shadow: var(--edge), var(--shadow);
   }
 
   input {

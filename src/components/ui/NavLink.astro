@@ -9,8 +9,15 @@ import FixedIcon from "@components/ui/FixedIcon.astro";
 
 let { name, href, icon, tooltip } = Astro.props as NavButtonProps;
 
-const currentPath = Astro.url.pathname;
-// TODO: get root
+function getBasePath(pathname: string): string {
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments.length > 0) {
+    return `/${segments[0]}`;
+  }
+  return "/";
+}
+
+const currentPath = getBasePath(Astro.url.pathname);
 const current = href === currentPath;
 ---
 

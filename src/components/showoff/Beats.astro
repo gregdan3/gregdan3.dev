@@ -2,7 +2,7 @@
 
 ---
 
-<span id="beats"></span>
+<span id="beats" transition:persist></span>
 
 <script>
   let beattime = getBeats();
@@ -33,9 +33,9 @@
   updateBeats();
 
   // TODO: is this necessary
-  if (import.meta.env.SSR === false) {
-    window.addEventListener("beforeunload", () => clearInterval(interval));
-  }
+  // if (import.meta.env.SSR === false) {
+  //   window.addEventListener("beforeunload", () => clearInterval(interval));
+  // }
 </script>
 
 <style>

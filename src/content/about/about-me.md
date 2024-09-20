@@ -9,10 +9,9 @@ is funny, let me know!
 
 #### Fixes
 
-- Format all code tags that are not a child of a pre tag
 - Close sidebar if user clicks entirely off it
-- Pin "what is this page?" to
-- Make a better border for my avatar
+- Pin "what is this page?" to bottom of document _before_ opening "older
+  content" on now page
 
 #### Features
 

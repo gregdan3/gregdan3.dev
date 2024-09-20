@@ -18,20 +18,35 @@ const renderedDesc = marked.parse(description);
 ---
 
 <div class="entry">
-  {image ? <img src={image} /> : null}
   <div class="info">
     <time datetime={date.toISOString()}>{formatDate(date)}</time>
     <a href={slug}><h3>{title}</h3></a>
     <div class="desc" set:html={renderedDesc} />
+  </div>
+  <div class="img">
+    {image ? <img src={image} /> : null}
   </div>
 </div>
 
 <style>
   .entry {
     display: flex;
+    position: relative;
+  }
+  .img {
+    justify-self: end;
+    width: 3.8rem;
+    height: 3.8rem;
   }
   time {
     color: var(--text-soft);
+    font-size: var(--small-font);
+  }
+  .desc {
+    font-size: var(--small-font);
+    /* border-left: var(--block-mark) solid var(--border); */
+    padding-left: var(--block-mark);
+    margin-left: var(--halfpad);
   }
   h3 {
     margin: 0;
