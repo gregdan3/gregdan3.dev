@@ -2,13 +2,9 @@
 title: Pinephone Thinking
 author: gregdan3
 date: 2021-05-20
-description:
+description: I can't wait to get the keyboard.
 published: true
 ---
-
-I can't wait to get the keyboard.
-
-<!-- cut -->
 
 # The Pinephone, by Pine64
 
@@ -37,8 +33,8 @@ The Pinephone does an excellent job of presentation. The phone has a high build
 quality and sleek look, and the UI that came by default is responsive, well
 designed, and intuitive.
 
-My phone was one of the few affected with the [battery tightness
-error](https://wiki.pine64.org/index.php?title=PinePhone_FAQ#The_battery_is_stuck_inside_the_phone)
+My phone was one of the few affected with the
+[battery tightness error](https://wiki.pine64.org/index.php?title=PinePhone_FAQ#The_battery_is_stuck_inside_the_phone)
 from the factory; fortunately, I had a screwdriver available that was small
 enough to unscrew the body screws and loosen the battery enough to perform first
 time boot.

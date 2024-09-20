@@ -10,7 +10,9 @@
   --pad: 1rem;
   --squircle: 20%;
   --snap: 0.12s;
-  --block-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+  --shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+  --edge: 0 0 2px 1px rgba(0, 0, 0, 0.25);
+  /* --edge: 0 0 2px rgba(0, 0, 0, 0.75); */
 
   --site-bg: #e2e8f0;
   --main-bg: #f8fafc;
@@ -77,10 +79,13 @@ main img {
 main a {
   text-decoration: underline var(--url);
   color: var(--url);
+  border-radius: var(--block-mark);
+  /* padding: 1px; */
 }
 main a:hover {
   text-decoration: underline dotted;
-  box-shadow: 0 0 0 black;
+  background-color: var(--highlight);
+  box-shadow: 0 0 0 2px var(--highlight);
 }
 main a:visited {
   text-decoration: underline var(--urlvisited);
@@ -94,7 +99,7 @@ main blockquote {
   border-left: var(--block-mark) solid var(--border);
   /* seems silly, but this pins the radius to the mark width */
   border-radius: var(--block-mark);
-  box-shadow: var(--block-shadow);
+  box-shadow: var(--edge);
 
   margin: var(--pad);
   padding: var(--pad);
@@ -118,7 +123,7 @@ main pre {
   border-left: var(--block-mark) solid var(--border);
   border-radius: var(--block-mark);
 
-  box-shadow: var(--block-shadow);
+  box-shadow: var(--edge);
 }
 
 @media (pointer: none), (pointer: coarse) {

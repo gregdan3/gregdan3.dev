@@ -1,6 +1,4 @@
 ---
-import "@styles/style.css";
-
 import { type Frontmatter } from "@utils/types.ts";
 interface Props {
   frontmatter: Frontmatter;
@@ -79,17 +77,14 @@ const locale = "en_US";
   }
 
   main {
-    width: 80%;
+    width: fit-content;
     max-width: 1200px;
     padding: 2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 2rem 0 2rem;
 
     background: var(--main-bg);
     color: var(--text);
-    box-shadow:
-      0 0 2px rgba(0, 0, 0, 1),
-      2px 4px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--edge), var(--shadow);
   }
 
   aside {
@@ -100,6 +95,7 @@ const locale = "en_US";
   .spacer {
     flex: 1; /* grow to end of page */
     display: flex;
+    /* aside is below main */
     flex-direction: row-reverse;
     max-width: 100vw;
 
@@ -112,14 +108,12 @@ const locale = "en_US";
     main {
     }
     aside {
-      width: 320px;
+      min-width: fit-content;
       height: fit-content;
+      position: sticky;
+      top: 2rem;
 
-      margin-right: 2rem;
-
-      box-shadow:
-        0 0 2px rgba(0, 0, 0, 1),
-        2px 4px 5px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--edge), var(--shadow);
     }
 
     .spacer {

@@ -1,37 +1,33 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import getPostData from "@utils/getPostData";
-
-const { id, slug, body, collection, data } = Astro.props;
-const { title, description, date } = data;
-// const permalink = `${Astro.site!.href}blog/${slug}`;
-
 import { getCollection } from "astro:content";
+import { marked } from "marked";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
-  return blogEntries.map((entry) => ({
+  let blogs = await getCollection("blog");
+  blogs = blogs.filter((entry) => entry.data.published);
+  return blogs.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
+const { title, description, date, image, imageAlt, updated, published } =
+  entry.data;
+
+const renderedDesc = marked.parse(description);
 const { Content } = await entry.render();
 ---
 
-<BaseLayout frontmatter={frontmatter}>
+<BaseLayout frontmatter={entry.data}>
   <header>
     <p>{date}</p>
     <h1>{title}</h1>
+    <div set:html={renderedDesc} />
     <hr />
   </header>
-  <div class="container">
-    <article class="content">
-      <Content />
-    </article>
-    <hr />
-  </div>
+  <Content />
 </BaseLayout>
 
 <style>

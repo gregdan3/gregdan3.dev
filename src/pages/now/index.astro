@@ -1,0 +1,44 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { formatDate } from "@utils/utils";
+import { getEntry } from "astro:content";
+
+const now = await getEntry("now", "now");
+
+console.log(now);
+
+const date = now.data.date;
+
+const { Content } = await now.render();
+---
+
+<BaseLayout frontmatter={now.data}>
+  <div class="container">
+    <time datetime={date.toISOString()}>{formatDate(date)}</time>
+    <div class="explainer">
+      <a href="https://nownownow.com/about"> what is this page? </a>
+    </div>
+    <Content />
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    position: relative;
+  }
+  time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--text-soft);
+    font-size: 0.6rem; /* NOTE: smalltext */
+  }
+  .explainer {
+    position: absolute;
+    bottom: 1rem;
+    right: 0;
+    font-size: 0.5rem;
+  }
+</style>
+
+<!-- gstyle="position: absolute; right: 2px; top: 2px; font-size: 0.6rem;" -->

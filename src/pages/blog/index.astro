@@ -1,65 +1,38 @@
 ---
+import Entry from "@components/blog/Entry.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
+import { type Frontmatter } from "@utils/types.ts";
+import { getCollection } from "astro:content";
 const frontmatter = {
   title: "glog",
-  description: "blog i guess",
+  description: "",
   date: "2020-02-10",
   updated: "2024-09-19",
-};
+} as Frontmatter;
 
-const title = "Blog";
-const description = "Latest articles.";
-const permalink = `${Astro.site.href}blog`;
-
-let allPosts = await Astro.glob("../../content/blog/*.md");
-allPosts = allPosts.sort(
-  (a, b) =>
-    new Date(b.frontmatter.publishDate).valueOf() -
-    new Date(a.frontmatter.publishDate).valueOf(),
+let posts = await getCollection("blog");
+posts = posts.filter((post) => post.data.published);
+posts = posts.sort(
+  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
 );
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <div class="container">
-    <h1>Blog</h1>
-    {
-      allPosts.map((post, index) => {
-        const href = `/blog/${post.file.split("/").pop().split(".").shift()}`;
-        return (
-          <div>
-            {index !== 0 && <hr />}
-            <div class="post-item">
-              <h2>
-                <a href={href}>{post.frontmatter.title}</a>
-              </h2>
-              <p>{post.frontmatter.description}</p>
-              <div class="post-item-footer">
-                <span class="post-item-date">— {post.frontmatter.date}</span>
-              </div>
-            </div>
-          </div>
-        );
-      })
-    }
-  </div>
+  {
+    posts.map((post, index) => {
+      const href = `/blog/${post.slug}`;
+      return (
+        <div>
+          {index !== 0 && <hr />}
+          <Entry {...post.data} slug={href} />
+        </div>
+      );
+    })
+  }
 </BaseLayout>
 
 <style>
-  h2,
-  .post-item-footer {
-    font-family: var(--font-family-sans);
-    font-weight: 700;
-  }
-
-  .post-item-date {
-    color: var(--text-secondary);
-    text-align: left;
-    text-transform: uppercase;
-    margin-right: 16px;
-  }
-
-  hr {
-    margin: 60px auto;
+  div {
   }
 </style>

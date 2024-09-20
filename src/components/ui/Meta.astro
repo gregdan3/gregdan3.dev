@@ -17,7 +17,7 @@ import AvatarImage from "@data/images/avatar.png";
 
 const url = Astro.url;
 const usedImage = image ? image.src : AvatarImage.src;
-let fullTitle = `${site_name} - ${title}`;
+let fullTitle = `${title} | ${site_name}`;
 if (!title) {
   fullTitle = site_name;
 }

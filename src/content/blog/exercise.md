@@ -2,7 +2,7 @@
 title: My Exercise Method
 author: gregdan3
 date: 2021-07-12
-description:
+description: I taught myself how to exercise, and this is what I learned!
 published: true
 ---
 
@@ -91,10 +91,10 @@ repeat. You can have any number of variations on this, of course.
 
 ## Frequently Asked Questions
 
-- What if I get blisters when walking? <br>
-  Buy [better socks](https://darntough.com/), then [better
-  shoes](https://www.brooksrunning.com/). In the mean time, cover any hotspots
-  or other potential blisters you feel you feel with
+- What if I get blisters when walking? <br> Buy
+  [better socks](https://darntough.com/), then
+  [better shoes](https://www.brooksrunning.com/). In the mean time, cover any
+  hotspots or other potential blisters you feel you feel with
   [leukotape](https://sectionhiker.com/leukotape-blister-prevention-tape-for-running-and-hiking/).
   Personally, I wear either thick cotton socks or Darn Tough's merino wool
   socks. My shoes are Brooks Ghost 13s in a size 12.5; these were a fantastic
@@ -108,33 +108,28 @@ repeat. You can have any number of variations on this, of course.
   could instead try a specific standing core workout, or try adding core
   stretches to your walk at regular intervals.
 
-- What about back? <br>
-  The arm raising workout and the followup suggesting you use your water bottle
-  as a dumbbell both work your shoulders and chest alongside to your arms, but
-  that's as far as that exercise will take you. I have no idea how to work out
-  your back otherwise. Try a pull-up bar?
+- What about back? <br> The arm raising workout and the followup suggesting you
+  use your water bottle as a dumbbell both work your shoulders and chest
+  alongside to your arms, but that's as far as that exercise will take you. I
+  have no idea how to work out your back otherwise. Try a pull-up bar?
 
-- What about thighs? <br>
-  Walk uphill! You could also pause for a set of squats if you prefer, but you
-  won't be able to start this as soon if you haven't finished establishing your
-  walking habit.
+- What about thighs? <br> Walk uphill! You could also pause for a set of squats
+  if you prefer, but you won't be able to start this as soon if you haven't
+  finished establishing your walking habit.
 
-- What about neck? <br>
-  Dude, what?
+- What about neck? <br> Dude, what?
 
-- Why did you choose an arm workout over \_\_\_? <br>
-  Arms don't do much during a walk. They're the obvious target to occupy during
-  a period of time they would otherwise do nothing.
+- Why did you choose an arm workout over \_\_\_? <br> Arms don't do much during
+  a walk. They're the obvious target to occupy during a period of time they
+  would otherwise do nothing.
 
-- Could I do \_\_\_ instead of walking? <br>
-  Sure! The important thing is establishing, then building upon, your habits.
-  The trick is in not pushing yourself too much or taking on too many new habits
-  at once; then your habits will fall apart. I would also recommend sticking to
-  something that works alongside your walk, but if you can establish a different
-  habit, that's great!
+- Could I do \_\_\_ instead of walking? <br> Sure! The important thing is
+  establishing, then building upon, your habits. The trick is in not pushing
+  yourself too much or taking on too many new habits at once; then your habits
+  will fall apart. I would also recommend sticking to something that works
+  alongside your walk, but if you can establish a different habit, that's great!
 
-- What if it's cold out? <br>
-  Yeah, this is the killer. Nothing kills a habit harder than it becoming more
-  difficult to do in a way that's outside your control. I recommend finding warm
-  and easy to wear clothes for your walk and putting them by the door for when
-  the urge hits you to go for a walk.
+- What if it's cold out? <br> Yeah, this is the killer. Nothing kills a habit
+  harder than it becoming more difficult to do in a way that's outside your
+  control. I recommend finding warm and easy to wear clothes for your walk and
+  putting them by the door for when the urge hits you to go for a walk.

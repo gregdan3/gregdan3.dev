@@ -1,0 +1,39 @@
+---
+import { formatDate } from "@utils/utils";
+import { marked } from "marked";
+
+const {
+  title,
+  description,
+  date,
+  updated,
+  image,
+  author,
+  published,
+  tags,
+  slug,
+} = Astro.props;
+
+const renderedDesc = marked.parse(description);
+---
+
+<div class="entry">
+  {image ? <img src={image} /> : null}
+  <div class="info">
+    <time datetime={date.toISOString()}>{formatDate(date)}</time>
+    <a href={slug}><h3>{title}</h3></a>
+    <div class="desc" set:html={renderedDesc} />
+  </div>
+</div>
+
+<style>
+  .entry {
+    display: flex;
+  }
+  time {
+    color: var(--text-soft);
+  }
+  h3 {
+    margin: 0;
+  }
+</style>
