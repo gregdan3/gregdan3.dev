@@ -2,7 +2,6 @@
 title: To Help Yourself
 author: gregdan3
 date: 2021-07-31
-description: How I fight self-sabotage
 published: true
 ---
 

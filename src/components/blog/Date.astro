@@ -1,0 +1,36 @@
+---
+import { formatDate } from "@utils/utils";
+const { date, updated } = Astro.props;
+---
+
+<span class="time">
+  <time
+    datetime={date.toISOString()}
+    title={updated ? `Updated on ${formatDate(updated, 6)}` : ""}
+    >Posted <strong>{formatDate(date, 6)}{updated ? "*" : ""}</strong></time
+  >
+</span>
+
+<style>
+  .time {
+    color: var(--text-soft);
+    font-size: var(--small-font);
+  }
+
+  .time .updated {
+    margin-left: 0.5rem;
+  }
+
+  /* why can css do this nonsense */
+  .time time[title]:not([title=""]):hover::after {
+    content: attr(title);
+    background-color: var(--block-bg);
+    color: var(--text-soft);
+    padding: var(--halfpad);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--block-mark);
+    position: absolute;
+    white-space: nowrap;
+  }
+</style>

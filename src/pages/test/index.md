@@ -453,7 +453,7 @@ duis.
 
 ### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
 
-- 19^th^
+- 19^th^ Century
 - H~2~O
 - strikethrough ~~text with ~subscript~ and ^superscript^ text inside it~~
 

@@ -1,8 +1,7 @@
 ---
 title: The XReal Air Saved My Neck
 author: gregdan3
-date: 2023-10-31
-updated: 2024-07-02
+date: 2024-09-20
 description: My body doesn't understand ergonomics, but now it doesn't matter
 published: false
 ---

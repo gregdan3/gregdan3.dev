@@ -1,19 +1,47 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+
+import compress from "astro-compress";
+import icon from "astro-icon";
+import robotsTxt from "astro-robots-txt";
+
+import remarkAbbr from "remark-abbr";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 import remarkSmartypants from "remark-smartypants";
-import robotsTxt from "astro-robots-txt";
-import sitemap from "@astrojs/sitemap";
+import remarkSupersub from "remark-supersub";
+import remarktoc from "remark-toc";
+
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
 export default defineConfig({
   site: "https://gregdan3.dev",
   base: "/",
   publicDir: "./public",
-  integrations: [mdx(), sitemap(), icon({ iconDir: "src/icons" }), robotsTxt()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    icon({ iconDir: "src/icons" }),
+    robotsTxt(),
+    compress({
+      html: {
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: false,
+        conservativeCollapse: true,
+        minifyCSS: true,
+        minifyJS: true,
+        minifyURLs: true,
+        sortAttributes: true,
+        sortClassName: true,
+        removeComments: true,
+      },
+    }),
+  ],
   markdown: {
+    extendDefaultPlugins: true,
     shikiConfig: {
       themes: {
         light: "github-light",
@@ -21,8 +49,24 @@ export default defineConfig({
       },
       wrap: true,
     },
-    remarkPlugins: [remarkGfm, remarkSmartypants],
+    remarkPlugins: [
+      // remarkAbbr,
+      remarkGfm,
+      remarkSmartypants,
+      remarkSupersub,
+      [
+        remarktoc,
+        {
+          heading: "^(TOC|Table of Contents)$",
+          ordered: false,
+          tight: true,
+          maxDepth: 4,
+        },
+      ],
+    ],
     rehypePlugins: [
+      rehypeAutolinkHeadings,
+      rehypeSlug,
       [
         rehypeExternalLinks,
         {

@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { formatDate } from "@utils/utils";
 import { getCollection } from "astro:content";
 import { marked } from "marked";
+import Date from "@components/blog/Date.astro";
 
 export async function getStaticPaths() {
   let blogs = await getCollection("blog");
@@ -17,23 +17,14 @@ const { entry } = Astro.props;
 const { title, description, date, image, imageAlt, updated, published } =
   entry.data;
 
-const renderedDesc = marked.parse(description);
+const renderedDesc = description ? marked.parse(description) : null;
 const { Content } = await entry.render();
 ---
 
 <BaseLayout frontmatter={entry.data}>
   <header>
-    <span class="time">
-      <time datetime={date.toISOString()} class="date">{formatDate(date)}</time>
-      {
-        updated && (
-          <time datetime={updated.toISOString()} class="updated">
-            updated {formatDate(updated)}
-          </time>
-        )
-      }
-    </span>
     <h1>{title}</h1>
+    <Date date={date} updated={updated} />
     <!-- <div class="desc" set:html={renderedDesc} /> -->
     <!-- <hr /> -->
   </header>

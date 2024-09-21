@@ -1,6 +1,7 @@
 ---
-import { formatDate } from "@utils/utils";
 import { marked } from "marked";
+import { getEntry } from "astro:content";
+import Date from "@components/blog/Date.astro";
 
 const {
   title,
@@ -12,16 +13,21 @@ const {
   published,
   tags,
   slug,
+  collection,
 } = Astro.props;
 
-const renderedDesc = marked.parse(description);
+const blogPost = await getEntry("blog", "slug");
+console.log(blogPost);
+
+const renderedDesc = description ? marked.parse(description) : null;
 ---
 
 <div class="entry">
   <div class="info">
-    <time datetime={date.toISOString()}>{formatDate(date)}</time>
-    <a href={slug}><h3>{title}</h3></a>
-    <div class="desc" set:html={renderedDesc} />
+    <a href={slug}>{title}</a>
+    <Date date={date} updated={updated} />
+    {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
+    <!-- <div class="preview"></div> -->
   </div>
   <div class="img">
     {image ? <img src={image} /> : null}
@@ -31,24 +37,32 @@ const renderedDesc = marked.parse(description);
 <style>
   .entry {
     display: flex;
-    position: relative;
+    /* border: 1px solid black; */
+    /* position: relative; */
+    /* margin: auto; */
+  }
+  img {
+    border: var(--block-mark) solid var(--border-soft);
+    border-radius: var(--squircle);
+    box-shadow: var(--edge);
   }
   .img {
-    justify-self: end;
     width: 3.8rem;
     height: 3.8rem;
-  }
-  time {
-    color: var(--text-soft);
-    font-size: var(--small-font);
+    margin-left: auto;
+    padding: var(--halfpad);
   }
   .desc {
     font-size: var(--small-font);
-    /* border-left: var(--block-mark) solid var(--border); */
-    padding-left: var(--block-mark);
-    margin-left: var(--halfpad);
+    border-radius: var(--block-mark);
+    padding: var(--block-mark);
+    margin: var(--block-mark);
+    margin-left: 0;
   }
-  h3 {
-    margin: 0;
+  a {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: -0.25rem;
   }
 </style>

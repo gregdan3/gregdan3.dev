@@ -2,8 +2,6 @@
 title: How to re-lease your IP on Linux
 author: gregdan3
 date: 2024-02-01
-updated: 2024-09-20
-description: It's sillier than you think.
 published: True
 ---
 

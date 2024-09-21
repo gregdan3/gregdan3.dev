@@ -7,14 +7,14 @@ const now = await getEntry("now", "now");
 
 console.log(now);
 
-const date = now.data.date;
+const updated = now.data.updated;
 
 const { Content } = await now.render();
 ---
 
 <BaseLayout frontmatter={now.data}>
   <div class="container">
-    <time datetime={date.toISOString()}>{formatDate(date)}</time>
+    <time datetime={updated.toISOString()}>{formatDate(updated, 6)}</time>
     <div class="explainer">
       <a href="https://nownownow.com/about"> what is this page? </a>
     </div>
