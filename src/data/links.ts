@@ -54,7 +54,7 @@ export const externalLinks: Link[] = [
 export const subscribeLinks: Link[] = [
   {
     name: "RSS",
-    href: "/rss/",
+    href: "/blog/rss",
     icon: "mingcute:rss-2-fill",
   },
 ];
