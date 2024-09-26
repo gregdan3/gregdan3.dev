@@ -1,0 +1,41 @@
+---
+export interface AvatarCardProps {
+  color: string;
+}
+const { color } = Astro.props as AvatarCardProps;
+
+const slotClasses = `slot ${color}bg`;
+const arrowClasses = `arrow ${color}`;
+---
+
+<div class="container">
+  <div class={slotClasses}>
+    <slot />
+  </div>
+  <span class={arrowClasses}></span>
+</div>
+
+<style>
+  .container {
+    display: flex;
+  }
+  .arrow {
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 1.5rem solid;
+  }
+
+  .red {
+    border-left-color: lightred;
+  }
+  .green {
+    border-left-color: lightgreen;
+  }
+  .blue {
+    border-left-color: lightskyblue;
+  }
+
+  .bluebg {
+    background-color: lightskyblue;
+  }
+</style>

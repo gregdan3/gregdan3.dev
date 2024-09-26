@@ -1,0 +1,62 @@
+---
+// the marquee part is broken
+export interface BarProps {}
+
+const {} = Astro.props as BarProps;
+---
+
+<div class="bar marquee">
+  <div class="marquee-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .bar {
+    /* display: flex; */
+    /* max-height: 5rem; */
+    /* padding: var(--pad); */
+  }
+
+  .marquee {
+    display: flex;
+    flex-flow: row nowrap;
+    /* width: 100vw; */
+    justify-content: end;
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-content {
+    animation: marquee 10s linear 2.5s infinite;
+    position: relative;
+    display: inline-block;
+  }
+
+  .marquee:hover,
+  .marquee-content:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: 0%;
+    }
+    /* 100% { */
+    /*   left: -100%; */
+    /* } */
+  }
+
+  /* @keyframes marquee { */
+  /*   0% { */
+  /*     right: -1rem; */
+  /*     transform: translate(100%, 0%); */
+  /*   } */
+  /*   100% { */
+  /*     right: calc(100% + 1rem); */
+  /*     transform: translate(0%, 0%); */
+  /*   } */
+  /* } */
+</style>
