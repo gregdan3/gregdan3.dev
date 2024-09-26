@@ -15,15 +15,13 @@ is funny, let me know!
 
 #### Features
 
-- Format blog links
 - Add short blog preview to main page (1) and blog page (5?)
 - Format heading on blog posts
   - Titles are so massive wtf
-- Link avatar back to home
-  - Where did this convention come from anyway
 - Set up projects page
-- Make a fancier footer for knickknacks
+- Fancier footer for knickknacks (MarqueeBar and ArrowCard)
 
 #### Stretch Goals
 
-- Set up RSS
+- Add partial preview to blog post links
+- Add pagination to blog page
