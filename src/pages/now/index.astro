@@ -16,7 +16,9 @@ const { Content } = await now.render();
   <div class="container">
     <time datetime={updated.toISOString()}>{formatDate(updated, 6)}</time>
     <div class="explainer">
-      <a href="https://nownownow.com/about"> what is this page? </a>
+      <a href="https://nownownow.com/about" rel="nofollow" target="_blank">
+        what is this page?
+      </a>
     </div>
     <Content />
   </div>
