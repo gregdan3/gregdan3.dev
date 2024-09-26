@@ -1,6 +1,5 @@
 ---
 import { marked } from "marked";
-import { getEntry } from "astro:content";
 import Date from "@components/blog/Date.astro";
 
 const {
@@ -15,9 +14,6 @@ const {
   slug,
   collection,
 } = Astro.props;
-
-const blogPost = await getEntry("blog", "slug");
-console.log(blogPost);
 
 const renderedDesc = description ? marked.parse(description) : null;
 ---
