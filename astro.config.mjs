@@ -3,15 +3,14 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
-import compress from "astro-compress";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 
-import remarkAbbr from "remark-abbr";
+// import remarkAbbr from "remark-abbr";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 import remarkSmartypants from "remark-smartypants";
-import remarkSupersub from "remark-supersub";
+// import remarkSupersub from "remark-supersub";
 import remarktoc from "remark-toc";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -21,27 +20,8 @@ export default defineConfig({
   site: "https://gregdan3.dev",
   base: "/",
   publicDir: "./public",
-  integrations: [
-    mdx(),
-    sitemap(),
-    icon({ iconDir: "src/icons" }),
-    robotsTxt(),
-    compress({
-      html: {
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: false,
-        conservativeCollapse: true,
-        minifyCSS: true,
-        minifyJS: true,
-        minifyURLs: true,
-        sortAttributes: true,
-        sortClassName: true,
-        removeComments: true,
-      },
-    }),
-  ],
+  integrations: [mdx(), sitemap(), icon({ iconDir: "src/icons" }), robotsTxt()],
   markdown: {
-    extendDefaultPlugins: true,
     shikiConfig: {
       themes: {
         light: "github-light",
@@ -53,7 +33,7 @@ export default defineConfig({
       // remarkAbbr,
       remarkGfm,
       remarkSmartypants,
-      remarkSupersub,
+      // remarkSupersub(),
       [
         remarktoc,
         {

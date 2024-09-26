@@ -1,7 +1,8 @@
 import rss from "@astrojs/rss";
+import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
-export async function GET(context) {
+export async function GET(context: APIContext) {
   let posts = await getCollection("blog", (post) => post.data.published);
   posts = posts.sort(
     (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),

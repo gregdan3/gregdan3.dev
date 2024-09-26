@@ -1,5 +1,4 @@
-import type { Link } from "$lib/types";
-import type { DiscordShield } from "$lib/types";
+import type { Link, DiscordShield } from "@utils/types";
 
 export const metaLinks: Link[] = [
   { name: "License", href: "/LICENSE.txt", icon: "mingcute:document-line" },
@@ -29,7 +28,6 @@ export const internalLinks: Link[] = [
     icon: "mingcute:terminal-box-line",
     // tooltip: "",
   },
-  // { name: 'Mind Map', url: '/map/' },
   {
     name: "Now",
     href: "/now",
@@ -150,14 +148,14 @@ export const servers: DiscordShield[] = [
     style: "plastic",
     logo: "discord",
   },
-  {
-    invite_link: "https://discord.gg/7BfyugsbEK",
-    label: "ma unpa pi toki unpa",
-    server_id: "1036373672895725598",
-    color: "3A4740",
-    logoColor: "white",
-    labelColor: "DD2222",
-    style: "plastic",
-    logo: "discord",
-  },
+  // {
+  //   invite_link: "https://discord.gg/7BfyugsbEK",
+  //   label: "ma unpa pi toki unpa",
+  //   server_id: "1036373672895725598",
+  //   color: "3A4740",
+  //   logoColor: "white",
+  //   labelColor: "DD2222",
+  //   style: "plastic",
+  //   logo: "discord",
+  // },
 ];

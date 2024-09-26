@@ -1,12 +1,12 @@
 ---
 import NavLink from "@components/ui/NavLink.astro";
 import type { Link } from "@utils/types.ts";
-export interface NavProps {
+export interface Props {
   links: Link[];
   intrasite?: boolean;
 }
 
-const { links, intrasite = false } = Astro.props as NavProps;
+const { links, intrasite = false } = Astro.props;
 ---
 
 {

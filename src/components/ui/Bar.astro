@@ -1,9 +1,9 @@
 ---
-export interface BarProps {
+export interface Props {
   type: "header" | "footer" | "other";
 }
 
-const { type } = Astro.props as BarProps;
+const { type } = Astro.props;
 ---
 
 {

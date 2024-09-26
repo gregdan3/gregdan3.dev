@@ -1,11 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
-export interface FixedIconProps {
+export interface Props {
   name: string;
   inline: boolean;
 }
 
-const { name, inline } = Astro.props as FixedIconProps;
+const { name, inline } = Astro.props;
 ---
 
 <span><Icon name={name} class={inline ? "inline" : null} /></span>

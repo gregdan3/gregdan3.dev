@@ -1,8 +1,8 @@
 ---
-export interface AvatarCardProps {
+export interface Props {
   color: string;
 }
-const { color } = Astro.props as AvatarCardProps;
+const { color } = Astro.props;
 
 const slotClasses = `slot ${color}bg`;
 const arrowClasses = `arrow ${color}`;

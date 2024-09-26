@@ -1,13 +1,13 @@
 ---
-import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Avatar from "@components/ui/Avatar.astro";
-export interface AvatarCardProps {
-  image: typeof Image;
+export interface Props {
+  image: ImageMetadata;
   alt?: string;
   href: string;
   heading: string;
 }
-const { image, alt, href, heading } = Astro.props as AvatarCardProps;
+const { image, alt, href, heading } = Astro.props;
 ---
 
 <a href={href}>

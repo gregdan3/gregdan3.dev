@@ -1,9 +1,11 @@
+import type { ImageMetadata } from "astro";
+
 export interface Frontmatter {
   title: string;
   description?: string;
   date: string;
   updated?: string;
-  image?: string;
+  image?: ImageMetadata;
 }
 
 export interface BlogPost extends Frontmatter {
@@ -49,7 +51,7 @@ export interface ProjectData {
   role: Role;
   description: string;
   skills: Technology[];
-  banner?: string; // image
+  banner?: ImageMetadata; // image
 }
 
 export interface LanyardData {

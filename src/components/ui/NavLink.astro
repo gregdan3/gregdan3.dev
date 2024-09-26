@@ -1,5 +1,5 @@
 ---
-export interface NavButtonProps {
+export interface Props {
   name: string;
   href: string;
   icon?: string;
@@ -7,7 +7,7 @@ export interface NavButtonProps {
 }
 import FixedIcon from "@components/ui/FixedIcon.astro";
 
-let { name, href, icon, tooltip } = Astro.props as NavButtonProps;
+let { name, href, icon, tooltip } = Astro.props;
 
 function getBasePath(pathname: string): string {
   const segments = pathname.split("/").filter(Boolean);
