@@ -11,8 +11,7 @@ const frontmatter = {
   updated: "2024-09-19",
 } as Frontmatter;
 
-let posts = await getCollection("blog");
-posts = posts.filter((post) => post.data.published);
+let posts = await getCollection("blog", (post) => post.data.published);
 posts = posts.sort(
   (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
 );

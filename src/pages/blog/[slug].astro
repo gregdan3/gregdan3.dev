@@ -5,9 +5,8 @@ import { marked } from "marked";
 import Date from "@components/blog/Date.astro";
 
 export async function getStaticPaths() {
-  let blogs = await getCollection("blog");
-  blogs = blogs.filter((entry) => entry.data.published);
-  return blogs.map((entry) => ({
+  let posts = await getCollection("blog", (entry) => entry.data.published);
+  return posts.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
