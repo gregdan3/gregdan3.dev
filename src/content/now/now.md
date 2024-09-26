@@ -8,6 +8,9 @@ updated: 2024-09-19
 
 #### September
 
+- I made a huge, but simple, improvement to how
+  [sona mute](https://github.com/gregdan3/sona-mute) generates databases. Now I
+  can test new designs much, much faster.
 - I'm re-writing this site in Astro. Uh, for reasons.
 - I'm getting out a very important video for the future of Toki Pona.
 - I published a big update to
