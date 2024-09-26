@@ -19,9 +19,10 @@ function getBasePath(pathname: string): string {
 
 const currentPath = getBasePath(Astro.url.pathname);
 const current = href === currentPath;
+const external = href[0] !== "/";
 ---
 
-<a href={href}>
+<a href={href} rel="dofollow" target={external ? "_blank" : null}>
   {icon ? <FixedIcon name={icon} inline={true} /> : null}
   <span class={current ? "current" : null}>{name}</span>
 </a>
