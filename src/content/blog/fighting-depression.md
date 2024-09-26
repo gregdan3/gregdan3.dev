@@ -2,7 +2,6 @@
 title: Fighting Depression
 author: gregdan3
 date: 2021-07-27
-description: Give yourself a fighting chance.
 published: true
 ---
 
