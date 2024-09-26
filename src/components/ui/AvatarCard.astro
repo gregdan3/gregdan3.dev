@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import Avatar from "@components/ui/Avatar.astro";
+export interface AvatarCardProps {
+  image: typeof Image;
+  alt?: string;
+  href: string;
+  heading: string;
+}
+const { image, alt, href, heading } = Astro.props as AvatarCardProps;
+---
+
+<a href={href}>
+  <Avatar image={image} alt={alt} />
+  <h2>{heading}</h2>
+</a>
+
+<style>
+  a {
+    display: flex;
+    color: var(--text);
+    text-decoration: none;
+  }
+  h2 {
+    padding-left: var(--halfpad);
+  }
+</style>

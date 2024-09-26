@@ -13,7 +13,7 @@ import Meta from "@components/ui/Meta.astro";
 import Bar from "@components/ui/Bar.astro";
 import Sidebar from "@components/ui/Sidebar.astro";
 import SidebarButton from "@components/ui/SidebarButton.astro";
-import Avatar from "@components/ui/Avatar.astro";
+import AvatarCard from "@components/ui/AvatarCard.astro";
 import IconDisplay from "@components/ui/IconDisplay.astro";
 import Nav from "@components/ui/Nav.astro";
 import ThemeButton from "@components/ui/ThemeButton.astro";
@@ -39,8 +39,13 @@ const locale = "en_US";
 
   <body>
     <Bar type="header">
-      <Avatar slot="left" image={AvatarImage} />
-      <h2 slot="left" style="padding-left: 0.5rem">{hostname}</h2>
+      <AvatarCard
+        image={AvatarImage}
+        alt="gregdan3's avatar: a floating yellow star with red bowtie, yellow gloves, and chalk in hand"
+        href="/"
+        heading={hostname}
+        slot="left"
+      />
       <ThemeButton slot="right" />
       <SidebarButton slot="right" id={menuToggleId} />
     </Bar>

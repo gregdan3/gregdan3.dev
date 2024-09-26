@@ -2,11 +2,12 @@
 import { Image } from "astro:assets";
 export interface AvatarProps {
   image: typeof Image;
+  alt?: string;
 }
-const { image } = Astro.props as AvatarProps;
+const { image, alt } = Astro.props as AvatarProps;
 ---
 
-<img src={image.src} />
+<img src={image.src} alt={alt ? alt : null} />
 
 <style>
   img {
