@@ -1,23 +1,30 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { formatDate } from "@utils/utils";
+import Date from "@components/blog/Date.astro";
 import { getEntry } from "astro:content";
 
 const now = await getEntry("now", "now");
-const updated = now.data.updated;
 
 const { Content } = await now.render();
 ---
 
 <BaseLayout frontmatter={now.data}>
   <div class="container">
-    <time datetime={updated.toISOString()}>{formatDate(updated, 6)}</time>
+    <div class="updated">
+      <Date
+        date={now.data.date}
+        updated={now.data.updated}
+        showUpdated={true}
+      />
+    </div>
+
+    <Content />
+
     <div class="explainer">
       <a href="https://nownownow.com/about" rel="nofollow" target="_blank">
         what is this page?
       </a>
     </div>
-    <Content />
   </div>
 </BaseLayout>
 
@@ -25,7 +32,7 @@ const { Content } = await now.render();
   .container {
     position: relative;
   }
-  time {
+  .updated {
     position: absolute;
     top: 0;
     right: 0;
@@ -34,7 +41,7 @@ const { Content } = await now.render();
   }
   .explainer {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0;
     right: 0;
     font-size: var(--small-font);
   }

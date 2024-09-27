@@ -1,29 +1,44 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-
+import Date from "@components/blog/Date.astro";
+import { getCollection, getEntry } from "astro:content";
 import { servers } from "@data/links";
 
-import About from "@content/about/about-me.md";
-
-const frontmatter = {
-  title: "",
-  description: "Welcome to gregsite.",
-  date: new Date("2023-10-01"),
-  updated: new Date("2024-09-14"),
-};
-
-import { getCollection, getEntries } from "astro:content";
-
+const about = await getEntry("about", "about-me");
 const goofs = await getCollection("goofs");
+
+const { Content } = await about.render();
 ---
 
-<BaseLayout frontmatter={frontmatter}>
-  <h3 style="margin-top: 0">gregdan3 is a dev</h3>
-  <About />
+<BaseLayout frontmatter={about.data}>
+  <div class="container">
+    <h2>{about.data.description}</h2>
 
-  <h3>goofs</h3>
+    <div class="updated">
+      <Date
+        date={about.data.date}
+        updated={about.data.updated}
+        showUpdated={true}
+      />
+    </div>
 
-  {goofs.reverse().map((goof) => <p>{goof.body}</p>)}
+    <Content />
 
-  <br />
+    <h3>goofs</h3>
+
+    {goofs.reverse().map((goof) => <p>{goof.body}</p>)}
+  </div>
 </BaseLayout>
+
+<style>
+  .container {
+    position: relative;
+  }
+  .updated {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--text-soft);
+    font-size: var(--small-font);
+  }
+</style>

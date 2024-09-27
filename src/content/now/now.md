@@ -1,6 +1,6 @@
 ---
 title: "Now"
-date: 2023-10-01
+date: 2023-11-04 # date i first committed to my original now page
 updated: 2024-09-19
 ---
 
