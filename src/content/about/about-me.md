@@ -5,30 +5,35 @@ date: 2022-03-25 # date i first committed to my original site
 updated: 2024-09-27
 ---
 
-I'm Gregory (@gregdan3). I do devops, database, and backend. Frontend was
+I'm Greg, @gregdan3. I do devops, database, and backend. Frontend was
 suspiciously missing from this list, so this site is now a permanent work in
 progress as I learn ~~Svelte~~ Astro. I have no idea how to breathe.
 
 I'm in the middle of re-designing this site (dated 2024-09-16), so if anything
 is funny, let me know!
 
-### TODO
+#### TODO
 
 #### Fixes
 
 - Close sidebar if user clicks entirely off it
-- Pin "what is this page?" to bottom of document _before_ opening "older
-  content" on now page
+- Pin "what is this page?" to align with top of "older content" rather than
+  bottom of page
 
-#### Features
+#### MVP Features
 
-- Add short blog preview to main page (1) and blog page (5?)
-- Format heading on blog posts
-  - Titles are so massive wtf
-- Set up projects page
-- Fancier footer for knickknacks (MarqueeBar and ArrowCard)
+- Finish formatting the projects page
 
-#### Stretch Goals
+#### Ideas
 
-- Add partial preview to blog post links
+- Add resume at /resume, rendered via json-resume
+- Add discord presence to footer
+- Add fancy container for footer items (MarqueeBar and ArrowCard)
+- Add tags to blog posts
+- Add /tags which lets you see blog tags, sorted alphabetically or by frequency
+
+- Add blog post preview to main page (1 post) and blog page (5 posts?)
+- Make Projects a content collection, but merge it with Blog?
+- Add a secondary sidebar for goofs (?)
 - Add pagination to blog page
+  - Per season? Per year? By count? All of these?

@@ -18,6 +18,13 @@ posts = posts.sort(
 ---
 
 <BaseLayout frontmatter={frontmatter}>
+  <h2>greg's glog</h2>
+
+  <div class="hook">
+    Every dev needs an abandoned blog, and this one is mine. I even did the
+    thing where I crungle the word blog.
+  </div>
+
   {
     posts.map((post, index) => {
       const href = `/blog/${post.slug}`;
@@ -32,6 +39,8 @@ posts = posts.sort(
 </BaseLayout>
 
 <style>
-  div {
+  .hook {
+    padding: var(--halfpad);
+    padding-bottom: 1rem;
   }
 </style>

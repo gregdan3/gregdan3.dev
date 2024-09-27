@@ -6,7 +6,7 @@ updated: 2024-09-19
 
 ## Fall
 
-#### September
+### September
 
 - I made a huge, but simple, improvement to how
   [sona mute](https://github.com/gregdan3/sona-mute) generates databases. Now I
@@ -20,7 +20,7 @@ updated: 2024-09-19
 
 ## Summer
 
-#### August
+### August
 
 - I published [ilo Muni pi mute nimi](https://gregdan3.github.io/ilo-muni/), a
   graphing tool in the style of
@@ -31,7 +31,7 @@ updated: 2024-09-19
 - I'm finally getting back to running- it was so frustrating to be out for so
   long, but it turns out that my ankle pain is entirely in my head. Not a joke.
 
-#### July
+### July
 
 - I received an old, old laptop I had when I was a child from my parents, and oh
   _man_ does it suck. But incredibly, it still works! It's an HP ze5500, and I
@@ -48,7 +48,7 @@ updated: 2024-09-19
 I keep track of the most recent three months at a time, and everything older is
 stashed in here.
 
-#### June
+### June
 
 - My girlfriend and I travelled to Chicago for a big toki pona meetup- it was so
   much fun. I finally got to meet some people I'd only spoken to over the
@@ -59,7 +59,7 @@ stashed in here.
 
 ## Spring
 
-#### May
+### May
 
 - I started
   [streaming in Toki Pona on YouTube](https://www.youtube.com/@gregdan3d/streams),
@@ -73,7 +73,7 @@ stashed in here.
   a week and nasty ankle pain afterward that prevented me from running. Damn,
   and I was planning on a marathon in October.
 
-#### April
+### April
 
 - I traveled to Arkansas to see the total solar eclipse, and it was genuinely
   incredible. I think about it very often.
@@ -85,7 +85,7 @@ stashed in here.
   become kiku tiki tuki tiki- circle place of
   [circle language](https://tiger.kittycat.homes/made/conlang/tuki-tiki/cheat-sheet.pdf)!
 
-#### March
+### March
 
 - My girlfriend and I went to the
   [Cherry Blossom Festival](https://japanalabama.com/Cherry-Blossom-Festival) at
@@ -100,7 +100,7 @@ stashed in here.
 
 ## Winter
 
-#### February
+### February
 
 - I ran 13.1 miles for the first time on the 25th. 2:12:14. Let's GO!
 - I did a valentine's day themed toki pona lesson for the VR community!
@@ -110,7 +110,7 @@ stashed in here.
 - I started a new job, sorta! I do the same things, in the same building, for
   mostly the same people, but for higher pay. Cool!
 
-#### January
+### January
 
 - I traveled to San Francisco for a meetup of Toki Pona speakers! Not as big as
   the DC one last summer, but just as fun- and longer this time! 6 full days,
@@ -121,7 +121,7 @@ stashed in here.
   Unicode! It's a huge effort across the community, although there are
   surprisingly few writers in total.
 
-#### December
+### December
 
 - I finished my first work as a Toki Pona freelancer for jan Sonja! Secret
   project though, no peeking!
@@ -139,7 +139,7 @@ stashed in here.
 
 ## Fall
 
-#### November
+### November
 
 - I got an in-progress version of this site up on
   [beta.gregdan3.dev](https://beta.gregdan3.dev).
@@ -150,7 +150,7 @@ stashed in here.
 - I updated my [fanart page](https://mun.la/fanart) with the help of a friend
   from the Toki Pona community.
 
-#### October
+### October
 
 - I picked up on rewriting [this site](https://gregdan3.dev) again, and I'm
   going to take it to the finish line.
@@ -162,7 +162,7 @@ stashed in here.
 - I played a translation of [Zelda 1](https://youtu.be/SkiiabwexcA) in Toki
   Pona!
 
-#### September
+### September
 
 - I got my
   [ilo pi toki pona taso](https://github.com/gregdan3/ilo-pi-toki-pona-taso),
@@ -177,7 +177,7 @@ stashed in here.
 
 ## Summer
 
-#### August
+### August
 
 - My brother and I have been messing with
   [Ham Radio](https://en.wikipedia.org/wiki/Ham_Radio) a lot, so we went to
@@ -194,7 +194,7 @@ stashed in here.
   [suno pi toki pona](https://suno.pona.la/2023/). See it
   [here](https://youtu.be/_awfcwuJhpk) and [here](https://youtu.be/AgkDx8dIAio)!
 
-#### July
+### July
 
 - I got myself a Thinkpad x280 to serve as a distraction-reducing writing
   laptop. Highly recommended! It's like, $100 on eBay.
@@ -202,7 +202,7 @@ stashed in here.
   an enormous impact on my day to day well-being and strength. I can't recommend
   it enough.
 
-#### June
+### June
 
 - I started going to physical therapy, primarily for my neck. It's taught me a
   lot about how complex and inter-linked the systems of the body are, how
@@ -216,14 +216,14 @@ stashed in here.
 
 ## Spring
 
-#### May
+### May
 
 - I traveled to Pittsburgh to officiate the wedding of two new friends, who I
   met because of Toki Pona and [VRChat](https://vrchat.com)! I'm probably the
   only person in the world with both the skill in Toki Pona and the
   energy-of-personality to fill this role, and I'm so glad I could for them.
 
-#### April
+### April
 
 - I bought some AR Glasses, the [Nreal Airs](https://www.nreal.ai/) to be exact.
   They're a painfully incomplete product, barely in beta despite the marketing.
@@ -232,7 +232,7 @@ stashed in here.
   [here](https://www.youtube.com/watch?v=gxe0cHuSBG4), as well as turning ma
   pona pi toki pona into ma Losupan pi toki Losupan!
 
-#### March
+### March
 
 - I published my multiple li/e, en, anu lesson,
   [check it out!](https://www.youtube.com/watch?v=BGsodPu9UAw)
@@ -241,14 +241,14 @@ stashed in here.
 
 ## Winter
 
-#### February
+### February
 
 - I published a lesson on names, numbers, and kin!
   [Check it out!](https://youtu.be/P0N1S5jBujI)
 - I dubbed waso mu's comic ["mi lon e ma"](https://waso-mu.neocities.org/musi/),
   [see it here!](https://youtu.be/GU9PEZ9TARs)
 
-#### January
+### January
 
 - I played through the first part of waso Keli's translation of Link's
   Awakening! [See it here](https://youtu.be/xi8gUvqyMm4)!

@@ -24,46 +24,43 @@ const { Content } = await entry.render();
 
 <BaseLayout frontmatter={entry.data}>
   <header>
-    <h1>{title}</h1>
-    <Date date={date} updated={updated} />
-    <!-- <div class="desc" set:html={renderedDesc} /> -->
-    <!-- <hr /> -->
+    <h1 class="title">{title}</h1>
+    <div class="metadata">
+      {renderedDesc ? <div class="desc" set:html={renderedDesc} /> : <div />}
+      <div class="date">
+        <Date date={date} updated={updated} />
+      </div>
+    </div>
   </header>
+
   <Content />
 </BaseLayout>
 
 <style>
   header {
     position: relative;
-    /* text-align: center; */
+    margin-bottom: var(--halfpad);
   }
 
-  header h1 {
+  .title {
+    margin-top: var(--halfpad);
+    text-align: center;
+    line-height: 2rem;
   }
 
-  header .time {
-    position: absolute;
-    top: -1.5rem;
-
-    color: var(--text-soft);
-    font-size: var(--small-font);
-  }
-
-  header .updated {
+  .metadata {
     padding-left: var(--pad);
+    padding-right: var(--pad);
+    display: flex;
+    justify-content: space-between;
   }
 
-  header .desc {
-    /* position: absolute; */
-    /* left: 0; */
-    /* top: 1.5rem; */
-    /* padding-left: 1rem; */
-    /* font-size: 0.8rem; */
-    /* text-align: center; */
+  .desc {
+    font-size: var(--small-font);
+    border-left: var(--block-mark) solid var(--border);
+    border-radius: var(--block-mark);
+    padding-left: var(--block-mark);
   }
-
-  header hr {
-    min-width: 100px;
-    width: 30%;
+  .date {
   }
 </style>
