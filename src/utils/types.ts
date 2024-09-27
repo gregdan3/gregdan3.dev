@@ -1,9 +1,7 @@
-import type { ImageMetadata } from "astro";
-
 export interface Frontmatter {
   title: string;
   description?: string;
-  image?: ImageMetadata;
+  image?: string;
   imageAlt?: string;
   date: Date;
   updated?: Date;
@@ -57,7 +55,7 @@ export interface ProjectData {
   role: Role;
   description: string;
   skills: Technology[];
-  banner?: ImageMetadata; // image
+  banner?: string; // image
 }
 
 export interface LanyardData {
