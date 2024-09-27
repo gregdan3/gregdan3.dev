@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  name: string;
+  name?: string;
   href: string;
   icon: string;
   tooltip?: string;
@@ -17,7 +17,7 @@ const external = href[0] !== "/";
     href={href}
     target={external ? "_blank" : null}
     rel="dofollow"
-    class={name.toLowerCase()}
+    class={name ? name.toLowerCase() : null}
   >
     <!-- does not want to use FixedIcon due to irregular shape of fa-brands icons -->
     <Icon name={icon} />

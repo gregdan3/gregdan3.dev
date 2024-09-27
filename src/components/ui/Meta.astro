@@ -12,7 +12,7 @@ export interface Props {
 
 const { frontmatter, site_name, locale = "en_US" } = Astro.props;
 
-const { title, description, date, image } = frontmatter;
+const { title, description, image } = frontmatter;
 import AvatarImage from "@data/images/avatar.png";
 
 const url = Astro.url;
@@ -41,5 +41,7 @@ if (!title) {
 <meta property="og:description" content={description} />
 <meta property="og:locale" content={locale} />
 <meta property="og:site_name" content={site_name} />
+
+<meta property="og:" content={site_name} />
 
 <ViewTransitions />

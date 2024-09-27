@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { type Frontmatter } from "@utils/types.ts";
+import { projects } from "@data/projects.ts";
+import Project from "@components/showoff/Project.astro";
+
+const frontmatter = {
+  title: "projects",
+  description: "",
+  date: new Date("2020-02-10"),
+} as Frontmatter;
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <div>
+    {
+      projects.map((project) => {
+        return <Project project={project} />;
+      })
+    }
+  </div>
+</BaseLayout>

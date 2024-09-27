@@ -7,8 +7,8 @@ import { getCollection } from "astro:content";
 const frontmatter = {
   title: "glog",
   description: "",
-  date: "2020-02-10",
-  updated: "2024-09-19",
+  date: new Date("2020-02-10"),
+  updated: new Date("2024-09-19"),
 } as Frontmatter;
 
 let posts = await getCollection("blog", (post) => post.data.published);

@@ -26,6 +26,9 @@ importers:
       '@iconify-json/mingcute':
         specifier: ^1.2.0
         version: 1.2.0
+      '@iconify-json/skill-icons':
+        specifier: ^1.2.0
+        version: 1.2.0
       astro:
         specifier: ^4.15.8
         version: 4.15.8(@types/node@22.5.5)(lightningcss@1.25.1)(rollup@4.22.2)(terser@5.31.3)(typescript@5.6.2)
@@ -446,6 +449,9 @@ packages:
 
   '@iconify-json/mingcute@1.2.0':
     resolution: {integrity: sha512-XEAOnEMwkv8BkHaeBZqiyVytrCBH8GffhUr7ozWeU77s5vodYq9J/hdWVK/cTah7PwcYSrzfXBkXjIek+u3+XQ==}
+
+  '@iconify-json/skill-icons@1.2.0':
+    resolution: {integrity: sha512-5zlPrzF5pelV1wut7C88zmAiYONvGxvFw11dXW1Pr1oIhUOtYhC7x3zkErSTFkyZ3m5fEgcEUrcO1W3UhNJVpw==}
 
   '@iconify/tools@4.0.6':
     resolution: {integrity: sha512-riEQggXVuZNXjRdo+aKT0rkzn2XHslIqat8mdW/oVu5mLmP/95Hi+iaq4keT7WwMD97jsYPXMQ6QMCw0EWpRNw==}
@@ -3553,6 +3559,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/mingcute@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/skill-icons@1.2.0':
     dependencies:
       '@iconify/types': 2.0.0
 

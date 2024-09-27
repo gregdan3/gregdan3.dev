@@ -1,6 +1,6 @@
-import type { Link, DiscordShield } from "@utils/types";
+import type { LinkData, IconLinkData, DiscordShield } from "@utils/types";
 
-export const metaLinks: Link[] = [
+export const metaLinks: IconLinkData[] = [
   { name: "License", href: "/LICENSE.txt", icon: "mingcute:document-line" },
   {
     name: "Repo",
@@ -9,7 +9,7 @@ export const metaLinks: Link[] = [
   },
 ];
 
-export const internalLinks: Link[] = [
+export const internalLinks: IconLinkData[] = [
   {
     name: "Home",
     href: "/",
@@ -36,7 +36,7 @@ export const internalLinks: Link[] = [
   },
 ];
 
-export const externalLinks: Link[] = [
+export const externalLinks: IconLinkData[] = [
   {
     name: "Toki Pona",
     href: "https://mun.la/",
@@ -49,7 +49,7 @@ export const externalLinks: Link[] = [
   },
 ];
 
-export const subscribeLinks: Link[] = [
+export const subscribeLinks: IconLinkData[] = [
   {
     name: "RSS",
     href: "/blog/rss",
@@ -57,7 +57,7 @@ export const subscribeLinks: Link[] = [
   },
 ];
 
-export const socialLinks: Link[] = [
+export const socialLinks: IconLinkData[] = [
   // {
   // 	name: 'Gitlab',
   // 	href: 'https://gitlab.com/gregdan3',

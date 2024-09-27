@@ -3,24 +3,29 @@ import type { ImageMetadata } from "astro";
 export interface Frontmatter {
   title: string;
   description?: string;
-  date: string;
-  updated?: string;
   image?: ImageMetadata;
+  imageAlt?: string;
+  date: Date;
+  updated?: Date;
 }
 
 export interface BlogPost extends Frontmatter {
-  author?: string;
+  // author?: string;
   published: boolean;
   tags: string[];
-  slug: string;
+  // slug: string;
 }
 
 // links.ts
-export interface Link {
+export interface LinkData {
   name: string;
   href: string;
   icon?: string;
   tooltip?: string;
+}
+
+export interface IconLinkData extends LinkData {
+  icon: string;
 }
 
 export interface DiscordShield {
@@ -46,6 +51,7 @@ type Role = "Contributor" | "Maintainer" | "Creator";
 export interface ProjectData {
   name: string;
   repo: string; // repo of the project
+  date?: Date;
   link?: string; // live version of the project
   blog?: string; // blog post about the project
   role: Role;
