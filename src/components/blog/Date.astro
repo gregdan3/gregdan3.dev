@@ -1,13 +1,47 @@
 ---
 import { formatDate } from "@utils/utils";
-const { date, updated } = Astro.props;
+export interface Props {
+  date: Date;
+  updated?: Date;
+  showUpdated?: boolean;
+  dateText?: string;
+  updatedText?: string;
+}
+
+const {
+  date,
+  updated,
+  dateText = "Posted",
+  updatedText = "Updated",
+} = Astro.props;
+let { showUpdated = false } = Astro.props;
+
+if (!updated && showUpdated) {
+  console.log("showUpdated is set, but there is no updated date! Unsetting.");
+  showUpdated = false;
+}
+
+let shownText = dateText;
+let shownDate = date;
+
+let tooltipText = updatedText;
+let tooltipDate = updated;
+
+if (showUpdated) {
+  shownDate = updated!;
+  shownText = updatedText;
+
+  tooltipText = dateText;
+  tooltipDate = date;
+}
 ---
 
 <span class="time">
   <time
-    datetime={date.toISOString()}
-    title={updated ? `Updated on ${formatDate(updated, 6)}` : ""}
-    >Posted <strong>{formatDate(date, 6)}{updated ? "*" : ""}</strong></time
+    datetime={shownDate.toISOString()}
+    title={tooltipDate ? `${tooltipText} ${formatDate(tooltipDate, 6)}` : ""}
+    >{shownText}
+    <strong>{formatDate(shownDate, 6)}{tooltipDate ? "*" : ""}</strong></time
   >
 </span>
 
