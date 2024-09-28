@@ -1,5 +1,5 @@
 :root {
-  font-size: calc(10px + 1vw);
+  font-size: calc(10px + 0.8vw);
   font-family: -apple-system, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -133,6 +133,13 @@ main pre {
   border-radius: var(--block-mark);
 
   box-shadow: var(--edge);
+}
+
+@media (min-width: 2000px) {
+  /* less aggressive scale for especially large displays */
+  :root {
+    font-size: calc(10px + 0.5vw);
+  }
 }
 
 @media (pointer: none), (pointer: coarse) {
