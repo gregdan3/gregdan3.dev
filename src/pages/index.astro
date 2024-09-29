@@ -19,14 +19,14 @@ const { Content } = await about.render();
         date={about.data.date}
         updated={about.data.updated}
         showUpdated={true}
+        tooltipSide="left"
       />
     </div>
 
     <Content />
 
-    <h3>goofs</h3>
-
-    {goofs.reverse().map((goof) => <p>{goof.body}</p>)}
+    <!-- <h3>goofs</h3> -->
+    <!-- {goofs.reverse().map((goof) => <p>{goof.body}</p>)} -->
   </div>
 </BaseLayout>
 
@@ -36,7 +36,7 @@ const { Content } = await about.render();
   }
   .updated {
     position: absolute;
-    top: 1.35rem;
+    top: -1.35rem;
     right: 0;
     color: var(--text-soft);
     font-size: var(--small-font);

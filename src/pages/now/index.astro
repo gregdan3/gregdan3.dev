@@ -15,6 +15,7 @@ const { Content } = await now.render();
         date={now.data.date}
         updated={now.data.updated}
         showUpdated={true}
+        tooltipSide="left"
       />
     </div>
 
@@ -34,7 +35,7 @@ const { Content } = await now.render();
   }
   .updated {
     position: absolute;
-    top: 1.35rem;
+    top: -1.35rem;
     right: 0;
     color: var(--text-soft);
     font-size: var(--small-font);
