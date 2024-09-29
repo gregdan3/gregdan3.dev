@@ -6,6 +6,7 @@ export interface Props {
   showUpdated?: boolean;
   dateText?: string;
   updatedText?: string;
+  tooltipSide?: "left" | "right";
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   updated,
   dateText = "Posted",
   updatedText = "Updated",
+  tooltipSide = "left",
 } = Astro.props;
 let { showUpdated = false } = Astro.props;
 
@@ -40,6 +42,7 @@ if (showUpdated) {
   <time
     datetime={shownDate.toISOString()}
     title={tooltipDate ? `${tooltipText} ${formatDate(tooltipDate, 6)}` : ""}
+    class={tooltipSide}
     >{shownText}
     <strong>{formatDate(shownDate, 6)}{tooltipDate ? "*" : ""}</strong></time
   >
@@ -49,22 +52,33 @@ if (showUpdated) {
   .time {
     color: var(--text-soft);
     font-size: var(--small-font);
+    position: relative;
   }
 
-  .time .updated {
-    margin-left: 0.5rem;
-  }
+  .right[title]:not([title=""]):hover::after {
+    content: attr(title);
 
-  /* why can css do this nonsense */
-  .time time[title]:not([title=""]):hover::after {
+    background-color: var(--block-bg);
+    color: var(--text);
+    padding: var(--block-mark);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    border-radius: var(--block-mark);
+    white-space: nowrap;
+    position: absolute;
+    margin-left: var(--halfpad);
+  }
+  .left[title]:not([title=""]):hover::before {
     content: attr(title);
     background-color: var(--block-bg);
-    color: var(--text-soft);
-    padding: var(--halfpad);
+    color: var(--text);
+    padding: var(--block-mark);
     box-shadow: var(--shadow);
-    border: 1px solid var(--border-soft);
+    border: 1px solid var(--border);
     border-radius: var(--block-mark);
-    position: absolute;
     white-space: nowrap;
+    position: absolute;
+    right: 100%;
+    margin-right: var(--halfpad);
   }
 </style>
