@@ -3,6 +3,7 @@ import "@styles/style.css";
 
 import { type Frontmatter } from "@utils/types.ts";
 import { ViewTransitions } from "astro:transitions";
+import { fetchImage } from "@utils/utils.ts";
 
 export interface Props {
   frontmatter: Frontmatter;
@@ -11,15 +12,10 @@ export interface Props {
 }
 
 const { frontmatter, site_name, locale = "en_US" } = Astro.props;
-
 const { title, description, image } = frontmatter;
+
 import AvatarImage from "@data/images/avatar.png";
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/data/images/*",
-);
-// TODO: what if frontmatter.image isn't in images
-const givenImage = image ? images[image] : null;
-const usedImage = givenImage ? (await givenImage()).default : AvatarImage;
+const usedImage = await fetchImage(image, AvatarImage);
 
 let fullTitle = `${title} | ${site_name}`;
 if (!title) {
@@ -40,9 +36,9 @@ const url = Astro.url;
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:title" content={title} />
+<meta property="og:title" content={fullTitle} />
 <meta property="og:type" content="website" />
-<meta property="og:image" content={usedImage.src} />
+{usedImage && <meta property="og:image" content={usedImage.src} />}
 <meta property="og:url" content={url} />
 <meta property="og:description" content={description} />
 <meta property="og:locale" content={locale} />

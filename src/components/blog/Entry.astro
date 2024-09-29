@@ -1,6 +1,21 @@
 ---
 import { marked } from "marked";
+import Avatar from "@components/ui/Avatar.astro";
 import Date from "@components/blog/Date.astro";
+import { fetchImage } from "@utils/utils.ts";
+
+export interface Props {
+  title: string;
+  date: Date;
+  published: boolean;
+  description?: string;
+  tags?: string[];
+  updated?: Date;
+  image?: string;
+  imageAlt?: string;
+  slug: string;
+  collection: string;
+}
 
 const {
   title,
@@ -8,12 +23,15 @@ const {
   date,
   updated,
   image,
-  author,
+  imageAlt,
+  // author,
   published,
   tags,
   slug,
   collection,
 } = Astro.props;
+
+const usedImage = await fetchImage(image);
 
 const renderedDesc = description ? marked.parse(description) : null;
 ---
@@ -21,12 +39,12 @@ const renderedDesc = description ? marked.parse(description) : null;
 <div class="entry">
   <div class="info">
     <a href={slug}>{title}</a>
-    <Date date={date} updated={updated} />
+    <Date date={date} updated={updated} tooltipSide="right" />
     {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
     <!-- <div class="preview"></div> -->
   </div>
   <div class="img">
-    {image ? <img src={image} /> : null}
+    {usedImage ? <Avatar image={usedImage} alt={imageAlt!} /> : null}
   </div>
 </div>
 
@@ -36,11 +54,6 @@ const renderedDesc = description ? marked.parse(description) : null;
     /* border: 1px solid black; */
     /* position: relative; */
     /* margin: auto; */
-  }
-  img {
-    border: var(--block-mark) solid var(--border-soft);
-    border-radius: var(--squircle);
-    box-shadow: var(--edge);
   }
   .img {
     width: 3.8rem;
