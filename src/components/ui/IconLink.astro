@@ -30,6 +30,7 @@ const external = href[0] !== "/";
   }
   a {
     color: var(--text-soft);
+    font-size: 1.4rem;
     /* transition: color var(--snap) ease-in-out; */
   }
 
@@ -54,4 +55,10 @@ const external = href[0] !== "/";
   .twitter:hover {
     color: #1da1f2;
   }
+
+  @media (min-width: 768px) {
+    a {
+      font-size: inherit;
+    }
+
 </style>

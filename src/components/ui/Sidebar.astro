@@ -38,13 +38,14 @@ import { menuToggleId } from "@utils/consts.ts";
 </div>
 
 <style>
-  div {
+  .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     height: 100vh;
-    max-width: 35wh;
+    width: 40vw;
+    /* width is to make menu more accessible */
     transform: translateX(-100%);
     transition: transform var(--snap) ease-in-out;
 
@@ -66,11 +67,11 @@ import { menuToggleId } from "@utils/consts.ts";
   }
 
   @media (min-width: 768px) {
-    div {
+    .sidebar {
       position: relative;
       transform: none;
       box-shadow: none;
-      /* width: auto; */
+      width: auto;
       height: auto;
       background-color: inherit;
     }
