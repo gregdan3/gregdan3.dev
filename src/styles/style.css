@@ -142,9 +142,32 @@ main pre {
   }
 }
 
-@media (pointer: none), (pointer: coarse) {
+/* NOTE: I used to check either pointer: coarse or pointer: none. I stopped doing so
+* because on Linux, Chromium and Google Chrome detect _no pointer_. This isn't the end
+* of the world, because mobile devices almost universally report as having a coarse
+* primary pointer, but it's absolutely baffling that Chrome gets something this basic
+* wrong. */
+@media (pointer: coarse) {
   /* bigger scale for mobile */
   :root {
     font-size: calc(10px + 1.5vw);
   }
 }
+
+/* @media (pointer: fine) { */
+/*   main::before { */
+/*     content: "fine"; */
+/*   } */
+/* } */
+/**/
+/* @media (pointer: coarse) { */
+/*   main::before { */
+/*     content: "coarse"; */
+/*   } */
+/* } */
+/**/
+/* @media (pointer: none) { */
+/*   main::before { */
+/*     content: "none"; */
+/*   } */
+/* } */
