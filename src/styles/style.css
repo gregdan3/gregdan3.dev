@@ -12,9 +12,9 @@
   --pad: 1rem;
   --squircle: 20%;
   --snap: 0.12s;
-  --shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
-  --edge: 0 0 2px 1px rgba(0, 0, 0, 0.25);
-  /* --edge: 0 0 2px rgba(0, 0, 0, 0.75); */
+  --hover-shadow: 2px 4px 5px var(--hover);
+  --edge-shadow: 0 0 2px 1px var(--edge);
+  --raise-shadow: 2px 2px 0 0 var(--raise);
 
   --site-bg: #e2e8f0;
   --main-bg: #f8fafc;
@@ -22,33 +22,37 @@
 
   --text: #0f172a;
   --text-soft: #64748b;
-  --text-hard: yellow;
 
-  --border: rgb(148, 163, 184);
-  --border-soft: rgb(100, 116, 139);
-  --border-hard: rgb(31, 41, 55);
+  --border: #94a3b8;
+  --border-hard: #1f2937;
 
   --url: #3366cc;
   --urlvisited: #7755bb;
   --highlight: #c3dbff;
+
+  --hover: rgba(0, 0, 0, 0.25);
+  --edge: rgba(0, 0, 0, 0.25);
+  --raise: rgba(0, 0, 0, 0.75);
 }
 
 :root.dark {
-  --site-bg: yellow;
-  --main-bg: darkgray;
-  --block-bg: indigo;
+  --site-bg: #0f172a;
+  --main-bg: #1e293b;
+  --block-bg: #020617;
 
-  --text: green;
-  --text-soft: lightskyblue;
-  --text-hard: darkgreen;
+  --text: #e5e7eb;
+  --text-soft: #6d7c91;
 
-  --border: brown;
-  --border-soft: pink;
-  --border-hard: orange;
+  --border: #9ca3af;
+  --border-hard: #c1c5cd;
 
-  --url: #3366cc;
-  --urlvisited: #7755bb;
-  --highlight: #c3dbff;
+  --url: #5599ff;
+  --urlvisited: #9977dd;
+  --highlight: #2c3366;
+
+  --hover: rgba(0, 0, 0, 0.75);
+  --edge: rgba(0, 0, 0, 0.75);
+  --raise: rgba(255, 255, 255, 0.15);
 }
 
 /* necessary styles */
@@ -108,7 +112,7 @@ main blockquote {
   border-left: var(--block-mark) solid var(--border);
   /* seems silly, but this pins the radius to the mark width */
   border-radius: var(--block-mark);
-  box-shadow: var(--edge);
+  box-shadow: var(--edge-shadow);
 
   margin: var(--pad);
   padding: var(--pad);
@@ -132,7 +136,7 @@ main pre {
   border-left: var(--block-mark) solid var(--border);
   border-radius: var(--block-mark);
 
-  box-shadow: var(--edge);
+  box-shadow: var(--edge-shadow);
 }
 
 @media (min-width: 2000px) {
