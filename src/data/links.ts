@@ -52,7 +52,7 @@ export const externalLinks: IconLinkData[] = [
 export const subscribeLinks: IconLinkData[] = [
   {
     name: "RSS",
-    href: "/blog/rss",
+    href: "/rss.xml",
     icon: "mingcute:rss-2-fill",
   },
 ];
