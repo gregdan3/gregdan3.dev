@@ -1,34 +1,38 @@
 ---
+import type { CollectionEntry } from "astro:content";
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Date from "@components/blog/Date.astro";
 import { getCollection } from "astro:content";
 import { marked } from "marked";
-import Date from "@components/blog/Date.astro";
-
-import type { BlogPost } from "@utils/types";
 
 export async function getStaticPaths() {
-  let posts = await getCollection("blog", (entry) => entry.data.published);
-  return posts.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  let posts = await getCollection("blog", (post) => post.data.published);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
-const { entry } = Astro.props;
-const { title, description, date, image, imageAlt, updated, published } =
-  entry.data as BlogPost;
+const { post } = Astro.props;
 
-const renderedDesc = description ? marked.parse(description) : null;
-const { Content } = await entry.render();
+const renderedDesc = post.data.description
+  ? marked.parse(post.data.description)
+  : null;
+
+const { Content } = await post.render();
 ---
 
-<BaseLayout frontmatter={entry.data}>
+<BaseLayout frontmatter={post.data}>
   <header>
-    <h1 class="title">{title}</h1>
+    <h1 class="title">{post.data.title}</h1>
     <div class="metadata">
       {renderedDesc ? <div class="desc" set:html={renderedDesc} /> : <div />}
       <div class="date">
-        <Date date={date} updated={updated} />
+        <Date date={post.data.date} updated={post.data.updated} />
       </div>
     </div>
   </header>

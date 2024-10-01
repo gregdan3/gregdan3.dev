@@ -7,13 +7,6 @@ export interface Frontmatter {
   updated?: Date;
 }
 
-export interface BlogPost extends Frontmatter {
-  // author?: string;
-  published: boolean;
-  tags: string[];
-  // slug: string;
-}
-
 // links.ts
 export interface LinkData {
   name: string;
