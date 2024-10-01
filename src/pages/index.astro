@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Date from "@components/blog/Date.astro";
 import { getCollection, getEntry } from "astro:content";
 import { servers } from "@data/links";
 
@@ -11,34 +10,10 @@ const { Content } = await about.render();
 ---
 
 <BaseLayout frontmatter={about.data}>
-  <div class="container">
-    <h2>{about.data.description}</h2>
+  <h2>{about.data.description}</h2>
 
-    <div class="updated">
-      <Date
-        date={about.data.date}
-        updated={about.data.updated}
-        showUpdated={true}
-        tooltipSide="left"
-      />
-    </div>
+  <Content />
 
-    <Content />
-
-    <!-- <h3>goofs</h3> -->
-    <!-- {goofs.reverse().map((goof) => <p>{goof.body}</p>)} -->
-  </div>
+  <!-- <h3>goofs</h3> -->
+  <!-- {goofs.reverse().map((goof) => <p>{goof.body}</p>)} -->
 </BaseLayout>
-
-<style>
-  .container {
-    position: relative;
-  }
-  .updated {
-    position: absolute;
-    top: -1.35rem;
-    right: 0;
-    color: var(--text-soft);
-    font-size: var(--small-font);
-  }
-</style>
