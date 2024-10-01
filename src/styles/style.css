@@ -101,8 +101,7 @@ main a:visited {
 /* NOTE: i assume that nofollow links of main are external */
 main a[rel="nofollow"]::after {
   /* TODO: use mingcute external link */
-  content: " ⤴";
-  font-size: 0.75em;
+  content: "⤴";
 }
 
 main blockquote {
