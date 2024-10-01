@@ -21,8 +21,8 @@ posts = posts.sort(
   <h2>greg's glog</h2>
 
   <div class="hook">
-    Every dev needs an abandoned blog, and this one is mine. I even did the
-    thing where I crungle the word blog.
+    Every developer needs an abandoned blog, and this one is mine. I even did
+    the thing where I crungle the word blog.
   </div>
 
   {
@@ -31,7 +31,7 @@ posts = posts.sort(
       return (
         <div>
           {index !== 0 && <hr />}
-          <Entry {...post.data} slug={href} collection="blog" />
+          <Entry post={post} />
         </div>
       );
     })

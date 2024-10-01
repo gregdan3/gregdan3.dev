@@ -3,49 +3,38 @@ import { marked } from "marked";
 import Avatar from "@components/ui/Avatar.astro";
 import Date from "@components/blog/Date.astro";
 import { fetchImage } from "@utils/utils.ts";
+import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-  title: string;
-  date: Date;
-  published: boolean;
-  description?: string;
-  tags?: string[];
-  updated?: Date;
-  image?: string;
-  imageAlt?: string;
-  slug: string;
-  collection: string;
+  post: CollectionEntry<"blog">;
 }
 
-const {
-  title,
-  description,
-  date,
-  updated,
-  image,
-  imageAlt,
-  // author,
-  published,
-  tags,
-  slug,
-  collection,
-} = Astro.props;
+const { post } = Astro.props;
+console.log(post);
 
-const usedImage = await fetchImage(image);
+const link = `/blog/${post.slug}`;
 
-const renderedDesc = description ? marked.parse(description) : null;
+const usedImage = await fetchImage(post.data.image);
+
+const renderedDesc = post.data.description
+  ? marked.parse(post.data.description)
+  : null;
 ---
 
 <div class="entry">
   <div class="info">
-    <a href={slug}>{title}</a>
-    <Date date={date} updated={updated} tooltipSide="right" />
+    <a href={link}>{post.data.title}</a>
+    <Date
+      date={post.data.date}
+      updated={post.data.updated}
+      tooltipSide="right"
+    />
     {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
     <!-- <div class="preview"></div> -->
   </div>
-  <div class="img">
-    {usedImage ? <Avatar image={usedImage} alt={imageAlt!} /> : null}
-  </div>
+  <!-- <div class="img"> -->
+  <!--   {usedImage ? <Avatar image={usedImage} alt={imageAlt!} /> : null} -->
+  <!-- </div> -->
 </div>
 
 <style>
