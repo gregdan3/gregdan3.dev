@@ -1,9 +1,10 @@
 ---
-title: pini Linku
-repo: https://github.com/lipu-linku/lipu-pini
-link: https://pini.linku.la/
+title: markdown toc redux
+repo: "https://github.com/gregdan3/markdown-toc-redux/"
 role: maintainer
-description: The prior version of the Linku web dictionary.
+description:
+  Jon Schlinkert's original markdown toc library had some dealbreaking bugs, so
+  I fixed them.
 published: false
 date: 2022-04-23 # date of merged request
 skills:
