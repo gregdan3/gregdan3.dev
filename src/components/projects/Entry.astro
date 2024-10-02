@@ -13,7 +13,7 @@ import FixedIcon from "@components/ui/FixedIcon.astro";
 import IconLink from "@components/ui/IconLink.astro";
 const { project } = Astro.props;
 
-const link = `/blog/${project.slug}`;
+const link = project.body ? `/projects/${project.slug}` : null;
 
 const usedImage = await fetchImage(project.data.image);
 
@@ -24,11 +24,14 @@ const renderedDesc = project.data.description
 
 <!-- <a href={project.data.link} rel="dofollow" target="_blank">link</a> --><!-- <a href={project.data.repo} rel="dofollow" target="_blank">repo</a> --><!-- <a href={project.data.blog} rel="dofollow" target="_blank">blog</a> -->
 <div class="entry">
-  <hr />
   <h2>
-    <a href={link}>
-      {project.data.title}
-    </a>
+    {
+      link ? (
+        <a href={link}> {project.data.title} </a>
+      ) : (
+        <span>{project.data.title}</span>
+      )
+    }
   </h2>
   <Date
     date={project.data.date}

@@ -12,7 +12,8 @@ import { marked } from "marked";
 export async function getStaticPaths() {
   let projects = await getCollection(
     "projects",
-    (project) => project.data.published || import.meta.env.DEV,
+    (project) =>
+      (project.data.published && project.body) || import.meta.env.DEV,
   );
   return projects.map((project) => ({
     params: { slug: project.slug },
