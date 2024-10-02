@@ -12,7 +12,7 @@ export interface Props {
 const { post } = Astro.props;
 console.log(post);
 
-const link = `/blog/${post.slug}`;
+const link = `/${post.collection}/${post.slug}`;
 
 const usedImage = await fetchImage(post.data.image);
 
