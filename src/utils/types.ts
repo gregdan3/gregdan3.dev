@@ -30,27 +30,6 @@ export interface DiscordShield {
   style: string;
 }
 
-// projects.ts
-export interface Technology {
-  name: string;
-  icon: string;
-  bclass?: string;
-}
-
-type Role = "Contributor" | "Maintainer" | "Creator";
-
-export interface ProjectData {
-  name: string;
-  repo: string; // repo of the project
-  date?: Date;
-  link?: string; // live version of the project
-  blog?: string; // blog post about the project
-  role: Role;
-  description: string;
-  skills: Technology[];
-  banner?: string; // image
-}
-
 export interface LanyardData {
   spotify: LanyardSpotifyData | null;
   kv: { [key: string]: string };

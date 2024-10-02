@@ -1,0 +1,53 @@
+---
+import { marked } from "marked";
+import Avatar from "@components/ui/Avatar.astro";
+import Date from "@components/blog/Date.astro";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+import FixedIcon from "@components/ui/FixedIcon.astro";
+import IconLink from "@components/ui/IconLink.astro";
+const { project } = Astro.props;
+---
+
+<!-- <a href={project.data.link} rel="dofollow" target="_blank">link</a> --><!-- <a href={project.data.repo} rel="dofollow" target="_blank">repo</a> --><!-- <a href={project.data.blog} rel="dofollow" target="_blank">blog</a> -->
+<div>
+  <hr />
+  <h2>
+    {project.data.title}
+  </h2>
+
+  {
+    project.data.link && (
+      <IconLink icon="mingcute:external-link-line" href={project.data.link} />
+    )
+  }
+  {
+    project.data.repo && (
+      <IconLink icon="mingcute:code-line" href={project.data.repo} />
+    )
+  }
+  {
+    project.data.blog && (
+      <IconLink icon="mingcute:document-line" href={project.data.blog} />
+    )
+  }
+
+  <div>{project.data.description}</div>
+
+  {
+    project.data.skills.map((skill) => {
+      return (
+        <div>
+          <FixedIcon name={skill.icon} inline={true} />
+          <span>{skill.name}</span>
+        </div>
+      );
+    })
+  }
+</div>
+
+<style></style>
