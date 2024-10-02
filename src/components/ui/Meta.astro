@@ -51,6 +51,44 @@ const url = Astro.url;
 <meta property="og:locale" content={locale} />
 <meta property="og:site_name" content={site_name} />
 
-<meta property="og:" content={site_name} />
-
 <ViewTransitions />
+
+<script>
+  import { goatcounterEndpoint } from "@utils/consts.ts";
+  import { initialize, count } from "goatcounter-js";
+
+  initialize({
+    scriptVersion: 4,
+    endpointUrl: goatcounterEndpoint,
+    settings: { no_onload: true, allow_local: true },
+    // NOTE: integrity is auto-supplied, but ublock somehow mangles the script by
+    // default? and rejects the script if the correct integrity is supplied anyway,
+    // which is intended behavior
+    // integrity:
+    //   "sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb",
+  });
+
+  let prevPage: string | null = null;
+  document.addEventListener("astro:page-load", async () => {
+    // should fire for both client-side and server-side navigation
+    if (window.location.href == prevPage) {
+      return;
+    }
+    prevPage = window.location.href;
+
+    // @ts-expect-error: .goatcounter is defined witout .endpoint but script checks for it
+    window.goatcounter!.endpoint = goatcounterEndpoint;
+    // idk why but the .goatcounter endpoint is inaccessible after first load
+    // maybe caused by astro's processing
+    // is there a way to assign this after window.goatcounter loads?
+
+    console.log(
+      `tracked! url: ${window.location.href}; title: ${document.title}; referrer: ${document.referrer}`,
+    );
+    await count({
+      path: window.location.href,
+      title: document.title,
+      referrer: document.referrer,
+    });
+  });
+</script>
