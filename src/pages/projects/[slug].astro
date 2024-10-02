@@ -4,10 +4,8 @@ export interface Props {
   project: CollectionEntry<"projects">;
 }
 
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Date from "@components/blog/Date.astro";
+import PostLayout from "@layouts/PostLayout.astro";
 import { getCollection } from "astro:content";
-import { marked } from "marked";
 
 export async function getStaticPaths() {
   let projects = await getCollection(
@@ -22,53 +20,9 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-
-const renderedDesc = project.data.description
-  ? marked.parse(project.data.description)
-  : null;
-
 const { Content } = await project.render();
 ---
 
-<BaseLayout frontmatter={project.data}>
-  <header>
-    <h1 class="title">{project.data.title}</h1>
-    <div class="metadata">
-      {renderedDesc ? <div class="desc" set:html={renderedDesc} /> : <div />}
-      <div class="date">
-        <Date date={project.data.date} updated={project.data.updated} />
-      </div>
-    </div>
-  </header>
-
+<PostLayout post={project}>
   <Content />
-</BaseLayout>
-
-<style>
-  header {
-    position: relative;
-    margin-bottom: var(--halfpad);
-  }
-
-  .title {
-    margin-top: var(--halfpad);
-    text-align: center;
-    line-height: 2rem;
-  }
-
-  .metadata {
-    padding-left: var(--pad);
-    padding-right: var(--pad);
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .desc {
-    font-size: var(--small-font);
-    border-left: var(--block-mark) solid var(--border);
-    border-radius: var(--block-mark);
-    padding-left: var(--block-mark);
-  }
-  .date {
-  }
-</style>
+</PostLayout>

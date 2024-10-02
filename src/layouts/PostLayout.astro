@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from "astro:content";
+export interface Props {
+  post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
+}
+
+import { marked } from "marked";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Date from "@components/blog/Date.astro";
+
+const { post } = Astro.props;
+
+const renderedDesc = post.data.description
+  ? marked.parse(post.data.description)
+  : null;
+---
+
+<BaseLayout frontmatter={post.data}>
+  <header>
+    <h1 class="title">{post.data.title}</h1>
+    <div class="metadata">
+      {renderedDesc ? <div class="desc" set:html={renderedDesc} /> : <div />}
+      <div class="date">
+        <Date date={post.data.date} updated={post.data.updated} />
+      </div>
+    </div>
+  </header>
+
+  <slot />
+</BaseLayout>
+
+<style>
+  header {
+    position: relative;
+    margin-bottom: var(--halfpad);
+  }
+
+  .title {
+    margin-top: var(--halfpad);
+    text-align: center;
+    line-height: 2rem;
+  }
+
+  .metadata {
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .desc {
+    font-size: var(--small-font);
+    border-left: var(--block-mark) solid var(--border);
+    border-radius: var(--block-mark);
+    padding-left: var(--block-mark);
+  }
+  .date {
+  }
+</style>
