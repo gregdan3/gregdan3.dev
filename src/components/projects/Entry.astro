@@ -2,6 +2,7 @@
 import { marked } from "marked";
 import Avatar from "@components/ui/Avatar.astro";
 import Date from "@components/blog/Date.astro";
+import { fetchImage } from "@utils/utils.ts";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -11,14 +12,29 @@ export interface Props {
 import FixedIcon from "@components/ui/FixedIcon.astro";
 import IconLink from "@components/ui/IconLink.astro";
 const { project } = Astro.props;
+
+const link = `/blog/${project.slug}`;
+
+const usedImage = await fetchImage(project.data.image);
+
+const renderedDesc = project.data.description
+  ? marked.parse(project.data.description)
+  : null;
 ---
 
 <!-- <a href={project.data.link} rel="dofollow" target="_blank">link</a> --><!-- <a href={project.data.repo} rel="dofollow" target="_blank">repo</a> --><!-- <a href={project.data.blog} rel="dofollow" target="_blank">blog</a> -->
-<div>
+<div class="entry">
   <hr />
   <h2>
-    {project.data.title}
+    <a href={link}>
+      {project.data.title}
+    </a>
   </h2>
+  <Date
+    date={project.data.date}
+    updated={project.data.updated}
+    tooltipSide="right"
+  />
 
   {
     project.data.link && (
@@ -30,24 +46,42 @@ const { project } = Astro.props;
       <IconLink icon="mingcute:code-line" href={project.data.repo} />
     )
   }
-  {
-    project.data.blog && (
-      <IconLink icon="mingcute:document-line" href={project.data.blog} />
-    )
-  }
+  <!-- { -->
+  <!--   project.data.blog && ( -->
+  <!--     <IconLink icon="mingcute:document-line" href={project.data.blog} /> -->
+  <!--   ) -->
+  <!-- } -->
 
   <div>{project.data.description}</div>
 
   {
-    project.data.skills.map((skill) => {
-      return (
-        <div>
-          <FixedIcon name={skill.icon} inline={true} />
-          <span>{skill.name}</span>
-        </div>
-      );
-    })
+    project.data.skills
+      ? project.data.skills.map((skill) => {
+          return (
+            <div>
+              <FixedIcon name={skill.icon} inline={true} />
+              <span>{skill.name}</span>
+            </div>
+          );
+        })
+      : null
+  }
+
+  {
+    project.data.published ? null : (
+      <div style="color: red; font-size: 1.5em; position: absolute; right: 0; top: 0;">
+        DRAFT
+      </div>
+    )
   }
 </div>
 
-<style></style>
+<style>
+  .entry {
+    /* display: flex; */
+    position: relative;
+    /* border: 1px solid black; */
+    /* position: relative; */
+    /* margin: auto; */
+  }
+</style>

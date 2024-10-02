@@ -22,8 +22,13 @@ projects = projects.sort(
 <BaseLayout frontmatter={frontmatter}>
   <div>
     {
-      projects.map((project) => {
-        return <Entry project={project} />;
+      projects.map((project, index) => {
+        return (
+          <div>
+            {index !== 0 && <hr />}
+            <Entry project={project} />
+          </div>
+        );
       })
     }
   </div>
