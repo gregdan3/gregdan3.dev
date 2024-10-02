@@ -1,6 +1,6 @@
 ---
-import Entry from "@components/blog/Entry.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Entry from "@components/blog/Entry.astro";
 
 import { type Frontmatter } from "@utils/types.ts";
 import { getCollection } from "astro:content";
@@ -11,7 +11,10 @@ const frontmatter = {
   updated: new Date("2024-09-19"),
 } as Frontmatter;
 
-let posts = await getCollection("blog", (post) => post.data.published);
+let posts = await getCollection(
+  "blog",
+  (post) => post.data.published || import.meta.env.DEV,
+);
 posts = posts.sort(
   (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
 );

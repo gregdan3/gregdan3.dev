@@ -30,6 +30,14 @@ const renderedDesc = post.data.description
       tooltipSide="right"
     />
     {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
+
+    {
+      post.data.published ? null : (
+        <div style="color: red; font-size: 1.5em; position: absolute; right: 0; top: 0;">
+          DRAFT
+        </div>
+      )
+    }
     <!-- <div class="preview"></div> -->
   </div>
   <!-- <div class="img"> -->
@@ -40,6 +48,7 @@ const renderedDesc = post.data.description
 <style>
   .entry {
     display: flex;
+    position: relative;
     /* border: 1px solid black; */
     /* position: relative; */
     /* margin: auto; */

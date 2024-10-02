@@ -10,7 +10,10 @@ import { getCollection } from "astro:content";
 import { marked } from "marked";
 
 export async function getStaticPaths() {
-  let posts = await getCollection("blog", (post) => post.data.published);
+  let posts = await getCollection(
+    "blog",
+    (post) => post.data.published || import.meta.env.DEV,
+  );
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
