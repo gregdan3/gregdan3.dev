@@ -1,5 +1,6 @@
 {
   "name": "gregdan3-dev",
+  "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -12,11 +13,11 @@
     "@astrojs/check": "^0.9.3",
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/rss": "^4.0.7",
-    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/sitemap": "^3.2.0",
     "@iconify-json/fa-brands": "^1.2.0",
     "@iconify-json/mingcute": "^1.2.0",
     "@iconify-json/skill-icons": "^1.2.0",
-    "astro": "^4.15.8",
+    "astro": "^4.15.11",
     "astro-compress": "^2.3.1",
     "astro-icon": "^1.1.1",
     "astro-robots-txt": "^1.0.0",
@@ -28,15 +29,15 @@
     "remark-abbr": "^1.4.2",
     "remark-gfm": "^4.0.0",
     "remark-smartypants": "^2.1.0",
-    "remark-supersub": "^1.0.0",
     "remark-toc": "^9.0.0",
     "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.11.0",
-    "eslint": "^9.11.0",
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript-eslint": "^8.6.0"
+    "remark-mark-highlight": "^0.1.1",
+    "typescript-eslint": "^8.8.0"
   }
 }

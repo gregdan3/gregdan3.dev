@@ -145,6 +145,14 @@ main a[rel="nofollow"]::after {
   content: "⤴";
 }
 
+main mark {
+  color: var(--text);
+  background-color: var(--highlight);
+  border: 1px solid var(--border-hard);
+  border-radius: var(--block-mark);
+  padding: 1px;
+}
+
 main blockquote {
   /* color: FG2; */
   background: var(--block-bg);

@@ -11,7 +11,7 @@ import robotsTxt from "astro-robots-txt";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 import remarkSmartypants from "remark-smartypants";
-// import remarkSupersub from "remark-supersub";
+import { remarkMark } from "remark-mark-highlight";
 import remarktoc from "remark-toc";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -23,8 +23,8 @@ export default defineConfig({
   publicDir: "./public",
   integrations: [
     mdx(),
-    sitemap(),
     icon({ iconDir: "src/icons" }),
+    sitemap(),
     robotsTxt(),
     compress(),
   ],
@@ -40,7 +40,7 @@ export default defineConfig({
       // remarkAbbr,
       remarkGfm,
       remarkSmartypants,
-      // remarkSupersub(),
+      remarkMark,
       [
         remarktoc,
         {
