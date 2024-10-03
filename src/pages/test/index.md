@@ -18,11 +18,11 @@ formatting to demonstrate everything I need the formatting type to do.
 - [x] [blockquotes](#blockquotes)
 - [x] [lists](#lists)
 - [x] [horizontal rule](#horizontal-rule)
-- [ ] [table](#table): Needs css
+- [x] [table](#table)
 - [ ] [code](#code): Needs light/dark switch?
 - [x] [text formatting](#text-formatting)
 - [x] [images](#images)
-- [ ] [spoilers](#spoilers): Summary not in-line with arrow?
+- [x] [spoilers](#spoilers)
 - [ ] [Subscript/Superscript](#subscript--superscript)
 - [ ] [footnotes](#footnotes)
 - [x] [abbreviations](#abbreviations)
@@ -451,10 +451,16 @@ duis.
 
 ## Plugins
 
+### Highlight
+
+==example test==
+
+==~~text which is highlighted and has a strikethrough~~==
+
 ### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
 
-- 19^th^ Century
-- H~2~O
+- 19^th^ Century (superscript)
+- H~2~O (subscript)
 - strikethrough ~~text with ~subscript~ and ^superscript^ text inside it~~
 
 ### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
