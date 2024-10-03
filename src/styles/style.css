@@ -62,13 +62,6 @@ main {
   color: var(--text);
 }
 
-/* main hr { */
-/*   max-width: 100%; */
-/* } */
-/* main table { */
-/*   max-width: 100%; */
-/* } */
-
 main p {
   margin: 0;
 }
@@ -79,8 +72,34 @@ main p + p {
 main img {
   max-width: 100%;
 }
+main summary {
+  cursor: pointer;
+  border: 1px solid var(--border-hard);
+  border-radius: var(--block-mark);
+  padding: var(--halfpad);
+  box-shadow: var(--edge-shadow);
+}
+main summary > * {
+  display: inline-block;
+}
+main details {
+  margin: var(--halfpad);
+}
+main details[open] summary {
+  border: none;
+  border-bottom: 1px solid var(--border-hard);
+  box-shadow: none;
 
-/* preferred styles */
+  margin: -0.5rem; /* negative halfpad */
+  /* creates illusion that summary border remains */
+  margin-bottom: var(--halfpad);
+}
+main details[open] {
+  border: 1px solid var(--border-hard);
+  border-radius: var(--block-mark);
+  padding: var(--halfpad);
+  box-shadow: var(--edge-shadow);
+}
 
 main a {
   text-decoration: underline var(--url);
