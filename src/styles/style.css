@@ -107,7 +107,6 @@ main details[open] {
 main table {
   max-width: 100%;
   margin: var(--halfpad);
-  border: 1px solid black;
   border-collapse: collapse;
   box-shadow: var(--edge);
 }
@@ -154,8 +153,7 @@ main mark {
 }
 
 main blockquote {
-  /* color: FG2; */
-  background: var(--block-bg);
+  background-color: var(--block-bg);
   border: 1px solid var(--border-hard);
   border-left: var(--block-mark) solid var(--border);
   /* seems silly, but this pins the radius to the mark width */
