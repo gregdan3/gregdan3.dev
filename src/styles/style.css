@@ -72,6 +72,9 @@ main p + p {
 main img {
   max-width: 100%;
 }
+
+/* preferred styles */
+
 main summary {
   cursor: pointer;
   border: 1px solid var(--border-hard);
@@ -83,7 +86,7 @@ main summary > * {
   display: inline-block;
 }
 main details {
-  margin: var(--halfpad);
+  margin: var(--pad);
 }
 main details[open] summary {
   border: none;
@@ -99,6 +102,25 @@ main details[open] {
   border-radius: var(--block-mark);
   padding: var(--halfpad);
   box-shadow: var(--edge-shadow);
+}
+
+main table {
+  max-width: 100%;
+  margin: var(--halfpad);
+  border: 1px solid black;
+  border-collapse: collapse;
+  box-shadow: var(--edge);
+}
+
+main th {
+  border: 1px solid var(--border-hard);
+  background-color: var(--block-bg);
+  padding: var(--block-mark);
+}
+main td {
+  border: 1px solid var(--border);
+  background-color: var(--site-bg);
+  padding: 2px;
 }
 
 main a {
