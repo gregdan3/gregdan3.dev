@@ -21,18 +21,18 @@ posts = posts.sort(
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <h2>greg's glog</h2>
+  <!-- <h2>greg's glog</h2> -->
 
-  <div class="hook">
-    Every developer needs an abandoned blog, and this one is mine. I even did
-    the thing where I crungle the word blog.
-  </div>
+  <!-- <div class="hook"> -->
+  <!--   Every developer needs an abandoned blog, and this one is mine. I even did -->
+  <!--   the thing where I crungle the word blog. -->
+  <!-- </div> -->
 
   {
     posts.map((post, index) => {
       return (
         <div>
-          {index !== 0 && <hr />}
+          {index !== 0 && <br />}
           <Entry post={post} />
         </div>
       );
