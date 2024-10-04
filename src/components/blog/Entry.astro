@@ -10,7 +10,6 @@ export interface Props {
 }
 
 const { post } = Astro.props;
-console.log(post);
 
 const link = `/${post.collection}/${post.slug}`;
 
@@ -19,12 +18,20 @@ const usedImage = await fetchImage(post.data.image);
 const renderedDesc = post.data.description
   ? marked.parse(post.data.description)
   : null;
+
+import { clipArticle } from "@utils/utils.ts";
+// const content = await post.render();
+// console.log(content);
+
+const clippedArticle = clipArticle(post.body, 150);
+const renderedArticle = marked.parse(clippedArticle);
 ---
 
 <div class="entry">
   <div class="info">
-    <a href={link}>{post.data.title}</a>
+    <a class="link" href={link}>{post.data.title}</a>
     <Date
+      dateText=""
       date={post.data.date}
       updated={post.data.updated}
       tooltipSide="right"
@@ -38,7 +45,10 @@ const renderedDesc = post.data.description
         </div>
       )
     }
-    <!-- <div class="preview"></div> -->
+  </div>
+  <div class="preview">
+    <div class="preview-body" set:html={renderedArticle} />
+    <a class="cover" href={link}></a>
   </div>
   <!-- <div class="img"> -->
   <!--   {usedImage ? <Avatar image={usedImage} alt={imageAlt!} /> : null} -->
@@ -47,28 +57,44 @@ const renderedDesc = post.data.description
 
 <style>
   .entry {
-    display: flex;
     position: relative;
-    /* border: 1px solid black; */
-    /* position: relative; */
-    /* margin: auto; */
   }
-  .img {
-    width: 3.8rem;
-    height: 3.8rem;
-    margin-left: auto;
-    padding: var(--halfpad);
-  }
+  /* .img { */
+  /*   width: 3.8rem; */
+  /*   height: 3.8rem; */
+  /*   margin-left: auto; */
+  /*   padding: var(--halfpad); */
+  /* } */
   .desc {
     font-size: var(--small-font);
     padding: var(--block-mark);
-    margin: var(--block-mark);
-    margin-left: 0;
+    margin: var(--halfpad);
+    margin-top: 0;
   }
-  a {
+  .link {
     display: block;
     font-size: 1.2em;
     font-weight: 600;
     margin-bottom: -0.25rem;
+  }
+
+  .preview {
+    position: relative;
+  }
+  .preview-body {
+    mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+    height: 18rem;
+    overflow: hidden;
+  }
+  .cover {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    /* background-color: #ffffff22; */
+    height: 18rem;
+    width: 100%;
+  }
+  .cover:hover {
+    background-color: inherit;
   }
 </style>

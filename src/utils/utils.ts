@@ -28,3 +28,11 @@ export const fetchImage = async (
   }
   return null;
 };
+
+export const clipArticle = (article: string, size: number = 150): string => {
+  // NOTE: this can split in the middle of syntax.
+  // the user is expected to fade out whatever they render
+  let words = article.split(" ");
+  words = words.slice(0, size);
+  return words.join(" ");
+};

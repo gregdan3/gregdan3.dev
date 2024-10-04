@@ -17,13 +17,22 @@ const renderedDesc = post.data.description
 
 <BaseLayout frontmatter={post.data}>
   <header>
-    <h1 class="title">{post.data.title}</h1>
-    <div class="metadata">
-      {renderedDesc ? <div class="desc" set:html={renderedDesc} /> : <div />}
-      <div class="date">
-        <Date date={post.data.date} updated={post.data.updated} />
-      </div>
-    </div>
+    <div class="title">{post.data.title}</div>
+    <Date
+      dateText=""
+      date={post.data.date}
+      updated={post.data.updated}
+      tooltipSide="right"
+    />
+    {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
+
+    {
+      post.data.published ? null : (
+        <div style="color: red; font-size: 1.5em; position: absolute; right: 0; top: 0;">
+          DRAFT
+        </div>
+      )
+    }
   </header>
 
   <slot />
@@ -36,23 +45,17 @@ const renderedDesc = post.data.description
   }
 
   .title {
-    margin-top: var(--halfpad);
-    text-align: center;
-    line-height: 2rem;
-  }
-
-  .metadata {
-    padding-left: var(--pad);
-    padding-right: var(--pad);
-    display: flex;
-    justify-content: space-between;
+    display: block;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: -0.25rem;
   }
 
   .desc {
     font-size: var(--small-font);
-    border-left: var(--block-mark) solid var(--border);
-    border-radius: var(--block-mark);
-    padding-left: var(--block-mark);
+    padding: var(--block-mark);
+    margin: var(--halfpad);
+    margin-top: 0;
   }
   .date {
   }
