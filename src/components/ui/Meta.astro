@@ -14,7 +14,7 @@ export interface Props {
 const { frontmatter, site_name, locale = "en_US" } = Astro.props;
 const { title, description, image } = frontmatter;
 
-import AvatarImage from "@data/images/avatar.png";
+import AvatarImage from "@data/images/avatar_s.png";
 const usedImage = await fetchImage(image, AvatarImage);
 
 let fullTitle = `${title} | ${site_name}`;
