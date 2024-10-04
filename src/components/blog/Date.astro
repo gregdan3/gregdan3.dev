@@ -19,7 +19,7 @@ const {
 let { showUpdated = false } = Astro.props;
 
 if (!updated && showUpdated) {
-  console.log("showUpdated is set, but there is no updated date! Unsetting.");
+  console.warn("showUpdated is set, but there is no updated date! Unsetting.");
   showUpdated = false;
 }
 
