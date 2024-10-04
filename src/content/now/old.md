@@ -191,7 +191,8 @@ updated: 2024-10-03
 
 - I published a lesson on names, numbers, and kin!
   [Check it out!](https://youtu.be/P0N1S5jBujI)
-- I dubbed waso mu's comic ["mi lon e ma"](https://waso-mu.neocities.org/musi/),
+- I dubbed waso mu's comic
+  ["mi lon e ma"](https://waso-mu.nekoweb.org/drawings/),
   [see it here!](https://youtu.be/GU9PEZ9TARs)
 
 ### January
