@@ -167,6 +167,7 @@ main blockquote {
 main :not(pre) code {
   font-family: monospace;
   background-color: var(--block-bg);
+  text-wrap: wrap;
 
   border: 1px solid var(--border-hard);
   border-radius: var(--block-mark);
@@ -177,6 +178,7 @@ main pre {
   font-family: monospace;
   margin: var(--halfpad);
   padding: var(--halfpad);
+  max-width: 100%;
 
   border: 1px solid var(--border-hard);
   border-left: var(--block-mark) solid var(--border);
