@@ -24,7 +24,7 @@ export const internalLinks: IconLinkData[] = [
   },
   {
     name: "Projects",
-    href: "/projects",
+    href: "/projects/1",
     icon: "mingcute:terminal-box-line",
     // tooltip: "",
   },

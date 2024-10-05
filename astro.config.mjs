@@ -23,6 +23,7 @@ export default defineConfig({
   publicDir: "./public",
   redirects: {
     "/blog": "/blog/1",
+    "/projects": "/projects/1",
     // "/toki-pona/[...slug]": "https://mun.la/sona/[...slug]",
   },
   integrations: [

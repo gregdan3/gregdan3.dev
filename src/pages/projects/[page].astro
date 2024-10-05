@@ -1,48 +1,42 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Entry from "@components/posts/BlogEntry.astro";
+import Entry from "@components/posts/ProjectEntry.astro";
 import Paginator from "@components/posts/Paginator.astro";
 
 import { getCollectionPosts } from "@utils/utils.ts";
-
 import { type Frontmatter } from "@utils/types.ts";
 import { type Page } from "astro";
+
 export interface Props {
   page: Page;
 }
 export async function getStaticPaths({ paginate }) {
-  let posts = await getCollectionPosts("blog");
+  let posts = await getCollectionPosts("projects");
   return paginate(posts, { pageSize: 3 });
 }
 
 const frontmatter = {
-  title: "glog",
-  description: "Every developer needs an abandoned blog, and this one is mine.",
+  title: "projects",
+  description: "",
   date: new Date("2020-02-10"),
-  updated: new Date("2024-09-19"),
 } as Frontmatter;
 
 const { page } = Astro.props;
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  {
-    page.data.map((post, index) => {
-      return (
-        <div>
-          {index !== 0 && <br />}
-          <Entry post={post} />
-        </div>
-      );
-    })
-  }
+  <div>
+    {
+      page.data.map((project, index) => {
+        return (
+          <div>
+            {index !== 0 && <br />}
+            <Entry project={project} />
+          </div>
+        );
+      })
+    }
+  </div>
 
   <Paginator page={page} />
 </BaseLayout>
-
-<style>
-  .hook {
-    padding: var(--halfpad);
-    padding-bottom: 1rem;
-  }
-</style>

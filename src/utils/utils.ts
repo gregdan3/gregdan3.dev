@@ -1,3 +1,5 @@
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { ImageMetadata } from "astro";
 
 export const sleep = (delay: number) =>
@@ -27,6 +29,52 @@ export const fetchImage = async (
     return usedImage;
   }
   return null;
+};
+
+export async function getCollectionPosts<T>(
+  collection: T,
+  givenFilter?: (post: CollectionEntry<T>) => boolean,
+  givenSort?: (a: CollectionEntry<T>, b: CollectionEntry<T>) => number,
+): Promise<CollectionEntry<T>> {
+  // must be published or be in dev
+  let filter = (post: CollectionEntry<T>) => {
+    return post.data.published || import.meta.env.DEV;
+  };
+  if (givenFilter) {
+    filter = givenFilter;
+  }
+
+  // reverse chronological sort e.g. newest to oldest
+  let sort = (a: CollectionEntry<T>, b: CollectionEntry<T>) => {
+    return b.data.date.valueOf() - a.data.date.valueOf();
+  };
+  if (givenSort) {
+    sort = givenSort;
+  }
+
+  let posts = await getCollection(collection, filter);
+  posts = posts.sort(sort);
+  return posts;
+}
+
+export const getFeedPosts = async () => {
+  let posts: (CollectionEntry<"blog"> | CollectionEntry<"projects">)[] = [];
+
+  const blog = await getCollection(
+    "blog",
+    (post) => (post.data.published && post.body) || import.meta.env.DEV,
+  );
+  const projects = await getCollection(
+    "projects",
+    (post) => (post.data.published && post.body) || import.meta.env.DEV,
+  );
+
+  posts.push(...blog);
+  posts.push(...projects);
+
+  posts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  return posts;
 };
 
 export const clipArticle = (article: string, size: number = 150): string => {

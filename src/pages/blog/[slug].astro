@@ -5,7 +5,7 @@ export interface Props {
 }
 
 import PostLayout from "@layouts/PostLayout.astro";
-import Suggester from "@components/Suggester.astro";
+import Suggester from "@components/posts/Suggester.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -25,5 +25,5 @@ const { Content } = await post.render();
 
 <PostLayout post={post}>
   <Content />
-  <!-- <Suggester prevPage={post} nextPage={post} /> -->
+  <Suggester prevPage={post} nextPage={post} />
 </PostLayout>

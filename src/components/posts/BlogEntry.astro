@@ -1,13 +1,14 @@
 ---
 import { marked } from "marked";
 import type { CollectionEntry } from "astro:content";
-import Header from "@components/blog/Header.astro";
+import Header from "@components/posts/Header.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
+  preview?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, preview = true} = Astro.props;
 
 const link = `/${post.collection}/${post.slug}`;
 
@@ -20,10 +21,12 @@ const renderedArticle = marked.parse(clippedArticle);
   <div>
     <Header post={post} link={true} />
   </div>
+  {preview &&
   <div class="preview">
     <div class="preview-body" set:html={renderedArticle} />
     <!-- <a class="cover" href={link}></a> -->
   </div>
+  }
 </div>
 
 <style>
