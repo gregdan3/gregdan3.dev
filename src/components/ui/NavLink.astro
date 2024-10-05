@@ -1,13 +1,14 @@
 ---
 export interface Props {
-  name: string;
+  name?: string;
   href: string;
   icon?: string;
   tooltip?: string;
+  left?: boolean;
 }
 import FixedIcon from "@components/ui/FixedIcon.astro";
 
-let { name, href, icon, tooltip } = Astro.props;
+let { name, href, icon, tooltip, left = true } = Astro.props;
 
 function getBasePath(pathname: string): string {
   const segments = pathname.split("/").filter(Boolean);
@@ -23,8 +24,9 @@ const external = href[0] !== "/";
 ---
 
 <a href={href} rel="dofollow" target={external ? "_blank" : null}>
-  {icon ? <FixedIcon name={icon} inline={true} /> : null}
-  <span class={current ? "current" : null}>{name}</span>
+  {icon && left ? <FixedIcon name={icon} inline={true} /> : null}
+  {name && <span class={current ? "current" : null}>{name}</span>}
+  {icon && !left ? <FixedIcon name={icon} inline={true} /> : null}
 </a>
 
 <style>
@@ -37,7 +39,7 @@ const external = href[0] !== "/";
     padding: var(--halfpad);
     text-decoration: none;
     color: var(--url);
-    font-size: 1.2rem;
+    font-size: var(--big-font);
 
     border: 1px solid var(--border-hard);
     padding: var(--pad);

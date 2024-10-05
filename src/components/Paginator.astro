@@ -1,0 +1,70 @@
+---
+import { type Page } from "astro";
+export interface Props {
+  page: Page;
+}
+import IconLink from "@components/ui/IconLink.astro";
+
+const { page } = Astro.props;
+---
+
+<div class="paginator">
+  <div class="first">
+    {
+      page.url.first ? (
+        <IconLink icon="mingcute:arrows-left-line" href={page.url.first} />
+      ) : (
+        <div />
+      )
+    }
+  </div>
+  <div class="prev">
+    {
+      page.url.prev ? (
+        <IconLink icon="mingcute:arrow-left-line" href={page.url.prev} />
+      ) : (
+        <div />
+      )
+    }
+  </div>
+  <div class="next">
+    {
+      page.url.next ? (
+        <IconLink icon="mingcute:arrow-right-line" href={page.url.next} />
+      ) : (
+        <div />
+      )
+    }
+  </div>
+  <div class="last">
+    {
+      page.url.last ? (
+        <IconLink icon="mingcute:arrows-right-line" href={page.url.last} />
+      ) : (
+        <div />
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .paginator {
+    font-size: var(--huge-font);
+
+    display: flex;
+    justify-content: space-between;
+
+    margin: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .first,
+  .last {
+    margin: 0;
+  }
+  .prev,
+  .next {
+    margin: auto;
+  }
+</style>

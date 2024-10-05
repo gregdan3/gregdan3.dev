@@ -18,7 +18,7 @@ export const internalLinks: IconLinkData[] = [
   },
   {
     name: "Blog",
-    href: "/blog",
+    href: "/blog/1",
     icon: "mingcute:book-6-line",
     tooltip: "Every dev needs an abandoned blog.",
   },

@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+export interface Props {
+  prevPage?: CollectionEntry<"blog"> | CollectionEntry<"projects">;
+  nextPage?: CollectionEntry<"blog"> | CollectionEntry<"projects">;
+}
+import NavLink from "@components/ui/NavLink.astro";
+
+const { prevPage, nextPage } = Astro.props;
+---
+
+<div class="paginator">
+  <div class="prev">
+    {
+      prevPage ? (
+        <NavLink
+          icon="mingcute:arrow-left-line"
+          href={prevPage.slug}
+          name={prevPage.data.title}
+        />
+      ) : (
+        <div />
+      )
+    }
+  </div>
+  {
+    nextPage ? (
+      <NavLink
+        icon="mingcute:arrow-right-line"
+        href={`/${nextPage.collection}/${nextPage.slug}`}
+        name={nextPage.data.title}
+        left={false}
+      />
+    ) : (
+      <div />
+    )
+  }
+</div>
+
+<style>
+  .paginator {
+    /* font-size: 1.8rem; */
+
+    display: flex;
+    /* justify-content: space-between; */
+
+    margin: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .prev,
+  .next {
+    margin: auto;
+  }
+</style>

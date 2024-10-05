@@ -86,10 +86,6 @@ const url = Astro.url;
 
     const path = location.pathname + location.search + location.hash;
 
-    // console.log(
-    //   `tracked! url: ${path}; title: ${document.title}; referrer: ${document.referrer}`,
-    // );
-    // TODO: what if referrer is self?
     await count({
       path: path,
       title: document.title,

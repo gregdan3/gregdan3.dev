@@ -1,35 +1,37 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Entry from "@components/blog/Entry.astro";
+import Paginator from "@components/Paginator.astro";
 
 import { type Frontmatter } from "@utils/types.ts";
 import { getCollection } from "astro:content";
+import { type Page } from "astro";
+export interface Props {
+  page: Page;
+}
+export async function getStaticPaths({ paginate }) {
+  let posts = await getCollection(
+    "blog",
+    (post) => (post.data.published && post.body) || import.meta.env.DEV,
+  );
+  posts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  return paginate(posts, { pageSize: 3 });
+}
+
 const frontmatter = {
   title: "glog",
-  description: "",
+  description: "Every developer needs an abandoned blog, and this one is mine.",
   date: new Date("2020-02-10"),
   updated: new Date("2024-09-19"),
 } as Frontmatter;
 
-let posts = await getCollection(
-  "blog",
-  (post) => post.data.published || import.meta.env.DEV,
-);
-posts = posts.sort(
-  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
-);
+const { page } = Astro.props;
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <!-- <h2>greg's glog</h2> -->
-
-  <!-- <div class="hook"> -->
-  <!--   Every developer needs an abandoned blog, and this one is mine. I even did -->
-  <!--   the thing where I crungle the word blog. -->
-  <!-- </div> -->
-
   {
-    posts.map((post, index) => {
+    page.data.map((post, index) => {
       return (
         <div>
           {index !== 0 && <br />}
@@ -38,6 +40,8 @@ posts = posts.sort(
       );
     })
   }
+
+  <Paginator page={page} />
 </BaseLayout>
 
 <style>
