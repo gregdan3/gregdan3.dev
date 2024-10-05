@@ -14,7 +14,7 @@ const { prevPage, nextPage } = Astro.props;
     {
       prevPage ? (
         <NavLink
-          icon="mingcute:arrow-left-line"
+          icon="mingcute:large-arrow-left-fill"
           href={prevPage.slug}
           name={prevPage.data.title}
         />
@@ -26,7 +26,7 @@ const { prevPage, nextPage } = Astro.props;
   {
     nextPage ? (
       <NavLink
-        icon="mingcute:arrow-right-line"
+        icon="mingcute:large-arrow-right-fill"
         href={`/${nextPage.collection}/${nextPage.slug}`}
         name={nextPage.data.title}
         left={false}
