@@ -18,11 +18,11 @@ const renderedArticle = marked.parse(clippedArticle);
 
 <div class="entry">
   <div>
-    <Header post={post} />
+    <Header post={post} link={true} />
   </div>
   <div class="preview">
     <div class="preview-body" set:html={renderedArticle} />
-    <a class="cover" href={link}></a>
+    <!-- <a class="cover" href={link}></a> -->
   </div>
 </div>
 
