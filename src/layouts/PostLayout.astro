@@ -3,60 +3,22 @@ import type { CollectionEntry } from "astro:content";
 export interface Props {
   post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
 }
-
-import { marked } from "marked";
+import Header from "@components/blog/Header.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Date from "@components/blog/Date.astro";
 
 const { post } = Astro.props;
-
-const renderedDesc = post.data.description
-  ? marked.parse(post.data.description)
-  : null;
 ---
 
 <BaseLayout frontmatter={post.data}>
-  <header>
-    <div class="title">{post.data.title}</div>
-    <Date
-      dateText=""
-      date={post.data.date}
-      updated={post.data.updated}
-      tooltipSide="right"
-    />
-    {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
-
-    {
-      post.data.published ? null : (
-        <div style="color: red; font-size: 1.5em; position: absolute; right: 0; top: 0;">
-          DRAFT
-        </div>
-      )
-    }
-  </header>
-
-  <slot />
+  <div>
+    <Header post={post} />
+  </div>
+  <div>
+    <slot />
+  </div>
 </BaseLayout>
 
 <style>
-  header {
-    position: relative;
-    margin-bottom: var(--halfpad);
-  }
-
-  .title {
-    display: block;
-    font-size: var(--big-font);
-    font-weight: 600;
-    margin-bottom: -0.25rem;
-  }
-
-  .desc {
-    font-size: var(--small-font);
-    padding: var(--block-mark);
-    margin: var(--halfpad);
-    margin-top: 0;
-  }
-  .date {
+  div {
   }
 </style>

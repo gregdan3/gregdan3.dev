@@ -1,0 +1,76 @@
+---
+import { marked } from "marked";
+import Avatar from "@components/ui/Avatar.astro";
+import Date from "@components/blog/Date.astro";
+import { fetchImage } from "@utils/utils.ts";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+  link?: boolean;
+}
+
+const { post, link = false } = Astro.props;
+
+const href = `/${post.collection}/${post.slug}`;
+
+const usedImage = await fetchImage(post.data.image);
+
+const renderedDesc = post.data.description
+  ? marked.parse(post.data.description)
+  : null;
+---
+
+<header>
+  {
+    link ? (
+      <a class="title" href={href}>
+        {post.data.title}
+      </a>
+    ) : (
+      <div class="title">{post.data.title}</div>
+    )
+  }
+
+  <Date
+    dateText=""
+    date={post.data.date}
+    updated={post.data.updated}
+    tooltipSide="right"
+  />
+  {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
+
+  {
+    post.data.published ? null : (
+      <div style="color: red; font-size: 1.5em; position: absolute; right: 0; top: 0;">
+        DRAFT
+      </div>
+    )
+  }
+
+  <slot />
+</header>
+
+<style>
+  header {
+    position: relative;
+    margin-bottom: var(--halfpad);
+  }
+
+  .title {
+    display: block;
+    font-size: var(--big-font);
+    font-weight: 600;
+    margin-bottom: -0.25rem;
+  }
+
+  .desc {
+    font-size: var(--small-font);
+    padding: var(--block-mark);
+    padding-left: var(--halfpad);
+    margin: var(--halfpad);
+    margin-top: 0;
+  }
+  .date {
+  }
+</style>

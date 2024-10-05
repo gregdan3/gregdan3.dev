@@ -1,9 +1,7 @@
 ---
 import { marked } from "marked";
-import Avatar from "@components/ui/Avatar.astro";
-import Date from "@components/blog/Date.astro";
-import { fetchImage } from "@utils/utils.ts";
 import type { CollectionEntry } from "astro:content";
+import Header from "@components/blog/Header.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -13,46 +11,19 @@ const { post } = Astro.props;
 
 const link = `/${post.collection}/${post.slug}`;
 
-const usedImage = await fetchImage(post.data.image);
-
-const renderedDesc = post.data.description
-  ? marked.parse(post.data.description)
-  : null;
-
 import { clipArticle } from "@utils/utils.ts";
-// const content = await post.render();
-// console.log(content);
-
 const clippedArticle = clipArticle(post.body, 150);
 const renderedArticle = marked.parse(clippedArticle);
 ---
 
 <div class="entry">
-  <div class="info">
-    <a class="link" href={link}>{post.data.title}</a>
-    <Date
-      dateText=""
-      date={post.data.date}
-      updated={post.data.updated}
-      tooltipSide="right"
-    />
-    {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
-
-    {
-      post.data.published ? null : (
-        <div style="color: red; font-size: 1.5em; position: absolute; right: 0; top: 0;">
-          DRAFT
-        </div>
-      )
-    }
+  <div>
+    <Header post={post} />
   </div>
   <div class="preview">
     <div class="preview-body" set:html={renderedArticle} />
     <a class="cover" href={link}></a>
   </div>
-  <!-- <div class="img"> -->
-  <!--   {usedImage ? <Avatar image={usedImage} alt={imageAlt!} /> : null} -->
-  <!-- </div> -->
 </div>
 
 <style>
@@ -83,7 +54,7 @@ const renderedArticle = marked.parse(clippedArticle);
   }
   .preview-body {
     mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
-    height: 18rem;
+    height: 20rem;
     overflow: hidden;
   }
   .cover {
@@ -91,7 +62,7 @@ const renderedArticle = marked.parse(clippedArticle);
     top: 0;
     z-index: 10;
     /* background-color: #ffffff22; */
-    height: 18rem;
+    height: 20rem;
     width: 100%;
   }
   .cover:hover {
