@@ -8,11 +8,8 @@ role: creator
 description:
   ilo ni li lon ilo Siko li toki pona taso e sina! A Discord bot which enforces
   that you speak Toki Pona!
-skills:
-  - name: Python
-    icon: skill-icons:python-dark
-  - name: SQLite
-    icon: skill-icons:sqlite
-  - name: Pycord
-    icon: skill-icons:discord
+tags:
+  - python
+  - sqlite
+  - pycord
 ---

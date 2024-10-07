@@ -8,9 +8,7 @@ date: 2021-01-02 # date merged
 description:
   A weather service fit for your terminal. I fixed a weird bug that was making
   it useless in the United States, and I'm proud of that forever.
-skills:
-  - name: Python
-    icon: skill-icons:python-dark
-  - name: Golang
-    icon: skill-icons:golang
+tags:
+  - python
+  - golang
 ---

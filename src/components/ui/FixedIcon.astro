@@ -2,22 +2,22 @@
 import { Icon } from "astro-icon/components";
 export interface Props {
   name: string;
-  inline: boolean;
+  inline?: boolean;
 }
 
-const { name, inline } = Astro.props;
+const { name, inline = true } = Astro.props;
 ---
 
 <span><Icon name={name} class={inline ? "inline" : null} /></span>
 
 <style>
   svg {
-    width: 1rem;
-    height: 1rem;
+    width: 1em;
+    height: 1em;
   }
 
   .inline {
     /* text alignment */
-    transform: translate(0, 15%);
+    transform: translate(0, 10%);
   }
 </style>

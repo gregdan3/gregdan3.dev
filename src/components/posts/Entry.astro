@@ -4,13 +4,14 @@ import type { CollectionEntry } from "astro:content";
 import Header from "@components/posts/Header.astro";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
   preview?: boolean;
+  link?: boolean;
 }
 
-const { post, preview = true} = Astro.props;
+const { post, link = true, preview = true } = Astro.props;
 
-const link = `/${post.collection}/${post.slug}`;
+const href = `/${post.collection}/${post.slug}`;
 
 import { clipArticle } from "@utils/utils.ts";
 const clippedArticle = clipArticle(post.body, 150);
@@ -18,14 +19,14 @@ const renderedArticle = marked.parse(clippedArticle);
 ---
 
 <div class="entry">
-  <div>
-    <Header post={post} link={true} />
-  </div>
-  {preview &&
-  <div class="preview">
-    <div class="preview-body" set:html={renderedArticle} />
-    <!-- <a class="cover" href={link}></a> -->
-  </div>
+  <Header post={post} link={link} />
+  {
+    preview && (
+      <div class="preview">
+        <div class="preview-body" set:html={renderedArticle} />
+        <a class="cover" href={href} />
+      </div>
+    )
   }
 </div>
 
@@ -33,25 +34,6 @@ const renderedArticle = marked.parse(clippedArticle);
   .entry {
     position: relative;
   }
-  /* .img { */
-  /*   width: 3.8rem; */
-  /*   height: 3.8rem; */
-  /*   margin-left: auto; */
-  /*   padding: var(--halfpad); */
-  /* } */
-  .desc {
-    font-size: var(--small-font);
-    padding: var(--block-mark);
-    margin: var(--halfpad);
-    margin-top: 0;
-  }
-  .link {
-    display: block;
-    font-size: var(--big-font);
-    font-weight: 600;
-    margin-bottom: -0.25rem;
-  }
-
   .preview {
     position: relative;
   }

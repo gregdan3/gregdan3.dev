@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Entry from "@components/posts/BlogEntry.astro";
+import Entry from "@components/posts/Entry.astro";
 import Paginator from "@components/posts/Paginator.astro";
 
 import { getCollectionPosts } from "@utils/utils.ts";
@@ -26,23 +26,28 @@ const { page } = Astro.props;
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  {
-    page.data.map((post, index) => {
-      return (
-        <div>
-          {index !== 0 && <br />}
-          <Entry post={post} />
-        </div>
-      );
-    })
-  }
+  <div class="base">
+    {
+      page.data.map((post, index) => {
+        return (
+          <div>
+            {index !== 0 && <hr />}
+            <Entry post={post} />
+          </div>
+        );
+      })
+    }
 
-  <Paginator page={page} />
+    <Paginator page={page} />
+  </div>
 </BaseLayout>
 
 <style>
-  .hook {
-    padding: var(--halfpad);
-    padding-bottom: 1rem;
+  .base {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
   }
 </style>

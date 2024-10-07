@@ -7,7 +7,6 @@ published: true
 description:
   Are you speaking Toki Pona? Find out now! A Python library which scores texts
   to detect Toki Pona.
-skills:
-  - name: Python
-    icon: skill-icons:python-dark
+tags:
+  - python
 ---

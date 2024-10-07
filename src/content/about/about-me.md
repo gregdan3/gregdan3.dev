@@ -12,19 +12,13 @@ progress as I learn ~~Svelte~~ Astro. I have no idea how to breathe.
 I'm in the middle of re-designing this site (dated 2024-09-16), so if anything
 is funny, let me know!
 
-#### TODO
+## TODO
 
-#### Fixes
+### Fixes
 
 - Close sidebar if user clicks entirely off it
-- Pin "what is this page?" to align with top of "older content" rather than
-  bottom of page
 
-#### MVP Features
-
-- Finish formatting the projects page
-
-#### Ideas
+### Ideas
 
 - Add resume at /resume, rendered via json-resume
 - Add discord presence to footer

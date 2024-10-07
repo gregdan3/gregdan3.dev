@@ -9,9 +9,7 @@ description:
   A very cool, if cludgy, NORAD object visualizer. Made with @jmfrees while in
   my undergrad. Yes, I know it takes a thousand years to load. Yes, I know the
   data is out of date.
-skills:
-  - name: JavaScript
-    icon: skill-icons:javascript
-  - name: D3
-    icon: skill-icons:d3-dark
+tags:
+  - javascript
+  - d3
 ---

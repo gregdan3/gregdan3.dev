@@ -80,31 +80,22 @@ main img {
 
 main summary {
   cursor: pointer;
-  border: 1px solid var(--border-hard);
-  border-radius: var(--block-mark);
   padding: var(--halfpad);
-  box-shadow: var(--edge-shadow);
 }
 main summary > * {
   display: inline-block;
 }
 main details {
   margin: var(--pad);
-}
-main details[open] summary {
-  border: none;
-  border-bottom: 1px solid var(--border-hard);
-  box-shadow: none;
-
-  margin: -0.5rem; /* negative halfpad */
-  /* creates illusion that summary border remains */
-  margin-bottom: var(--halfpad);
-}
-main details[open] {
   border: 1px solid var(--border-hard);
   border-radius: var(--block-mark);
-  padding: var(--halfpad);
   box-shadow: var(--edge-shadow);
+}
+main details[open] > summary {
+  border-bottom: 1px solid var(--border-hard);
+}
+main details > :not(summary) {
+  margin: var(--pad);
 }
 
 main table {
@@ -139,6 +130,14 @@ main a:hover {
 main a:visited {
   text-decoration: underline var(--urlvisited);
   color: var(--urlvisited);
+}
+
+main hr {
+  width: 80%;
+  margin-top: var(--pad);
+  margin-bottom: var(--pad);
+  border: 1px solid var(--border);
+  border-radius: var(--block-mark);
 }
 
 /* NOTE: i assume that nofollow links of main are external */

@@ -35,7 +35,7 @@ const site_name = "gregsite";
 const locale = "en_US";
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <Meta frontmatter={frontmatter} site_name={site_name} locale={locale} />
   </head>
@@ -54,7 +54,7 @@ const locale = "en_US";
     </Bar>
 
     <div class="spacer">
-      <main transition:animate="none">
+      <main>
         <slot />
       </main>
       <aside>

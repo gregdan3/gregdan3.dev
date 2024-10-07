@@ -1,28 +1,29 @@
 ---
 import type { CollectionEntry } from "astro:content";
 export interface Props {
-  project: CollectionEntry<"projects">;
+  post: CollectionEntry<"projects">;
 }
 
-import PostLayout from "@layouts/PostLayout.astro";
 import { getCollection } from "astro:content";
+import Header from "@components/posts/Header.astro";
+import PostLayout from "@layouts/PostLayout.astro";
+import Suggester from "@components/posts/Suggester.astro";
 
 export async function getStaticPaths() {
-  let projects = await getCollection(
+  let posts = await getCollection(
     "projects",
-    (project) =>
-      (project.data.published && project.body) || import.meta.env.DEV,
+    (post) => (post.data.published && post.body) || import.meta.env.DEV,
   );
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
-const { project } = Astro.props;
-const { Content } = await project.render();
+const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
-<PostLayout post={project}>
+<PostLayout post={post}>
   <Content />
 </PostLayout>

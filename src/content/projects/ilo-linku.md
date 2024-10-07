@@ -8,9 +8,7 @@ link: https://discord.gg/A3ZPqnHHsy
 description:
   A Discord bot dictionary for Toki Pona, with various other features tacked on
   haphazardly!
-skills:
-  - name: Python
-    icon: skill-icons:python-dark
-  - name: Pycord
-    icon: skill-icons:discord
+tags:
+  - python
+  - pycord
 ---

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Entry from "@components/posts/ProjectEntry.astro";
+import Entry from "@components/posts/Entry.astro";
 import Paginator from "@components/posts/Paginator.astro";
 
 import { getCollectionPosts } from "@utils/utils.ts";
@@ -12,7 +12,7 @@ export interface Props {
 }
 export async function getStaticPaths({ paginate }) {
   let posts = await getCollectionPosts("projects");
-  return paginate(posts, { pageSize: 3 });
+  return paginate(posts, { pageSize: 4 });
 }
 
 const frontmatter = {
@@ -25,18 +25,27 @@ const { page } = Astro.props;
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <div>
+  <div class="base">
     {
-      page.data.map((project, index) => {
+      page.data.map((post, index) => {
         return (
           <div>
-            {index !== 0 && <br />}
-            <Entry project={project} />
+            {index !== 0 && <hr />}
+            <Entry post={post} preview={false} />
           </div>
         );
       })
     }
-  </div>
 
-  <Paginator page={page} />
+    <Paginator page={page} />
+  </div>
 </BaseLayout>
+
+<style>
+  .base {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+</style>

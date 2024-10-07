@@ -10,13 +10,11 @@ description:
   Gregsite, now with SvelteKit and TailwindCSS. I wanted to make my site
   flashier and more interactive than my static site generator could do, and this
   is it!
-skills:
-  - name: SvelteKit
-    icon: skill-icons:svelte
-  - name: TypeScript
-    icon: skill-icons:typescript
-  - name: TailwindCSS
-    icon: skill-icons:tailwindcss-dark
-  - name: Markdown
-    icon: skill-icons:markdown-dark
+tags:
+  - sveltekit
+  - astro
+  - typescript
+  - tailwindcss
+  - markdown
+image: "/src/data/images/favicon.png"
 ---

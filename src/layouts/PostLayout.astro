@@ -5,20 +5,23 @@ export interface Props {
 }
 import Header from "@components/posts/Header.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-
+import Suggester from "@components/posts/Suggester.astro";
 const { post } = Astro.props;
 ---
 
 <BaseLayout frontmatter={post.data}>
   <div>
     <Header post={post} />
-  </div>
-  <div>
     <slot />
+    <Suggester prevPage={post} nextPage={post} />
   </div>
 </BaseLayout>
 
 <style>
   div {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 </style>

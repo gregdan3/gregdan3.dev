@@ -1,12 +1,13 @@
 ---
 import { marked } from "marked";
-import Avatar from "@components/ui/Avatar.astro";
 import Date from "@components/posts/Date.astro";
+import Tag from "@components/posts/Tag.astro";
+import IconLink from "@components/ui/IconLink.astro";
 import { fetchImage } from "@utils/utils.ts";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
   link?: boolean;
 }
 
@@ -22,15 +23,44 @@ const renderedDesc = post.data.description
 ---
 
 <header>
-  {
-    link ? (
-      <a class="title" href={href}>
-        {post.data.title}
-      </a>
-    ) : (
-      <div class="title">{post.data.title}</div>
-    )
-  }
+  <div class="heading">
+    {
+      usedImage ? (
+        <img
+          src={usedImage.src}
+          alt={post.data.imageAlt ? post.data.imageAlt : null}
+        />
+      ) : null
+    }
+
+    {
+      link && post.body ? (
+        <a class="title" href={href}>
+          {post.data.title}
+        </a>
+      ) : (
+        <span class="title">{post.data.title}</span>
+      )
+    }
+  </div>
+
+  <div class="icons">
+    {
+      post.data.blog && (
+        <IconLink icon="mingcute:document-line" href={post.data.blog} />
+      )
+    }
+    {
+      post.data.repo && (
+        <IconLink icon="mingcute:code-line" href={post.data.repo} />
+      )
+    }
+    {
+      post.data.link && (
+        <IconLink icon="mingcute:external-link-line" href={post.data.link} />
+      )
+    }
+  </div>
 
   <Date
     dateText=""
@@ -41,12 +71,16 @@ const renderedDesc = post.data.description
   {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
 
   {
-    post.data.published ? null : (
+    !post.data.published && (
       <div style="color: red; font-size: 1.5em; position: absolute; right: 0; top: 0;">
         DRAFT
       </div>
     )
   }
+
+  <div class="tags">
+    {post.data.tags && post.data.tags.map((tag, index) => <Tag name={tag} />)}
+  </div>
 
   <slot />
 </header>
@@ -56,22 +90,45 @@ const renderedDesc = post.data.description
     position: relative;
     margin-bottom: var(--halfpad);
   }
+  .heading {
+    margin-bottom: -0.25rem;
+  }
+
+  img {
+    padding: 1px;
+    height: var(--huge-font);
+    border-radius: var(--block-mark);
+    transform: translate(0, 18%);
+  }
 
   .title {
-    display: block;
     font-size: var(--big-font);
     font-weight: 600;
     margin-bottom: -0.25rem;
+  }
+
+  .icons {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: var(--huge-font);
+  }
+
+  .date {
   }
 
   .desc {
     font-size: var(--small-font);
     padding: var(--block-mark);
     padding-left: var(--halfpad);
-    margin: var(--halfpad);
+    margin-bottom: var(--block-mark);
     margin-top: 0;
-    margin-bottom: 0;
   }
-  .date {
+  .tags {
+    display: flex;
+    margin: var(--halfpad);
+    margin-bottom: 0;
+    flex-wrap: wrap;
   }
 </style>

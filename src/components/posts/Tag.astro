@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+export interface Props {
+  name: string | CollectionEntry<"tags">;
+  href?: boolean;
+  left?: boolean;
+}
+import FixedIcon from "@components/ui/FixedIcon.astro";
+const { href = true, left = true } = Astro.props;
+let { name } = Astro.props;
+
+let icon = null;
+const tag = await getEntry("tags", name.toString());
+if (tag) {
+  icon = tag.data.icon;
+  name = tag.data.name;
+}
+---
+
+<div>
+  {icon && left ? <FixedIcon name={icon} /> : null}
+  <span title={name.toString()} class={icon ? "hasicon" : null}>{name}</span>
+  {icon && !left ? <FixedIcon name={icon} /> : null}
+</div>
+
+<style>
+  div {
+    background-color: var(--block-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--block-mark);
+    padding-left: var(--block-mark);
+    padding-right: var(--block-mark);
+    /* box-shadow: var(--raise-shadow); */
+    text-wrap: nowrap;
+    margin: 1px;
+    font-size: var(--big-font);
+  }
+  span.hasicon {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    span.hasicon {
+      display: inline;
+    }
+    div {
+      font-size: var(--small-font);
+    }
+  }
+</style>

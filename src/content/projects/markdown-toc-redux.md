@@ -7,11 +7,8 @@ description:
   I fixed them.
 published: false
 date: 2022-04-23 # date of merged request
-skills:
-  - name: HTML
-    icon: skill-icons:html
-  - name: CSS
-    icon: skill-icons:css
-  - name: JavaScript
-    icon: skill-icons:javascript
+tags:
+  - html
+  - css
+  - javascript
 ---
