@@ -2,7 +2,7 @@
 
 ---
 
-<span id="beats" transition:persist="beats"></span>
+<div id="beats" transition:persist="beats">@000</div>
 
 <script>
   let beattime = getBeats();
@@ -39,7 +39,19 @@
 </script>
 
 <style>
-  span {
+  div {
+    font-family: monospace;
+
+    /* font-size: var(--big-font); */
+    font-weight: 300;
+
     color: var(--text);
+    background-color: var(--block-bg);
+
+    margin: auto;
+    padding: var(--block-mark);
+
+    border: 1px solid var(--border);
+    border-radius: var(--block-mark);
   }
 </style>
