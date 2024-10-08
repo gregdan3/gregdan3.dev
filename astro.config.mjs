@@ -21,11 +21,6 @@ export default defineConfig({
   site: "https://gregdan3.dev",
   base: "/",
   publicDir: "./public",
-  redirects: {
-    "/blog": "/blog/1",
-    "/projects": "/projects/1",
-    // "/toki-pona/[...slug]": "https://mun.la/sona/[...slug]",
-  },
   integrations: [
     mdx(),
     icon({ iconDir: "src/icons" }),

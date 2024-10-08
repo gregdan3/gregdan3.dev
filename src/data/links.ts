@@ -18,13 +18,13 @@ export const internalLinks: IconLinkData[] = [
   },
   {
     name: "Blog",
-    href: "/blog/1",
+    href: "/blog",
     icon: "mingcute:book-6-line",
     tooltip: "Every dev needs an abandoned blog.",
   },
   {
     name: "Projects",
-    href: "/projects/1",
+    href: "/projects",
     icon: "mingcute:terminal-box-line",
     // tooltip: "",
   },

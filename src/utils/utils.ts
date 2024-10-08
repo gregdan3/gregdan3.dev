@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry, ContentEntryMap } from "astro:content";
 import type { ImageMetadata } from "astro";
 
 export const sleep = (delay: number) =>
@@ -31,13 +31,16 @@ export const fetchImage = async (
   return null;
 };
 
-export async function getCollectionPosts<T>(
-  collection: T,
-  givenFilter?: (post: CollectionEntry<T>) => boolean,
-  givenSort?: (a: CollectionEntry<T>, b: CollectionEntry<T>) => number,
-): Promise<CollectionEntry<T>> {
+export async function getCollectionPosts(
+  collection: keyof ContentEntryMap,
+  givenFilter?: (post: CollectionEntry<keyof ContentEntryMap>) => boolean,
+  givenSort?: (
+    a: CollectionEntry<keyof ContentEntryMap>,
+    b: CollectionEntry<keyof ContentEntryMap>,
+  ) => number,
+): Promise<CollectionEntry<keyof ContentEntryMap>> {
   // must be published or be in dev
-  let filter = (post: CollectionEntry<T>) => {
+  let filter = (post: CollectionEntry<keyof ContentEntryMap>) => {
     return post.data.published || import.meta.env.DEV;
   };
   if (givenFilter) {
@@ -45,7 +48,10 @@ export async function getCollectionPosts<T>(
   }
 
   // reverse chronological sort e.g. newest to oldest
-  let sort = (a: CollectionEntry<T>, b: CollectionEntry<T>) => {
+  let sort = (
+    a: CollectionEntry<keyof ContentEntryMap>,
+    b: CollectionEntry<keyof ContentEntryMap>,
+  ) => {
     return b.data.date.valueOf() - a.data.date.valueOf();
   };
   if (givenSort) {
@@ -54,6 +60,7 @@ export async function getCollectionPosts<T>(
 
   let posts = await getCollection(collection, filter);
   posts = posts.sort(sort);
+  // @ts-expect-error: it's returning a post which really should be Any content entry
   return posts;
 }
 
