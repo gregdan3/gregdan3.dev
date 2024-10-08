@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getFeedPosts } from "@utils/utils.ts";
+
+const posts = await getFeedPosts();
+
+export async function getStaticPaths() {
+  let tags: string[] = [];
+
+  posts.forEach((post) => {
+    if (post.data.tags) {
+      (post.data.tags as string[]).forEach((tag) => {
+        if (!tags.includes(tag)) {
+          tags.push(tag);
+        }
+      });
+    }
+  });
+
+  return tags.map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+
+const tagposts = getPosts().filter(
+  (post) => post.data.tags && post.data.tags.includes(String(tag)),
+);
+
+const frontmatter = {
+  title: `Tag: ${tag}`,
+  description: `Posts tagged with "${tag}"`,
+};
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <div></div>
+</BaseLayout>
