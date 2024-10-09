@@ -4,11 +4,10 @@ repo: "https://github.com/gregdan3/markdown-toc-redux/"
 role: maintainer
 description:
   Jon Schlinkert's original markdown toc library had some dealbreaking bugs, so
-  I fixed them.
+  I fixed them. Now I use this for mun.la.
 published: false
-date: 2022-04-23 # date of merged request
+date: 2023-09-17 # date of fork
 tags:
-  - html
-  - css
   - javascript
+  - markdown
 ---

@@ -12,4 +12,6 @@ tags:
   - sveltekit
   - typescript
   - tailwindcss
+  - toki pona
+  - web development
 ---

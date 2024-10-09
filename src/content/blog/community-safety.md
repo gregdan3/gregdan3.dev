@@ -1,12 +1,13 @@
 ---
-title: Protecting your Discord Community
+title: Protecting your Community
 author: gregdan3
 date: 2024-09-09
 description: Collected advice from two years of moderation.
 published: false
 tags:
-  - "discord"
-  - "telegram"
+  - moderation
+  - safety
+  - guide
 ---
 
 ## Summary

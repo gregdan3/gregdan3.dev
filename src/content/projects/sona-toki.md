@@ -9,4 +9,6 @@ description:
   to detect Toki Pona.
 tags:
   - python
+  - toki pona
+  - heuristics
 ---

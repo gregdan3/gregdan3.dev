@@ -7,4 +7,7 @@ published: false
 description: Where we do NLP on a conlang like it's 2011.
 tags:
   - python
+  - edgedb
+  - toki pona
+  - natural language processing
 ---

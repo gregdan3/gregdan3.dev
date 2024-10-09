@@ -9,5 +9,6 @@ description:
 tags:
   - python
   - sqlite
-  - pycord
+  - discord
+  - toki pona
 ---

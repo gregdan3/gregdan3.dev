@@ -4,6 +4,9 @@ author: gregdan3
 date: 2024-06-06
 description: And I never really knew it.
 published: false
+tags:
+  - personal
+  - nostalgia
 ---
 
 ## Summary

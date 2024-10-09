@@ -12,4 +12,5 @@ tags:
   - css
   - javascript
   - markdown
+  - pandoc
 ---

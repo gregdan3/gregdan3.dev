@@ -3,6 +3,10 @@ title: To Help Yourself
 author: gregdan3
 date: 2021-07-31
 published: true
+tags:
+  - personal
+  - guide
+  - self help
 ---
 
 One of the most persistent troubles I have is dealing with self-sabotaging

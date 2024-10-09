@@ -8,4 +8,5 @@ description: The API and knowledge base of lipu Linku and ilo Linku.
 tags:
   - python
   - typescript
+  - toki pona
 ---

@@ -6,16 +6,16 @@ description: My body doesn't understand ergonomics, but now it doesn't matter
 published: false
 tags:
   - augmented reality
-  - xreal air
-  - medical
+  - xreal
+  - review
 ---
 
-In January of 2023, something happened inside my neck. I'm still not sure what.
-I started having serious nerve pain, brain fog, inability to focus, and a
-laundry list of other nasty intermittent problems. It affected my work, my
-hobbies, my personal life- essentially everything I wanted or needed to do was
-affected in some way, covered in this malaise of, oh no, my neck hurts and now I
-can't think.
+In January 2023, something happened inside my neck. I'm still not sure what. I
+started having serious nerve pain, brain fog, inability to focus, and a laundry
+list of other nasty intermittent problems. It affected my work, my hobbies, my
+personal life- essentially everything I wanted or needed to do was affected in
+some way, covered in this malaise of, oh no, my neck hurts and now I can't
+think.
 
 I spent the following year and a half trying nearly everything to help the
 issue- and I still don't have a clear answer for how to fix it! But I did find

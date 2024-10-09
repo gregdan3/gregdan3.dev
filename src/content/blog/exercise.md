@@ -4,6 +4,10 @@ author: gregdan3
 date: 2021-07-12
 description: I taught myself how to exercise, and this is what I learned!
 published: true
+tags:
+  - personal
+  - exercise
+  - guide
 ---
 
 ## Foreword

@@ -33,7 +33,7 @@ const { page } = Astro.props;
         return (
           <div>
             {index !== 0 && <hr />}
-            <Entry post={post} />
+            <Entry post={post} desc={false} />
           </div>
         );
       })

@@ -4,14 +4,17 @@ author: gregdan3
 date: 2020-03-08
 description: This isn't my current vimrc. New version when?
 published: true
+tags:
+  - vim
+  - philosophy
 ---
 
 I've been using vim as my primary editor for the better part of two years now.
-[My .vimrc](https://github.com/gregdan3/dotfiles/blob/master/.vimrc)
-has gone through a great many changes in that time, but I think I hit
-a point early on where many of the features and plugins I had chosen were set
-in stone. It won't be a perfect fit for everyone, but you might find some useful
-pieces and ideas for your .vimrc.
+[My .vimrc](https://github.com/gregdan3/dotfiles/blob/master/.vimrc) has gone
+through a great many changes in that time, but I think I hit a point early on
+where many of the features and plugins I had chosen were set in stone. It won't
+be a perfect fit for everyone, but you might find some useful pieces and ideas
+for your .vimrc.
 
 This is not so much a guide to setting up vim for first time use, as it is a
 place to explore options and features you may not already be aware of as a newer
@@ -19,12 +22,11 @@ but experienced user.
 
 ### What I care about in my vimrc
 
-I value the responsiveness of vim over nearly any other feature.
-Even in the context of a remote session, I can barely notice the delay in
-operations which is caused by the network. This is something vim accomplishes
-without help from the user doing any configuration, but it can be difficult to
-maintain if you are intent on adding many different plugins for different
-purposes.
+I value the responsiveness of vim over nearly any other feature. Even in the
+context of a remote session, I can barely notice the delay in operations which
+is caused by the network. This is something vim accomplishes without help from
+the user doing any configuration, but it can be difficult to maintain if you are
+intent on adding many different plugins for different purposes.
 
 ### Basic features of my vimrc
 
@@ -32,9 +34,9 @@ When I first started using vim, I made a rule for myself to enter settings which
 I understand, rather than throwing others' config options into it and rolling
 with those changes, whatever they may be. This wasn't a perfect system, since
 there is always a point where you have to learn through experimentation and just
-throw settings into the config to see what suits you. Generally, though, I
-made sure to understand any setting I used so I could document it for myself,
-who might not know what I was thinking a year ago or more.
+throw settings into the config to see what suits you. Generally, though, I made
+sure to understand any setting I used so I could document it for myself, who
+might not know what I was thinking a year ago or more.
 
 In my vimrc, I try to group settings together by their family of functionality.
 Settings that change visual aspects of vim, but not the buffer, are grouped.
@@ -62,10 +64,10 @@ Most importantly, I `set undofile` and create a place to store undo history in
 not exist) at the top of my vimrc, so that this is less likely to fail. The
 importance of an undo file is to store file changes across sessions, so that if
 I open the same file again later, I can still undo/redo any and all remembered
-changes. The most common use case is that I close a file for a moment, such as by
-accident, and then re-open it. Normally, my write history would be lost, which
-may be inconvenient at best, and problematic at worst. With this, I don't need
-to worry; the change history is preserved.
+changes. The most common use case is that I close a file for a moment, such as
+by accident, and then re-open it. Normally, my write history would be lost,
+which may be inconvenient at best, and problematic at worst. With this, I don't
+need to worry; the change history is preserved.
 
 For convenience, I make it possible to use backspace across indents and ends of
 lines with `backspace=indent,eol,start`.
@@ -86,16 +88,15 @@ comfortable. For example, this is near perfectly enough text width to make a
 terminal taking up the left or right half of my screen (tiled via i3) also have
 text which takes up most of its width. Additionally, as noted in the above link,
 code which takes up a lot of width on the screen is that much harder to read and
-understand.
-This is accomplished with `set textwidth=80`, which cares about the width of
-lines in the buffer. If you use a tiling window manager, beware of `wrapmargin`,
-which cares about the visual width of the terminal! This becomes particularly
-frustrating when I collapse a vim window to half its previous width, and lines
-now change where they end as I type.
-To really make this option come alive, do `set formatoptions+=tc` to
-automatically apply this setting as you type. The `t` is the actual automation
-of this process; the `c` is for automatically inserting comment characters if
-this jump occurs while you're typing a comment in some code buffer.
+understand. This is accomplished with `set textwidth=80`, which cares about the
+width of lines in the buffer. If you use a tiling window manager, beware of
+`wrapmargin`, which cares about the visual width of the terminal! This becomes
+particularly frustrating when I collapse a vim window to half its previous
+width, and lines now change where they end as I type. To really make this option
+come alive, do `set formatoptions+=tc` to automatically apply this setting as
+you type. The `t` is the actual automation of this process; the `c` is for
+automatically inserting comment characters if this jump occurs while you're
+typing a comment in some code buffer.
 
 As I've most often seen done by other developers, I make sure to never use tab
 characters, instead always filling in with four spaces.
@@ -139,11 +140,11 @@ your own status bar.
 In my view, the purpose of a plugin should be to help the user to do something
 they already want, without that user needing to spend excessive time to think
 about and configure vim to do what they want. As such, there is significant
-benefit to picking vim-airline over assigning your own statusline from
-component functions. It already works out of the box. The defaults are sensible
-and useful. And best of all, there's virtually no speed impact. Sure, you could
-go to the effort to benchmark the precise time it takes for vim to render with
-and without the plugin, and you would probably find a slight difference. But I
+benefit to picking vim-airline over assigning your own statusline from component
+functions. It already works out of the box. The defaults are sensible and
+useful. And best of all, there's virtually no speed impact. Sure, you could go
+to the effort to benchmark the precise time it takes for vim to render with and
+without the plugin, and you would probably find a slight difference. But I
 haven't personally felt the impact of that lost time. Even better, I have
 definitely felt the impact of the benefits that have come from using
 vim-airline!
@@ -195,8 +196,8 @@ sessions, where all the objects in the environment (plugins, variables, open
 files, and more) are saved into a .session file which can be opened to restore
 the user to the state their vim session was in previously.
 
-I first heard about sessions when a friend sent me [this
-article](https://bocoup.com/blog/sessions-the-vim-feature-you-probably-arent-using),
+I first heard about sessions when a friend sent me
+[this article](https://bocoup.com/blog/sessions-the-vim-feature-you-probably-arent-using),
 and Adam Sontag here goes over the most important capabilities of sessions,
 which aren't much more than I've already described.
 

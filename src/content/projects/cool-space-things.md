@@ -12,4 +12,5 @@ description:
 tags:
   - javascript
   - d3
+  - data visualization
 ---

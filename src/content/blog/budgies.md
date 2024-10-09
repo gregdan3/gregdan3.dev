@@ -4,6 +4,10 @@ author: gregdan3
 date: 2020-11-27
 description: I had a pair of budgies. Now I have ~~five~~ six. Oops.
 published: true
+tags:
+  - personal
+  - birds
+  - pets
 ---
 
 # Budgies

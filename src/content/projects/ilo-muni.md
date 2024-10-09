@@ -6,7 +6,12 @@ role: creator
 date: 2024-08-10 # date it went public, sptp 2024
 published: true
 tags:
-  - python
+  - typescript
+  - astro
+  - sqlite
+  - toki pona
+  - data visualization
+  - natural language processing
 image: "/src/data/images/ilo-muni.png"
 imageAlt: "logo for ilo Muni pi mute nimi"
 ---
