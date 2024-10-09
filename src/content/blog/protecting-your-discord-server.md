@@ -17,9 +17,18 @@ tags:
 - Require 2-factor authentication for mod actions.
 - Enable raid protection.
 - <details><summary>Disable creating threads. Use forum channels instead.</summary>
-  Optionally create a role which re-enables threads, assigning it to trusted users. I don't recommend allowing threads.</details>
+
+  Optionally create a role which re-enables threads, assigning it to trusted
+  users. I don't recommend allowing threads.
+  </details>
+
 - <details><summary>Disable image and link embedding if under attack.</summary>
-  Optionally create a role which re-enables these and assign it to trusted users. You could use a bot to automatically assign the role after a set time or number of posts. </details>
+
+  Optionally create a role which re-enables these and assign it to trusted
+  users. You could use a bot to automatically assign the role after a set time
+  or number of posts.
+  </details>
+
 - Bots can enforce stronger verification and logging than Discord offers.
   - [YAGPDB](https://yagpdb.xyz/) can respond to joins and throw captchas.
 
