@@ -1,16 +1,174 @@
 ---
-import { discordUserID, LANYARD_URL } from "@utils/consts.ts";
+// import Icon from '@iconify/svelte';
+// import desktopIcon from '@iconify/icons-mingcute/computer-fill';
+// import mobileIcon from '@iconify/icons-mingcute/cellphone-fill';
+// import webIcon from '@iconify/icons-mingcute/bank-card-fill';
+// import offlineIcon from '@iconify/icons-mingcute/copper-coin-fill';
+
+import { Icon } from "astro-icon/components";
+import AvatarImage from "@data/images/avatar_s.png";
+import Banner from "@data/images/banner.gif";
 ---
 
 <script>
-  import { discordUserID, LANYARD_URL } from "@utils/consts.ts";
+  import { discordUserID } from "@utils/consts.ts";
+  import { hydrateDiscord } from "@utils/discord.ts";
+  import type { LanyardData } from "@utils/types";
 
-  let resp = await fetch(LANYARD_URL, {
-    method: "POST",
-    body: JSON.stringify({ user_id: discordUserID }),
+  let discordBannerDiv: HTMLDivElement;
+  let discordAvatarDiv: HTMLDivElement;
+  let discordStatusDiv: HTMLDivElement;
+  let discordDisplayNameDiv: HTMLDivElement;
+  let discordUsernameDiv: HTMLDivElement;
+  let discordActivitiesDiv: HTMLDivElement;
+  let discordBadgesDiv: HTMLDivElement;
+
+  function initFetch() {
+    discordBannerDiv = document.getElementById(
+      "discord-banner",
+    )! as HTMLDivElement;
+    discordAvatarDiv = document.getElementById(
+      "discord-avatar",
+    )! as HTMLDivElement;
+    discordStatusDiv = document.getElementById(
+      "discord-status",
+    )! as HTMLDivElement;
+    discordDisplayNameDiv = document.getElementById(
+      "discord-displayname",
+    )! as HTMLDivElement;
+    discordUsernameDiv = document.getElementById(
+      "discord-username",
+    )! as HTMLDivElement;
+    discordActivitiesDiv = document.getElementById(
+      "discord-activities",
+    )! as HTMLDivElement;
+    discordBadgesDiv = document.getElementById(
+      "discord-badges",
+    )! as HTMLDivElement;
+  }
+
+  async function onetime() {
+    await hydrateDiscord(
+      discordUserID,
+      discordBannerDiv,
+      discordAvatarDiv,
+      discordStatusDiv,
+      discordDisplayNameDiv,
+      discordUsernameDiv,
+      discordActivitiesDiv,
+      discordBadgesDiv,
+    );
+  }
+
+  initFetch();
+  await onetime();
+  document.addEventListener("astro:after-swap", async () => {
+    await onetime();
   });
 </script>
 
-<div></div>
+<div id="discord-base" transition:persist="discord">
+  <div id="discord-banner"></div>
 
-<style></style>
+  <div id="discord-color"></div>
+
+  <div id="discord-glance">
+    <div id="discord-avatar">
+      <img src={AvatarImage.src} />
+      <div id="discord-status">
+        <Icon name="mingcute:cellphone-fill" />
+      </div>
+    </div>
+  </div>
+
+  <div id="discord-data">
+    <div id="discord-names">
+      <span id="discord-displayname">mun Kekan San</span>
+      <span id="discord-username">@gregdan3</span>
+    </div>
+    <div id="discord-activities">
+      <div><Icon name="mingcute:copper-coin-fill" /> gaming so hard</div>
+      <div>something else too</div>
+    </div>
+    <div id="discord-badges">
+      <Icon name="mingcute:copper-coin-fill" />
+      <Icon name="mingcute:phone-fill" />
+    </div>
+  </div>
+</div>
+
+<style>
+  /* --discord-bg: #313338; */
+
+  #discord-base {
+    position: relative;
+    display: flex;
+    margin: var(--halfpad);
+    border: 1px solid var(--border-hard);
+    border-radius: var(--block-mark);
+    width: fit-content;
+    height: fit-content;
+    color: #e5e7eb;
+    font-size: var(--small-font);
+  }
+
+  #discord-banner,
+  #discord-banner img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--block-mark);
+  }
+
+  #discord-color {
+    position: absolute;
+    background-color: #31333866;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    border-radius: var(--block-mark);
+  }
+
+  #discord-glance {
+    position: relative;
+    width: 3.8rem;
+    height: 3.8rem;
+    z-index: 10;
+  }
+
+  #discord-avatar,
+  #discord-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  #discord-data {
+    padding: var(--block-mark);
+    z-index: 10;
+  }
+
+  #discord-status {
+    position: absolute;
+    right: 2%;
+    bottom: -5%;
+  }
+
+  #discord-activities,
+  #discord-badges,
+  #discord-names,
+  #discord-status {
+    background-color: #313338aa;
+    width: fit-content;
+    padding: 1px;
+    border-radius: var(--block-mark);
+  }
+
+  #discord-displayname {
+    font-weight: 600;
+  }
+
+  #discord-username {
+    color: #8d9cb1;
+  }
+</style>
