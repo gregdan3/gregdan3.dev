@@ -8,10 +8,21 @@ export interface Props {
 const { server } = Astro.props;
 ---
 
-<a href={server.invite_link}>
+<a href={server.invite_link} rel="dofollow" target="_blank">
   <img
     alt={server.label}
     src={`https://img.shields.io/discord/${server.server_id}?style=${server.style}&logo=${server.logo}&logoColor=${server.logoColor}&labelColor=${server.labelColor}&color=${server.color}&label=${server.label}`}
-    class="p-0.5"
   />
 </a>
+
+<style>
+  a {
+    text-decoration: none;
+    line-height: 0;
+    padding: var(--block-mark);
+  }
+  a:hover {
+    text-decoration: none;
+    background-color: inherit;
+  }
+</style>
