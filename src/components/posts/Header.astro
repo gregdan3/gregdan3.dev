@@ -9,9 +9,10 @@ import type { CollectionEntry } from "astro:content";
 export interface Props {
   post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
   link?: boolean;
+  desc?: boolean;
 }
 
-const { post, link = false } = Astro.props;
+const { post, desc = true, link = false } = Astro.props;
 
 const href = `/${post.collection}/${post.slug}`;
 
@@ -68,7 +69,7 @@ const renderedDesc = post.data.description
     updated={post.data.updated}
     tooltipSide="right"
   />
-  {renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
+  {desc && renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
 
   {
     !post.data.published && (

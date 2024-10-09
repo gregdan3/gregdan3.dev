@@ -7,9 +7,10 @@ export interface Props {
   post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
   preview?: boolean;
   link?: boolean;
+  desc?: boolean;
 }
 
-const { post, link = true, preview = true } = Astro.props;
+const { post, desc = true, link = true, preview = true } = Astro.props;
 
 const href = `/${post.collection}/${post.slug}`;
 
@@ -19,7 +20,7 @@ const renderedArticle = marked.parse(clippedArticle);
 ---
 
 <div class="entry">
-  <Header post={post} link={link} />
+  <Header post={post} link={link} desc={desc} />
   {
     preview && (
       <div class="preview">
@@ -46,7 +47,6 @@ const renderedArticle = marked.parse(clippedArticle);
     position: absolute;
     top: 0;
     z-index: 10;
-    /* background-color: #ffffff22; */
     height: 20rem;
     width: 100%;
   }
