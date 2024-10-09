@@ -47,17 +47,17 @@ const renderedDesc = post.data.description
 
   <div class="icons">
     {
-      // @ts-expect-error: ts is right; blog/repo can be missing. but i am checking that. dude.
-      post.data.blog && (
-        // @ts-expect-error: ditto
-        <IconLink icon="mingcute:document-line" href={post.data.blog} />
-      )
-    }
-    {
       // @ts-expect-error: ditto
       post.data.repo && (
         // @ts-expect-error: ditto
         <IconLink icon="mingcute:code-line" href={post.data.repo} />
+      )
+    }
+    {
+      // @ts-expect-error: ts is right; link/repo can be missing. but i am checking that. dude.
+      post.data.link && (
+        // @ts-expect-error: ditto
+        <IconLink icon="mingcute:document-line" href={post.data.link} />
       )
     }
   </div>
@@ -68,7 +68,7 @@ const renderedDesc = post.data.description
     updated={post.data.updated}
     tooltipSide="right"
   />
-  <!-- {desc && renderedDesc && <blockquote class="desc" set:html={renderedDesc} />} -->
+  {desc && renderedDesc && <blockquote class="desc" set:html={renderedDesc} />}
 
   {
     !post.data.published && (
