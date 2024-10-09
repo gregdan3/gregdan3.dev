@@ -3,49 +3,85 @@ import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 export interface Props {
   name: string | CollectionEntry<"tags">;
-  href?: boolean;
+  link?: boolean;
   left?: boolean;
 }
 import FixedIcon from "@components/ui/FixedIcon.astro";
-const { href = true, left = true } = Astro.props;
+const { link = true, left = true } = Astro.props;
 let { name } = Astro.props;
 
 let icon = null;
+let givenName = name;
 const tag = await getEntry("tags", name.toString());
 if (tag) {
   icon = tag.data.icon;
-  name = tag.data.name;
+  givenName = tag.data.name;
 }
+
+const href = `/tags/${name}`;
+// TODO: optional href
 ---
 
-<div>
-  {icon && left ? <FixedIcon name={icon} /> : null}
-  <span title={name.toString()} class={icon ? "hasicon" : null}>{name}</span>
-  {icon && !left ? <FixedIcon name={icon} /> : null}
-</div>
+<div class={icon ? "hasicon" : null}>
+  <a href={href}>
+    {icon && left ? <FixedIcon name={icon} /> : null}
+    <span title={givenName.toString()}
+      >{givenName}
+      <slot />
+      {icon && !left ? <FixedIcon name={icon} /> : null}
+    </span>
+  </a>
 
-<style>
-  div {
-    background-color: var(--block-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--block-mark);
-    padding-left: var(--block-mark);
-    padding-right: var(--block-mark);
-    /* box-shadow: var(--raise-shadow); */
-    text-wrap: nowrap;
-    margin: 1px;
-    font-size: var(--big-font);
-  }
-  span.hasicon {
-    display: none;
-  }
-
-  @media (min-width: 768px) {
-    span.hasicon {
-      display: inline;
-    }
+  <style>
     div {
+      background-color: var(--block-bg);
+
+      border: 1px solid var(--border);
+      border-radius: var(--block-mark);
+
+      padding-left: var(--block-mark);
+      padding-right: var(--block-mark);
+
+      margin: var(--block-mark);
+      /* margin-left: var(--block-mark); */
+      /* margin-right: var(--block-mark); */
+
+      box-shadow: var(--raise-shadow);
+
+      text-wrap: nowrap;
       font-size: var(--small-font);
+      width: fit-content;
     }
-  }
-</style>
+    /* hide when icon is set on mobile */
+    .hasicon span {
+      display: none;
+    }
+    .hasicon {
+      font-size: var(--big-font);
+    }
+
+    div:active {
+      box-shadow: none;
+    }
+
+    div a {
+      text-decoration: none;
+    }
+    div a span {
+      text-decoration: underline;
+    }
+    div a span:hover {
+      text-decoration: underline dotted;
+    }
+
+    @media (min-width: 768px) {
+      .hasicon span {
+        display: inline;
+      }
+      div,
+      .hasicon {
+        font-size: var(--small-font);
+      }
+    }
+  </style>
+</div>
