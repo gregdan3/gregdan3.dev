@@ -14,7 +14,7 @@ const { page } = Astro.props;
       page.url.first ? (
         <IconLink icon="mingcute:arrows-left-line" href={page.url.first} />
       ) : (
-        <div />
+        <div class="standin" />
       )
     }
   </div>
@@ -23,14 +23,19 @@ const { page } = Astro.props;
       page.url.prev ? (
         <IconLink icon="mingcute:arrow-left-line" href={page.url.prev} />
       ) : (
-        <div />
+        <div class="standin" />
       )
     }
   </div>
 
   <div class="center">
-    <div class="top"></div>
-    <div class="page"></div>
+    <!-- <div class="top"> -->
+    <IconLink icon="mingcute:arrows-up-line" href="#top" />
+    <!-- </div> -->
+    <!-- <div class="page">{page.currentPage}</div> -->
+    <!-- <div class="taglink"> -->
+    <!--   <IconLink icon="mingcute:tag-line" href="/tags" /> -->
+    <!-- </div> -->
   </div>
 
   <div class="next">
@@ -38,7 +43,7 @@ const { page } = Astro.props;
       page.url.next ? (
         <IconLink icon="mingcute:arrow-right-line" href={page.url.next} />
       ) : (
-        <div />
+        <div class="standin" />
       )
     }
   </div>
@@ -47,7 +52,7 @@ const { page } = Astro.props;
       page.url.last ? (
         <IconLink icon="mingcute:arrows-right-line" href={page.url.last} />
       ) : (
-        <div />
+        <div class="standin" />
       )
     }
   </div>
@@ -56,21 +61,22 @@ const { page } = Astro.props;
 <style>
   .paginator {
     font-size: var(--huge-font);
+    justify-content: space-between;
+    margin-top: var(--pad);
 
     display: flex;
-    justify-content: space-between;
-
-    margin: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 0;
+  }
+  .center {
+  }
+  .standin {
+    /* slightly confusing */
+    width: 2rem;
   }
 
   .first,
   .last {
-    margin: 0;
   }
   .prev,
   .next {
-    margin: auto;
   }
 </style>
