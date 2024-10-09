@@ -9,7 +9,7 @@ export interface Props {
 let { name, href, icon, tooltip } = Astro.props;
 import { Icon } from "astro-icon/components";
 
-const external = href[0] !== "/";
+const external = (href[0] !== "/") && (href[0] !== "#");
 ---
 
 <div>
