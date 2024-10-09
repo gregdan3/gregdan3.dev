@@ -29,11 +29,29 @@ export const internalLinks: IconLinkData[] = [
     // tooltip: "",
   },
   {
+    name: "Tags",
+    href: "/tags",
+    icon: "mingcute:tag-line",
+    tooltip: "Tags on every blog post and project",
+  },
+  {
     name: "Now",
     href: "/now",
     icon: "mingcute:calendar-time-add-line",
     tooltip: "What am I doing right now?",
   },
+  // {
+  //   name: "Top",
+  //   href: "#top",
+  //   icon: "mingcute:arrows-up-line",
+  //   tooltip: "Back to top",
+  // },
+  // {
+  //   name: "Search",
+  //   href: "#search",
+  //   icon: "mingcute:search-2-line",
+  //   tooltip: "Search the blog",
+  // },
 ];
 
 export const externalLinks: IconLinkData[] = [
@@ -148,14 +166,14 @@ export const servers: DiscordShield[] = [
     style: "plastic",
     logo: "discord",
   },
-  // {
-  //   invite_link: "https://discord.gg/7BfyugsbEK",
-  //   label: "ma unpa pi toki unpa",
-  //   server_id: "1036373672895725598",
-  //   color: "3A4740",
-  //   logoColor: "white",
-  //   labelColor: "DD2222",
-  //   style: "plastic",
-  //   logo: "discord",
-  // },
+  {
+    invite_link: "https://discord.gg/7BfyugsbEK",
+    label: "ma unpa pi toki unpa",
+    server_id: "1036373672895725598",
+    color: "3A4740",
+    logoColor: "white",
+    labelColor: "DD2222",
+    style: "plastic",
+    logo: "discord",
+  },
 ];

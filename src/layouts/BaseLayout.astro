@@ -13,6 +13,7 @@ import { menuToggleId } from "@utils/consts.ts";
 // import MarqueeBar from "@components/ui/MarqueeBar.astro";
 
 import Meta from "@components/ui/Meta.astro";
+import Discord from "@components/showoff/Discord.astro";
 import Bar from "@components/ui/Bar.astro";
 import Sidebar from "@components/ui/Sidebar.astro";
 import SidebarButton from "@components/ui/SidebarButton.astro";
@@ -41,7 +42,7 @@ const locale = "en_US";
   </head>
 
   <body>
-    <Bar type="header">
+    <Bar type="header" pad="full">
       <AvatarCard
         image={AvatarImage}
         alt="gregdan3's avatar: a floating yellow star with red bowtie, yellow gloves, and chalk in hand"
@@ -67,10 +68,9 @@ const locale = "en_US";
       </aside>
     </div>
 
-    <Bar type="footer">
-      <div slot="left" style="height: 2rem;">
-        <Beats />
-      </div>
+    <Bar type="footer" pad="half">
+      <Beats slot="right" />
+      <!-- <Discord slot="right" /> -->
     </Bar>
   </body>
 </html>
@@ -88,8 +88,8 @@ const locale = "en_US";
     /* width: fit-content; */
     width: 700px;
     /* max-width: 1200px; */
-    padding: 2rem;
-    margin: 0 2rem 0 2rem;
+    padding: 1.5rem;
+    margin: 0 1.5rem 0 1.5rem;
     overflow-x: hidden;
 
     background: var(--main-bg);
@@ -116,6 +116,8 @@ const locale = "en_US";
 
   @media (min-width: 768px) {
     main {
+      padding: 2rem;
+      margin: 0 2rem 0 2rem;
     }
     aside {
       min-width: fit-content;
