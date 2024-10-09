@@ -1,14 +1,15 @@
 ---
 export interface Props {
   type: "header" | "footer" | "other";
+  pad?: "half" | "full";
 }
 
-const { type } = Astro.props;
+const { type, pad } = Astro.props;
 ---
 
 {
   type === "header" && (
-    <header class="bar">
+    <header class=`bar ${pad}`>
       <div class="left">
         <slot name="left" />
       </div>
@@ -26,7 +27,7 @@ const { type } = Astro.props;
 
 {
   type === "footer" && (
-    <footer class="bar">
+    <footer class=`bar ${pad}`>
       <div class="left">
         <slot name="left" />
       </div>
@@ -44,7 +45,7 @@ const { type } = Astro.props;
 
 {
   type === "other" && (
-    <div class="bar">
+    <div class=`bar ${pad}`>
       <div class="left">
         <slot name="left" />
       </div>
@@ -64,6 +65,12 @@ const { type } = Astro.props;
   .bar {
     display: flex;
     max-height: 5rem;
+  }
+
+  .half {
+    padding: var(--halfpad) var(--pad) var(--halfpad) var(--pad);
+  }
+  .full {
     padding: var(--pad);
   }
 
