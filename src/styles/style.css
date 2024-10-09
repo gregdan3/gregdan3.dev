@@ -28,6 +28,7 @@
 
   --border: #94a3b8;
   --border-hard: #1f2937;
+  --border-showy: #5599ff;
 
   --url: #3366cc;
   --urlvisited: #7755bb;
@@ -48,6 +49,7 @@
 
   --border: #9ca3af;
   --border-hard: #c1c5cd;
+  --border-showy: #2266dd;
 
   --url: #5599ff;
   --urlvisited: #9977dd;
@@ -86,8 +88,9 @@ main summary > * {
   display: inline-block;
 }
 main details {
-  margin: var(--pad);
+  margin: var(--halfpad);
   border: 1px solid var(--border-hard);
+  border-left: var(--block-mark) solid var(--border-showy);
   border-radius: var(--block-mark);
   box-shadow: var(--edge-shadow);
 }
@@ -95,7 +98,7 @@ main details[open] > summary {
   border-bottom: 1px solid var(--border-hard);
 }
 main details > :not(summary) {
-  margin: var(--pad);
+  margin: var(--halfpad);
 }
 
 main table {
@@ -157,13 +160,13 @@ main mark {
 main blockquote {
   background-color: var(--block-bg);
   border: 1px solid var(--border-hard);
-  border-left: var(--block-mark) solid var(--border);
+  border-left: var(--block-mark) solid var(--border-showy);
   /* seems silly, but this pins the radius to the mark width */
   border-radius: var(--block-mark);
   box-shadow: var(--edge-shadow);
 
-  margin: var(--pad);
-  padding: var(--pad);
+  margin: var(--halfpad);
+  padding: var(--halfpad);
 }
 
 main code:not(pre code) {
@@ -183,7 +186,7 @@ main pre {
   max-width: 100%;
 
   border: 1px solid var(--border-hard);
-  border-left: var(--block-mark) solid var(--border);
+  border-left: var(--block-mark) solid var(--border-showy);
   border-radius: var(--block-mark);
 
   box-shadow: var(--edge-shadow);
