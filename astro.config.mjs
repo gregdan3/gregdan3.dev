@@ -13,6 +13,10 @@ import remarkGfm from "remark-gfm";
 import remarkSmartypants from "remark-smartypants";
 import { remarkMark } from "remark-mark-highlight";
 import remarktoc from "remark-toc";
+// import {
+//   remarkDefinitionList,
+//   defListHastHandlers,
+// } from "remark-definition-list";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
@@ -40,6 +44,7 @@ export default defineConfig({
       // remarkAbbr,
       remarkGfm,
       remarkSmartypants,
+      // remarkDefinitionList,
       remarkMark,
       [
         remarktoc,
@@ -61,6 +66,7 @@ export default defineConfig({
         },
       ],
     ],
+    // remarkRehype: { handlers: defListHastHandlers },
   },
   server: {
     headers: {
