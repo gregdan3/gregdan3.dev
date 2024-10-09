@@ -1,0 +1,36 @@
+---
+import { type Frontmatter } from "@utils/types.ts";
+import { getCollection, getEntry } from "astro:content";
+const goofs = await getCollection("goofs");
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const frontmatter = {
+  title: "goofs",
+  description:
+    "discord is a black hole and cohost is dead so i say inane things here",
+  date: new Date("2024-10-07"),
+} as Frontmatter;
+console.log(goofs);
+
+import PostDate from "@components/posts/Date.astro";
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <blockquote>{frontmatter.description}</blockquote>
+
+  {
+    goofs.reverse().map((goof, index) => (
+      <ul>
+        <PostDate date={goof.data.date} dateText="" /> <span>{goof.body}</span>
+      </ul>
+    ))
+  }
+
+  <p>No problem here.</p>
+</BaseLayout>
+
+<style>
+  span {
+    padding-left: var(--block-mark);
+  }
+</style>

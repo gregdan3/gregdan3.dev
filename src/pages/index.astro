@@ -2,18 +2,78 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection, getEntry } from "astro:content";
 import { servers } from "@data/links";
+import Shield from "@components/showoff/Shield.astro";
+import NavLink from "@components/ui/NavLink.astro";
+import Nav from "@components/ui/Nav.astro";
+
+import {
+  internalLinks,
+  externalLinks,
+  subscribeLinks,
+  socialLinks,
+  metaLinks,
+} from "@data/links";
 
 const about = await getEntry("about", "about-me");
-const goofs = await getCollection("goofs");
+// const now = await getEntry("now", "now");
+// const old = await getEntry("now", "old");
 
-const { Content } = await about.render();
+// const goofs = await getCollection("goofs");
+
+const { Content: About } = await about.render();
+// const { Content: Now } = await now.render();
+// const { Content: Old } = await old.render();
 ---
 
 <BaseLayout frontmatter={about.data}>
-  <h2>{about.data.description}</h2>
+  <div class="base">
+    <div>
+      <h3>{about.data.description}</h3>
 
-  <Content />
+      <About />
+    </div>
 
-  <!-- <h3>goofs</h3> -->
-  <!-- {goofs.reverse().map((goof) => <p>{goof.body}</p>)} -->
+    <div>
+      <!-- <div class="homenav"> -->
+      <!--   <NavLink -->
+      <!--     name="Now" -->
+      <!--     icon="mingcute:calendar-time-add-line" -->
+      <!--     href="/now" -->
+      <!--   /> -->
+      <!-- </div> -->
+
+      <div class="shields">
+        {
+          servers.map((server) => {
+            return <Shield server={server} />;
+          })
+        }
+      </div>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .base {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .shields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: var(--halfpad);
+  }
+
+  .homenav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    /* margin: var(--halfpad); */
+    /* margin-bottom: 0; */
+  }
+</style>

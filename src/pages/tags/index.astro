@@ -1,37 +1,68 @@
 ---
+import Tag from "@components/posts/Tag.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getFeedPosts } from "@utils/utils.ts";
 
-const posts = await getFeedPosts();
+let tags: { [key: string]: number } = {};
+const posts = await getFeedPosts(); // has body + is published
+
+posts.forEach((post) => {
+  if (post.data.tags) {
+    (post.data.tags as string[]).forEach((tag) => {
+      if (tags[tag]) {
+        tags[tag]++;
+      } else {
+        tags[tag] = 1;
+      }
+    });
+  }
+});
+
+// tags = Object.entries(tags).sort(
+//   ([tagA, countA], [tagB, countB]) => countB - countA,
+// );
 
 export async function getStaticPaths() {
-  let tags: string[] = [];
-
-  posts.forEach((post) => {
-    if (post.data.tags) {
-      (post.data.tags as string[]).forEach((tag) => {
-        if (!tags.includes(tag)) {
-          tags.push(tag);
-        }
-      });
-    }
-  });
-
-  return tags.map((tag) => ({ params: { tag } }));
+  // TODO: paginate?
+  return Object.keys(tags).map((tag) => ({ params: { tag } }));
 }
 
-const { tag } = Astro.params;
-
-const tagposts = getPosts().filter(
-  (post) => post.data.tags && post.data.tags.includes(String(tag)),
-);
+// const { tag } = Astro.params;
 
 const frontmatter = {
-  title: `Tag: ${tag}`,
-  description: `Posts tagged with "${tag}"`,
+  title: `tags`,
+  description: `All the tags on my blog posts and projects`,
+  date: new Date("2024-10-07"),
 };
 ---
 
+<script></script>
+
 <BaseLayout frontmatter={frontmatter}>
-  <div></div>
+  <div class="base">
+    <h3>All Post and Project Tags</h3>
+    <div id="tags">
+      {
+        Object.entries(tags)
+          // .sort(([tagA, countA], [tagB, countB]) => tagA.localeCompare(tagB))
+          .sort(([tagA, countA], [tagB, countB]) => countB - countA)
+          .map(([tag, count]) => {
+            return <Tag name={tag}>({count})</Tag>;
+          })
+      }
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .base {
+    /* min-height: 100%; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+  }
+  #tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>

@@ -2,6 +2,15 @@ import { defineCollection, reference, z } from "astro:content";
 
 // z.array(z.string()).optional()
 
+const goofSchema = {
+  date: z.date(),
+};
+
+export const goofsCollection = defineCollection({
+  type: "content",
+  schema: z.object({ ...goofSchema }),
+});
+
 const blogSchema = {
   title: z.string(),
   description: z.string().optional(),

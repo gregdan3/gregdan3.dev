@@ -1,0 +1,76 @@
+---
+import Entry from "@components/posts/Entry.astro";
+import IconLink from "@components/ui/IconLink.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getFeedPosts } from "@utils/utils.ts";
+
+export async function getStaticPaths() {
+  let tags: string[] = [];
+  const posts = await getFeedPosts(); // has body + is published
+
+  posts.forEach((post) => {
+    if (post.data.tags) {
+      (post.data.tags as string[]).forEach((tag) => {
+        if (!tags.includes(tag)) {
+          tags.push(tag);
+        }
+      });
+    }
+  });
+
+  // TODO: paginate?
+  return tags.map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+
+const posts = (await getFeedPosts()).filter(
+  (post) => post.data.tags && post.data.tags.includes(String(tag)),
+);
+
+const frontmatter = {
+  title: `Posts tagged "${tag}"`,
+  description: `Posts tagged "${tag}"`,
+  date: new Date("2024-10-07"),
+};
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <!-- <div class="base"> -->
+  <!--   <div class="heading"> -->
+  <h3>{frontmatter.title}</h3>
+  <!--   <div class="back"> -->
+  <!--     <IconLink icon="mingcute:tag-line" href="/tags" /> -->
+  <!--   </div> -->
+  <!-- </div> -->
+  <!-- <div class="posts"> -->
+  {
+    posts.map((post, index) => {
+      return (
+        <div>
+          {index !== 0 && <hr />}
+          <Entry post={post} preview={false} link={true} desc={false} />
+        </div>
+      );
+    })
+  }
+  <!--   </div> -->
+  <!-- </div> -->
+</BaseLayout>
+
+<!-- <style> -->
+<!--   .base { -->
+<!--     min-height: 100%; -->
+<!--     display: flex; -->
+<!--     flex-direction: column; -->
+<!--     justify-content: space-between; -->
+<!--   } -->
+<!--   .heading { -->
+<!--     position: relative; -->
+<!--   } -->
+<!--   .back { -->
+<!--     position: absolute; -->
+<!--     top: 1rem; -->
+<!--     right: 0; -->
+<!--   } -->
+<!-- </style> -->
