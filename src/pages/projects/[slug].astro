@@ -6,7 +6,7 @@ export interface Props {
 
 import { getCollection } from "astro:content";
 import Header from "@components/posts/Header.astro";
-import PostLayout from "@layouts/PostLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import Suggester from "@components/posts/Suggester.astro";
 
 export async function getStaticPaths() {
@@ -24,6 +24,19 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<PostLayout post={post}>
-  <Content />
-</PostLayout>
+<BaseLayout frontmatter={post.data}>
+  <div>
+    <Header post={post} />
+    <Content />
+    <!-- <Suggester prevPage={post} nextPage={post} /> -->
+  </div>
+</BaseLayout>
+
+<style>
+  div {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+</style>
