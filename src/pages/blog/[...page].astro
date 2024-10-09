@@ -10,6 +10,7 @@ import { type Page } from "astro";
 export interface Props {
   page: Page;
 }
+// @ts-expect-error: what the fuck IS the type of paginate
 export async function getStaticPaths({ paginate }) {
   let posts = await getCollectionPosts("blog");
   return paginate(posts, { pageSize: 3 });
