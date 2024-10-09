@@ -1,7 +1,7 @@
 ---
 import { type Frontmatter } from "@utils/types.ts";
 import { getCollection, getEntry } from "astro:content";
-const goofs = await getCollection("goofs");
+let goofs = await getCollection("goofs");
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const frontmatter = {
@@ -12,6 +12,8 @@ const frontmatter = {
 } as Frontmatter;
 console.log(goofs);
 
+goofs = goofs.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
 import PostDate from "@components/posts/Date.astro";
 ---
 
@@ -19,9 +21,10 @@ import PostDate from "@components/posts/Date.astro";
   <blockquote>{frontmatter.description}</blockquote>
 
   {
-    goofs.reverse().map((goof, index) => (
+    goofs.map((goof, index) => (
       <ul>
-        <PostDate date={goof.data.date} dateText="" /> <span>{goof.body}</span>
+        <PostDate date={goof.data.date} dateText="" />
+        <span>{goof.body}</span>
       </ul>
     ))
   }
