@@ -42,7 +42,7 @@ export interface LanyardData {
   active_on_discord_web: boolean;
 }
 
-type DiscordStatus = "online" | "idle" | "dnd" | "offline";
+export type DiscordStatus = "online" | "idle" | "dnd" | "offline";
 
 export interface LanyardTimestamps {
   start: number;
