@@ -11,4 +11,5 @@ description:
 tags:
   - python
   - golang
+image: "/src/data/images/wttr.in.png"
 ---

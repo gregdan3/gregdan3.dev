@@ -15,4 +15,5 @@ tags:
   - markdown
   - web development
   - toki pona
+image: "/src/data/images/favicon.png"
 ---

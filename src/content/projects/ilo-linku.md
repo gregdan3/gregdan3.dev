@@ -12,4 +12,5 @@ tags:
   - python
   - discord
   - toki pona
+image: "/src/data/images/linku.png"
 ---

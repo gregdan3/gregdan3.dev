@@ -11,4 +11,5 @@ tags:
   - css
   - javascript
   - web development
+image: "/src/data/images/linku.png"
 ---

@@ -9,4 +9,5 @@ tags:
   - python
   - typescript
   - toki pona
+image: "/src/data/images/linku.png"
 ---
