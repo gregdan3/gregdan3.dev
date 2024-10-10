@@ -3,20 +3,15 @@ title: More Than Ads
 author: gregdan3
 date: 2024-10-09
 description: Ads are more than the images and videos delivered to your eyes.
-published: true
+published: false
 tags:
   - ads
 ---
 
-It is well known and thoroughly discussed that the internet is abusively full of
-ads. Ads are a vector for malware, and a means by which you can be personally
-identified. They are a means to deploy any number of psychological tricks- fake
-download buttons,
-[secret requests for your finger print](https://www.reddit.com/r/Scams/comments/f1aapv/)
+It is well known that the internet is abusively full of ads.
 
-But I'd
+Ads are a vector for malware, an opportunity to trick you into clicking the
+wrong piece of UI, and a means by which you can be personally identified- let
+alone the many legitimized functions of an ad.
 
-I firmly believe that the definition of an "ad" does not go far enough. UBlock
-Origin
-
-Never mind that ads are a vector for malware
+But the primary purpose of an ad is to sell you something.
