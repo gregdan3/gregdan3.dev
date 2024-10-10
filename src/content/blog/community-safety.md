@@ -1,6 +1,5 @@
 ---
 title: Protecting your Community
-author: gregdan3
 date: 2024-09-09
 description: Collected advice from two years of moderation.
 published: false

@@ -1,6 +1,5 @@
 ---
 title: The COROS Pace 3 is AMAZING
-author: gregdan3
 date: 2023-11-09
 description: And running is cool too.
 published: false

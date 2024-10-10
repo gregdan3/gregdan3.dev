@@ -1,6 +1,5 @@
 ---
 title: More Than Ads
-author: gregdan3
 date: 2024-10-09
 description: Ads are more than the images and videos delivered to your eyes.
 published: false

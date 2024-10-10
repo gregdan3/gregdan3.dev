@@ -1,6 +1,5 @@
 ---
 title: Pinephone Thinking
-author: gregdan3
 date: 2021-05-20
 description: I can't wait to get the keyboard.
 published: true

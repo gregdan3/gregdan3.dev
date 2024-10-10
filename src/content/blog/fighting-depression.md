@@ -1,6 +1,5 @@
 ---
 title: Fighting Depression
-author: gregdan3
 date: 2021-07-27
 published: true
 tags:

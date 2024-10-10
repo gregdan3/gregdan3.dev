@@ -1,6 +1,5 @@
 ---
 title: How to re-lease your IP on Linux
-author: gregdan3
 date: 2024-02-01
 published: True
 tags:

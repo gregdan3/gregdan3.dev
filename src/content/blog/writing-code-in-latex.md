@@ -1,6 +1,5 @@
 ---
 title: Writing Code in LaTeX
-author: gregdan3
 date: 2020-02-20
 description: Update, I now use `pygments` instead!
 published: true

@@ -1,6 +1,5 @@
 ---
 title: Exploring my vimrc
-author: gregdan3
 date: 2020-03-08
 description: This isn't my current vimrc. New version when?
 published: true
