@@ -1,0 +1,59 @@
+---
+
+---
+
+<div id="base" transition:persist="clock">
+  <div id="central">12:00 PM CST</div>
+  <div id="utc">12:00 PM UTC</div>
+  <!-- <div id="local">12:00 PM UTC</div> -->
+</div>
+<script>
+  let central = document.getElementById("central")! as HTMLElement;
+  let utc = document.getElementById("utc")! as HTMLElement;
+  // let local = document.getElementById("local")! as HTMLElement;
+
+  function getTimeInZone(zone?: string) {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: zone,
+      timeZoneName: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const time = formatter.format(new Date());
+    return time;
+  }
+
+  const updateTimes = () => {
+    central.textContent = getTimeInZone("America/Chicago");
+    utc.textContent = getTimeInZone("UTC");
+    // local.textContent = getTimeInZone();
+  };
+
+  const interval = setInterval(() => {
+    updateTimes();
+  }, 1000);
+
+  updateTimes();
+</script>
+
+<style>
+  #base {
+    /* display: flex; */
+    font-family: monospace;
+
+    font-size: 0.5rem;
+    font-weight: 300;
+
+    color: var(--text);
+    background-color: var(--block-bg);
+
+    margin: auto;
+    padding: var(--block-mark);
+
+    border: 1px solid var(--border);
+    border-radius: var(--block-mark);
+
+    margin: var(--block-mark);
+  }
+</style>

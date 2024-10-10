@@ -2,11 +2,13 @@
 
 ---
 
-<div id="beats" transition:persist="beats">@000</div>
-
+<a href="https://internet-ti.me/@000" id="link" transition:persist="beats">
+  <div id="beats">@000</div>
+</a>
 <script>
   let beattime = getBeats();
-  let clock = document.getElementById("beats")! as HTMLElement;
+  let clock = document.getElementById("beats")! as HTMLDivElement;
+  let link = document.getElementById("link")! as HTMLAnchorElement;
 
   function getBeats(prefix: string = "@") {
     const d = new Date();
@@ -24,6 +26,7 @@
   const updateBeats = () => {
     beattime = getBeats();
     clock.textContent = beattime;
+    link.href = `https://internet-ti.me/${beattime}`;
   };
 
   const interval = setInterval(() => {
@@ -39,6 +42,12 @@
 </script>
 
 <style>
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline dotted;
+  }
   div {
     font-family: monospace;
 
@@ -53,5 +62,7 @@
 
     border: 1px solid var(--border);
     border-radius: var(--block-mark);
+
+    margin: var(--block-mark);
   }
 </style>

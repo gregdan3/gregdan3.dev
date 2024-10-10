@@ -22,6 +22,7 @@ import IconDisplay from "@components/ui/IconDisplay.astro";
 import Nav from "@components/ui/Nav.astro";
 import ThemeButton from "@components/ui/ThemeButton.astro";
 import Beats from "@components/showoff/Beats.astro";
+import Clock from "@components/showoff/Clock.astro";
 
 import {
   internalLinks,
@@ -69,6 +70,7 @@ const locale = "en_US";
     </div>
 
     <Bar type="footer" pad="half">
+      <Clock slot="right" />
       <Beats slot="right" />
       <!-- <Discord slot="right" /> -->
     </Bar>
