@@ -18,6 +18,7 @@ let me know!
 
 - Close sidebar if user clicks entirely off it
 - Sync `ul` preview spacing compared to in-post spacing
+- Align header and footer with content boundaries
 
 ### Ideas
 
