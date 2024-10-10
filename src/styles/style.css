@@ -198,7 +198,7 @@ main pre {
   background-color: var(--shiki-dark-bg) !important;
 }
 
-@media (min-width: 2000px) {
+@media (min-width: 1920px) {
   /* less aggressive scale for especially large displays */
   :root {
     font-size: calc(10px + 0.5vw);
