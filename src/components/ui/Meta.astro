@@ -56,40 +56,44 @@ const url = Astro.url;
 <meta property="og:description" content={description} />
 <meta property="og:locale" content={locale} />
 <meta property="og:site_name" content={site_name} />
+<script async is:inline>
+  // @ts-expect-error: we are assigning window.goatcounter
+  window.goatcounter = { no_onload: true };
+</script>
+<!-- https specified because otherwise i fail cross-origin -->
+<script
+  data-goatcounter="https://gregdan3.goatcounter.com/count"
+  async
+  src="https://gc.zgo.at/count.js"
+  is:inline></script>
 
 <ViewTransitions />
 
 <script>
-  import { goatcounterEndpoint } from "@utils/consts.ts";
-  import { initialize, count, getGoatcounter } from "goatcounter-js";
-
-  initialize({
-    // scriptVersion: 4,
-    endpointUrl: goatcounterEndpoint,
-    settings: { no_onload: true, allow_local: true },
-  });
-
-  const location = window.location;
-  const goatcounter = await getGoatcounter();
-  // @ts-expect-error: GoatCounter is defined without .endpoint but the script checks it
-  goatcounter.endpoint = goatcounterEndpoint;
-  // idk why but endpoint is inaccessible after first load
-  // maybe caused by astro's processing
-
-  let prevPage: string | null = null;
-  document.addEventListener("astro:page-load", async () => {
-    // should fire for both client-side and server-side navigation
-    if (location.href == prevPage) {
-      return;
-    }
-    prevPage = location.href;
-
+  // NOTE: only runs on completed loading, but fires for first time load and transitions
+  document.addEventListener("astro:page-load", function () {
     const path = location.pathname + location.search + location.hash;
+    var attempts = 0;
+    const maxAttempts = 50;
 
-    await count({
-      path: path,
-      title: document.title,
-      referrer: document.referrer,
-    });
+    function count() {
+      // @ts-expect-error: it will exist
+      if (window.goatcounter && window.goatcounter.count) {
+        clearInterval(t);
+        // @ts-expect-error: it does exist
+        window.goatcounter.count({
+          path: path,
+          title: document.title,
+          referrer: document.referrer,
+        });
+      } else if (attempts >= maxAttempts) {
+        clearInterval(t);
+      }
+    }
+
+    var t = setInterval(function () {
+      attempts++;
+      count();
+    }, 100);
   });
 </script>
