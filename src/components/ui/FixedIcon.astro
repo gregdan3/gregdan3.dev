@@ -8,7 +8,7 @@ export interface Props {
 const { name, inline = true } = Astro.props;
 ---
 
-<span><Icon name={name} class={inline ? "inline" : null} /></span>
+<Icon name={name} class={inline ? "inline" : null} />
 
 <style>
   svg {
