@@ -41,9 +41,6 @@ importers:
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
-      goatcounter-js:
-        specifier: ^1.0.0
-        version: 1.0.0
       marked:
         specifier: ^14.1.2
         version: 14.1.2
@@ -1670,10 +1667,6 @@ packages:
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
-
-  goatcounter-js@1.0.0:
-    resolution: {integrity: sha512-7s2lams6jHPrhI8suHqjfUl/pOvZF0Fp7ZCaq008WL8r4pS5qHcxQNF7rdOFewNUTXRuLVNJbKfCsQXD1DOSBQ==}
-    engines: {node: '>=18.0.0'}
 
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
@@ -5063,8 +5056,6 @@ snapshots:
   globals@11.12.0: {}
 
   globals@14.0.0: {}
-
-  goatcounter-js@1.0.0: {}
 
   gopd@1.0.1:
     dependencies:
