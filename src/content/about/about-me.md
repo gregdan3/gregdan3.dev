@@ -5,7 +5,7 @@ date: 2022-03-25 # date i first committed to my original site
 updated: 2024-09-27
 ---
 
-I'm Greg, @gregdan3. I do devops, database, and backend. Frontend was
+I'm Greg, also @gregdan3. I do devops, database, and backend. Frontend was
 suspiciously missing from this list, so this site is now a permanent work in
 progress as I learn ~~Svelte~~ Astro. I have no idea how to breathe.
 
@@ -16,9 +16,10 @@ let me know!
 
 ### Fixes
 
-- Close sidebar if user clicks entirely off it
-- Sync `ul` preview spacing compared to in-post spacing
-- Align header and footer with content boundaries
+- Close mobile sidebar if user taps entirely off it
+- Make desktop sidebar vertically-center and scrollable when page is too short
+  to fully view it
+- Align header and footer content with main page content
 
 ### Ideas
 
