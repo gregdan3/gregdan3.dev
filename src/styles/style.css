@@ -157,6 +157,13 @@ main mark {
   padding: 1px;
 }
 
+main sup,
+main sub {
+  line-height: 0.5rem;
+  /* NOTE: smaller than base line-height and font-size to fake-inherit parent's
+  * line-height*/
+}
+
 main blockquote {
   background-color: var(--block-bg);
   border: 1px solid var(--border-hard);
