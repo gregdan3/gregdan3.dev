@@ -7,19 +7,11 @@ import compress from "astro-compress";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 
-// import remarkAbbr from "remark-abbr";
 import rehypeExternalLinks from "rehype-external-links";
-import remarkGfm from "remark-gfm";
-import remarkSmartypants from "remark-smartypants";
 import { remarkMark } from "remark-mark-highlight";
 import remarktoc from "remark-toc";
-// import {
-//   remarkDefinitionList,
-//   defListHastHandlers,
-// } from "remark-definition-list";
 
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeSlug from "rehype-slug";
+import pagefind from "astro-pagefind";
 
 export default defineConfig({
   site: "https://gregdan3.dev",
@@ -30,6 +22,7 @@ export default defineConfig({
     icon({ iconDir: "src/icons" }),
     sitemap(),
     robotsTxt(),
+    pagefind(),
     compress(),
   ],
   markdown: {
@@ -41,10 +34,6 @@ export default defineConfig({
       wrap: true,
     },
     remarkPlugins: [
-      // remarkAbbr,
-      remarkGfm,
-      remarkSmartypants,
-      // remarkDefinitionList,
       remarkMark,
       [
         remarktoc,
@@ -57,8 +46,6 @@ export default defineConfig({
       ],
     ],
     rehypePlugins: [
-      rehypeAutolinkHeadings,
-      rehypeSlug,
       [
         rehypeExternalLinks,
         {
@@ -66,7 +53,6 @@ export default defineConfig({
         },
       ],
     ],
-    // remarkRehype: { handlers: defListHastHandlers },
   },
   server: {
     headers: {

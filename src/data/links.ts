@@ -1,4 +1,4 @@
-import type { LinkData, IconLinkData, DiscordShield } from "@utils/types";
+import type { LinkData, IconLinkData, DiscordShield } from "@utils/types.ts";
 
 export const metaLinks: IconLinkData[] = [
   { name: "License", href: "/LICENSE.txt", icon: "mingcute:document-line" },
