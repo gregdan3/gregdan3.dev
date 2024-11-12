@@ -1,6 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "exclude": ["static/ext/*"],
+  "exclude": ["public/ext/*", "dist/*"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "Node16",
