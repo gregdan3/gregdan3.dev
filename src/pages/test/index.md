@@ -1,6 +1,7 @@
 ---
 layout: "@layouts/BaseLayout.astro"
 title: Secret Test Page!
+published: false
 ---
 
 <script lang="ts">
@@ -335,13 +336,21 @@ _This is italic text_
 
 **_This is bold italic text_**
 
-~~Strikethrough~~
+~~double tilde Strikethrough~~
+
+~single tilde strikethrough~
 
 [link text](http://dev.nodeca.com)
 
 [link with title](http://nodeca.github.io/pica/demo/ "title text!")
 
 Autoconverted link https://github.com/nodeca/pica
+
+"Quoted text which may display curly quotes"
+
+``tick and singlequote quoted text which may display curly quotes''
+
+A single-dash and an em--dash
 
 ---
 
