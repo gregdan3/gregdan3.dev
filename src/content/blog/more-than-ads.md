@@ -40,10 +40,17 @@ file explorer be any less than instant in years. Or how about waiting thirty
 seconds for your USB drive to be safe to eject? Nope, you can just rip it right
 out!
 
-Unfortunately, this same march of progress which made our devices more pleasant
-to use, has also made them terrifyingly capable of spitting thousands of ads in
-our faces, learning how we respond to them, and sending us better targeted ads
-the next time so that somebody can get money from us.
+Unfortunately, the march of progress has done much more than improve the
+usefulness and speed of our devices. It has also made them terrifyingly capable
+of spitting thousands of ads in our faces, learning how we respond to them, and
+sending us better targeted ads the next time so that somebody can get money from
+us. And without an ad-blocker, you'll experience this every time to use your
+browser.
+
+<!--And if you'd like to experience this reality, look no further than your internet-->
+<!--browser, available on just about every device you own.-->
+
+<!--TODO: better connection from devices to browsers -->
 
 Browsers were and are a window into a world that didn't exist before, where you
 can connect with people you would never otherwise meet, over common interests
@@ -85,10 +92,10 @@ individuals into identifiable demographic groups, and these groups can expose
 more information about the group than any individual exposes about themselves.
 The interests, waking hours, shopping habits, and myriad other details of a
 demographic can be turned into endless hyper-targeted advertising. Put another
-way, I can confidently say that
+way, I feel confident that
 [this "suspiciously large overlap"](https://www.reddit.com/r/traaaaaaannnnnnnnnns/comments/plxqv1/im_not_the_only_one_whos_noticed_this_right/)
 was visible to corporations and their advertising technologies _long_ before any
-member of those several demographics realized the correlation themselves.
+member of those demographics realized the correlation themselves.
 
 <!-- can be used to identify interests which a subset of those users have that might -->
 <!---->
