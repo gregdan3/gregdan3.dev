@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Entry from "@components/posts/Entry.astro";
+import LongPost from "@components/posts/LongPost.astro";
+import ShortPost from "@components/posts/ShortPost.astro";
 import Paginator from "@components/posts/Paginator.astro";
 
 import { getCollectionPosts } from "@utils/utils.ts";
@@ -24,16 +25,37 @@ const frontmatter = {
 } as Frontmatter;
 
 const { page } = Astro.props;
+const { maxDate, minDate } = page.data.reduce(
+  (acc, post) => {
+    const currentDate = new Date(post.data.date);
+    if (currentDate > acc.maxDate) acc.maxDate = currentDate;
+    if (currentDate < acc.minDate) acc.minDate = currentDate;
+    return acc;
+  },
+  { maxDate: new Date(0), minDate: new Date() },
+);
+
+let goofs = await getCollectionPosts("goofs", (post) => {
+  const postDate = new Date(post.data.date);
+  return postDate >= minDate && postDate < maxDate;
+});
+
+// @ts-expect-error: it claims goofs lacks an iterator method, but this is false
+let allPosts = [...goofs, ...page.data];
 ---
 
 <BaseLayout frontmatter={frontmatter}>
   <div class="base">
     {
-      page.data.map((post, index) => {
+      allPosts.map((post, index) => {
         return (
           <div>
             {index !== 0 && <hr />}
-            <Entry post={post} desc={false} />
+            {post.collection === "blog" ? (
+              <LongPost post={post} desc={false} />
+            ) : post.collection === "goofs" ? (
+              <ShortPost post={post} />
+            ) : null}
           </div>
         );
       })

@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+export interface Props {
+  post: CollectionEntry<"goofs">;
+}
+const { post } = Astro.props;
+
+import PostDate from "@components/posts/Date.astro";
+
+const { Content: GoofData } = await post.render();
+---
+
+<div class="data">
+  <PostDate date={post.data.date} dateText="" />
+  -
+  <span class="post">
+    <GoofData />
+  </span>
+</div>
+<style>
+  .data {
+    display: inline-block;
+  }
+  .post {
+    display: inline-block;
+    text-wrap: wrap;
+  }
+</style>

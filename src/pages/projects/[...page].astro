@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Entry from "@components/posts/Entry.astro";
+import LongPost from "@components/posts/LongPost.astro";
 import Paginator from "@components/posts/Paginator.astro";
 
 import { getCollectionPosts } from "@utils/utils.ts";
@@ -32,7 +32,7 @@ const { page } = Astro.props;
         return (
           <div>
             {index !== 0 && <hr />}
-            <Entry post={post} preview={false} desc={true} />
+            <LongPost post={post} preview={false} desc={true} />
           </div>
         );
       })

@@ -1,5 +1,5 @@
 ---
-import Entry from "@components/posts/Entry.astro";
+import LongPost from "@components/posts/LongPost.astro";
 import IconLink from "@components/ui/IconLink.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getFeedPosts } from "@utils/utils.ts";
@@ -49,7 +49,7 @@ const frontmatter = {
       return (
         <div>
           {index !== 0 && <hr />}
-          <Entry post={post} preview={false} link={true} desc={false} />
+          <LongPost post={post} preview={false} link={true} desc={false} />
         </div>
       );
     })
