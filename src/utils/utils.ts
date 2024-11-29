@@ -32,7 +32,7 @@ export const fetchImage = async (
 };
 
 export async function getCollectionPosts(
-  collection: keyof ContentEntryMap,
+  collections: keyof ContentEntryMap | (keyof ContentEntryMap)[],
   givenFilter?: (post: CollectionEntry<keyof ContentEntryMap>) => boolean,
   givenSort?: (
     a: CollectionEntry<keyof ContentEntryMap>,
@@ -58,7 +58,17 @@ export async function getCollectionPosts(
     sort = givenSort;
   }
 
-  let posts = await getCollection(collection, filter);
+  let posts = [];
+
+  if (Array.isArray(collections)) {
+    posts = await Promise.all(
+      collections.map((collection) => getCollection(collection, filter)),
+    );
+  } else {
+    posts = await getCollection(collections, filter);
+  }
+  posts = posts.flat();
+
   posts = posts.sort(sort);
   // @ts-expect-error: it's returning a post which really should be Any content entry
   return posts;
