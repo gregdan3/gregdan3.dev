@@ -21,13 +21,14 @@ const frontmatter = {
   title: "glog",
   description: "Every developer needs an abandoned blog, and this one is mine.",
   date: new Date("2020-02-10"),
-  updated: new Date("2024-09-19"),
+  updated: new Date("2024-11-10"),
 } as Frontmatter;
 
 const { page } = Astro.props;
+
 const { maxDate, minDate } = page.data.reduce(
   (acc, post) => {
-    const currentDate = new Date(post.data.date);
+    const currentDate = post.data.date;
     if (currentDate > acc.maxDate) acc.maxDate = currentDate;
     if (currentDate < acc.minDate) acc.minDate = currentDate;
     return acc;
@@ -36,11 +37,12 @@ const { maxDate, minDate } = page.data.reduce(
 );
 
 let goofs = await getCollectionPosts("goofs", (post) => {
-  const postDate = new Date(post.data.date);
-  return postDate >= minDate && postDate < maxDate;
+  return post.data.date >= minDate && post.data.date < maxDate;
 });
 
-let allPosts = [...page.data];
+// @ts-expect-error: it claims goofs lacks an iterator method, but this is false
+let allPosts = [...goofs, ...page.data];
+allPosts.sort((a, b) => b.data.date - a.data.date);
 ---
 
 <BaseLayout frontmatter={frontmatter}>
