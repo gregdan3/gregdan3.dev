@@ -40,8 +40,7 @@ let goofs = await getCollectionPosts("goofs", (post) => {
   return postDate >= minDate && postDate < maxDate;
 });
 
-// @ts-expect-error: it claims goofs lacks an iterator method, but this is false
-let allPosts = [...goofs, ...page.data];
+let allPosts = [...page.data];
 ---
 
 <BaseLayout frontmatter={frontmatter}>
