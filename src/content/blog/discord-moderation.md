@@ -1,7 +1,7 @@
 ---
-title: Protecting your Community
+title: Discord Moderation
 date: 2024-09-09
-description: Collected advice from two years of moderation.
+description: Setting up your community as safely as possible.
 published: false
 tags:
   - moderation
