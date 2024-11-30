@@ -1,5 +1,5 @@
 ---
-title: feeling nostalgia for somebody else's history
+title: feeling somebody else's nostalgia
 date: 2024-09-30
 description:
   a winding goodbye post for cohost, which i enjoyed lurking very much and would
@@ -60,8 +60,8 @@ like twitter, or floods like discord. and i identify so strongly with the
 community here in a way i did not expect to when i signed up. but for the most
 part, i never got to experience it.
 
-and so i am here again, feeling nostalgia for somebody else's history. but how
-do we re-create a community, a culture, like this? i'm going to think about this
+and so i am here again, feeling somebody else's nostalgia. but how do we
+re-create a community, a culture, like this? i'm going to think about this
 question for a long time.
 
 goodbye, cohost. i hope we meet again.
