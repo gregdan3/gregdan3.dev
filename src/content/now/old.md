@@ -2,6 +2,7 @@
 title: "Old"
 date: 2023-11-04 # date i first committed to my original now page
 updated: 2024-10-03
+published: true
 ---
 
 ### June

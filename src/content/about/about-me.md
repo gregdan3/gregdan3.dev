@@ -3,6 +3,7 @@ title: "Welcome!"
 description: "gregdan3 is a dev"
 date: 2022-03-25 # date i first committed to my original site
 updated: 2025-03-19
+published: true
 ---
 
 I'm Greg, also @gregdan3. I do devops, database, and backend. Frontend was

@@ -1,7 +1,5 @@
 import { defineCollection, reference, z } from "astro:content";
 
-// z.array(z.string()).optional()
-
 const goofSchema = {
   date: z.date(),
 };
@@ -52,6 +50,20 @@ export const projectCollection = defineCollection({
   schema: z.object({ ...projectSchema }),
 });
 
+const nowSchema = { ...blogSchema };
+
+export const nowCollection = defineCollection({
+  type: "content",
+  schema: z.object({ ...nowSchema }),
+});
+
+const aboutSchema = { ...blogSchema };
+
+export const aboutCollection = defineCollection({
+  type: "content",
+  schema: z.object({ ...aboutSchema }),
+});
+
 const tagSchema = {
   name: z.string(),
   icon: z.string().optional(),
@@ -66,4 +78,7 @@ export const collections = {
   blog: blogCollection,
   projects: projectCollection,
   tags: tagCollection,
+  about: aboutCollection,
+  now: nowCollection,
+  goofs: goofsCollection,
 };

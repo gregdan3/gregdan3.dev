@@ -2,6 +2,7 @@
 title: "Now"
 date: 2023-11-04 # date i first committed to my original now page
 updated: 2024-11-29
+published: true
 ---
 
 ## 2024
