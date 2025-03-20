@@ -57,7 +57,7 @@ export const internalLinks: IconLinkData[] = [
 export const externalLinks: IconLinkData[] = [
   {
     name: "Toki Pona",
-    href: "https://mun.la/",
+    href: "https://mun.la/sona/",
     icon: "tokipona",
   },
   {
