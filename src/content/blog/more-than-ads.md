@@ -205,6 +205,11 @@ But as concerning as it is that these companies would attempt to kill the ad
 blocker, I have a much bigger concern: Companies have learned how to take our
 money and our time, even when they cannot deliver ads.
 
+I will grant, there is a delicate balance to be struck. As an example,
+Stackoverflow's Hot Network Questions are
+[demonstrably critical for driving traffic](https://interpersonal.meta.stackexchange.com/questions/3477).
+Sometimes, pushing an ad is necessary for discoverability.
+
 - Why don't flagship phones have SD card slots anymore? Because you can upsell
   phones with more storage. Because you can't store as much of your own music,
   so you have to stream it. Because you can't keep as many of your own photos,

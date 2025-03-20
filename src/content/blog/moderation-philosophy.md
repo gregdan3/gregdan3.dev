@@ -1,5 +1,5 @@
 ---
-title: Community Safety
+title: Moderation Philosophy
 date: 2024-09-09
 description: br
 published: false
