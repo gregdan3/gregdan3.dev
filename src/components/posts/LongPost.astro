@@ -15,7 +15,7 @@ const { post, desc = true, link = true, preview = true } = Astro.props;
 const href = `/${post.collection}/${post.slug}`;
 
 import { clipArticle } from "@utils/utils.ts";
-const clippedArticle = clipArticle(post.body, 150);
+const clippedArticle = clipArticle(post.body || "", 150);
 const renderedArticle = marked.parse(clippedArticle);
 ---
 
