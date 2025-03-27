@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import type { CollectionEntry, ContentEntryMap } from "astro:content";
+import type { CollectionEntry, CollectionKey } from "astro:content";
 import type { ImageMetadata } from "astro";
 
 export const sleep = (delay: number) =>
@@ -31,46 +31,30 @@ export const fetchImage = async (
   return null;
 };
 
-export async function getCollectionPosts(
-  collections: keyof ContentEntryMap | (keyof ContentEntryMap)[],
-  givenFilter?: (post: CollectionEntry<keyof ContentEntryMap>) => boolean,
-  givenSort?: (
-    a: CollectionEntry<keyof ContentEntryMap>,
-    b: CollectionEntry<keyof ContentEntryMap>,
-  ) => number,
-): Promise<CollectionEntry<keyof ContentEntryMap>> {
-  // must be published or be in dev
-  let filter = (post: CollectionEntry<keyof ContentEntryMap>) => {
-    return post.data.published || import.meta.env.DEV;
-  };
-  if (givenFilter) {
-    filter = givenFilter;
+export async function getCollectionPosts<K extends CollectionKey>(
+  collection: K,
+  filter?: (post: CollectionEntry<K>) => boolean,
+  sort?: (a: CollectionEntry<K>, b: CollectionEntry<K>) => number,
+): Promise<CollectionEntry<K>[]> {
+  if (!filter) {
+    filter = (post) => {
+      if ("published" in post.data) {
+        return post.data.published || import.meta.env.DEV;
+      }
+      return true;
+    };
+  }
+  if (!sort) {
+    sort = (a, b) => {
+      if ("date" in a.data && "date" in b.data) {
+        return b.data.date.valueOf() - a.data.date.valueOf();
+      }
+      return 0;
+    };
   }
 
-  // reverse chronological sort e.g. newest to oldest
-  let sort = (
-    a: CollectionEntry<keyof ContentEntryMap>,
-    b: CollectionEntry<keyof ContentEntryMap>,
-  ) => {
-    return b.data.date.valueOf() - a.data.date.valueOf();
-  };
-  if (givenSort) {
-    sort = givenSort;
-  }
-
-  let posts = [];
-
-  if (Array.isArray(collections)) {
-    posts = await Promise.all(
-      collections.map((collection) => getCollection(collection, filter)),
-    );
-  } else {
-    posts = await getCollection(collections, filter);
-  }
-  posts = posts.flat();
-
-  posts = posts.sort(sort);
-  // @ts-expect-error: it's returning a post which really should be Any content entry
+  const posts = await getCollection(collection, filter);
+  posts.sort(sort);
   return posts;
 }
 

@@ -40,7 +40,6 @@ let goofs = await getCollectionPosts("goofs", (post) => {
   return post.data.date >= minDate && post.data.date < maxDate;
 });
 
-// @ts-expect-error: it claims goofs lacks an iterator method, but this is false
 let allPosts = [...goofs, ...page.data];
 allPosts.sort((a, b) => b.data.date - a.data.date);
 ---
