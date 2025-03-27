@@ -16,7 +16,7 @@ import {
 
 
 // TODO: why doesn't astro believe this exists
-const about = await getEntry("blog", "1-about-me")!;
+const about = await getEntry("blog", "about-me")!;
 
 const { Content: About } = await render(about);
 ---

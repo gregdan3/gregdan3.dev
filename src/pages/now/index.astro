@@ -3,11 +3,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Date from "@components/posts/Date.astro";
 import { getEntry, render } from "astro:content";
 
-const now = await getEntry("now", "now")!;
-const old = await getEntry("now", "old")!;
+const now = await getEntry("blog", "now")!;
 
-const { Content: Now } = await render(now); // TODO
-const { Content: Old } = await render(old);
+const { Content: Now } = await render(now);
 ---
 
 <BaseLayout frontmatter={now.data}>
@@ -21,24 +19,15 @@ const { Content: Old } = await render(old);
       />
     </div>
 
-    <div class="now">
-      <Now />
-    </div>
-
     <div class="explainer">
       <a href="https://nownownow.com/about" rel="nofollow" target="_blank">
-        what is this page?
+        what is this?
       </a>
     </div>
 
-    <details class="old">
-      <summary>Older Content</summary>
-      <p>
-        I keep track of the most recent three months at a time, and everything
-        older is stashed in here.
-      </p>
-      <Old />
-    </details>
+    <div class="now">
+      <Now />
+    </div>
   </div>
 </BaseLayout>
 
@@ -54,9 +43,10 @@ const { Content: Old } = await render(old);
     font-size: var(--small-font);
   }
   .explainer {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
     text-align: right;
     font-size: var(--small-font);
-  }
-  .old {
   }
 </style>

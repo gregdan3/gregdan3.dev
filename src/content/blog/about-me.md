@@ -5,7 +5,7 @@ date: 2020-02-09 # not an important date at all
 # date: 2021-10-23 # secretly important date to me
 # date: 2022-03-25 # date i first committed to my original site
 updated: 2025-03-19
-published: true
+published: false
 ---
 
 I'm Greg, also @gregdan3. I do devops, database, and backend. Frontend was
