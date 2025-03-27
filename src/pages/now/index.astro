@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Date from "@components/posts/Date.astro";
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 
-const now = await getEntry("now", "now");
-const old = await getEntry("now", "old");
+const now = await getEntry("now", "now")!;
+const old = await getEntry("now", "old")!;
 
-const { Content: Now } = await now.render();
-const { Content: Old } = await old.render();
+const { Content: Now } = await render(now); // TODO
+const { Content: Old } = await render(old);
 ---
 
 <BaseLayout frontmatter={now.data}>
