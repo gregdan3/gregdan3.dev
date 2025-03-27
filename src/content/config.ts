@@ -57,13 +57,6 @@ export const nowCollection = defineCollection({
   schema: z.object({ ...nowSchema }),
 });
 
-const aboutSchema = { ...blogSchema };
-
-export const aboutCollection = defineCollection({
-  type: "content",
-  schema: z.object({ ...aboutSchema }),
-});
-
 const tagSchema = {
   name: z.string(),
   icon: z.string().optional(),
@@ -78,7 +71,6 @@ export const collections = {
   blog: blogCollection,
   projects: projectCollection,
   tags: tagCollection,
-  about: aboutCollection,
   now: nowCollection,
   goofs: goofsCollection,
 };

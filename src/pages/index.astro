@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import { servers } from "@data/links";
 import Shield from "@components/showoff/Shield.astro";
 import NavLink from "@components/ui/NavLink.astro";
@@ -14,15 +14,11 @@ import {
   metaLinks,
 } from "@data/links";
 
-const about = await getEntry("about", "about-me");
-// const now = await getEntry("now", "now");
-// const old = await getEntry("now", "old");
 
-// const goofs = await getCollection("goofs");
+// TODO: why doesn't astro believe this exists
+const about = await getEntry("blog", "1-about-me")!;
 
-const { Content: About } = await about.render();
-// const { Content: Now } = await now.render();
-// const { Content: Old } = await old.render();
+const { Content: About } = await render(about);
 ---
 
 <BaseLayout frontmatter={about.data}>
