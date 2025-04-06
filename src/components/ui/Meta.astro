@@ -2,7 +2,7 @@
 import "@styles/style.css";
 
 import { type Frontmatter } from "@utils/types.ts";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { fetchImage } from "@utils/utils.ts";
 
 export interface Props {
@@ -67,7 +67,7 @@ const url = Astro.url;
   src="https://gc.zgo.at/count.js"
   is:inline></script>
 
-<ViewTransitions />
+<ClientRouter />
 
 <script>
   // NOTE: only runs on completed loading, but fires for first time load and transitions
